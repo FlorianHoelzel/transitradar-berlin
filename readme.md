@@ -26,13 +26,19 @@ Users can search for stations, view nearby stops, and see upcoming departures di
 ## Project Structure
 
 ```text
-js/
-├─ main.js
-├─ map.js
-├─ api.js
-├─ popup.js
-└─ search.js
+.
+├─ index.html
+├─ style.css
+├─ readme.md
+├─ .gitattributes
+└─ js/
+   ├─ api.js
+   ├─ main.js
+   ├─ map.js
+   ├─ popup.js
+   └─ search.js
 ```
+
 
 ## Learning Project
 
