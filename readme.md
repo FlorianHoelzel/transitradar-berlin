@@ -30,7 +30,6 @@ Users can search for stations, view nearby stops, and see upcoming departures di
 ├─ index.html
 ├─ style.css
 ├─ readme.md
-├─ .gitattributes
 └─ js/
    ├─ api.js
    ├─ main.js
