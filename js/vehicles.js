@@ -4,6 +4,34 @@ import { createLineBadge } from "./badges.js";
 
 const vehicleMarkers = {};
 
+function animateMarker(marker, target) {
+    const start = marker.getLatLng();
+
+    const startLat = start.lat;
+    const startLng = start.lng;
+
+    const endLat = target[0];
+    const endLng = target[1];
+
+    const duration = 14500;
+    const startTime = performance.now();
+
+    function animate(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+
+        marker.setLatLng([
+            startLat + (endLat - startLat) * progress,
+            startLng + (endLng - startLng) * progress
+        ]);
+
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        }
+    }
+
+    requestAnimationFrame(animate);
+}
+
 function clearVehicleMarkers() {
     Object.values(vehicleMarkers).forEach(marker => {
         map.removeLayer(marker);
@@ -75,7 +103,7 @@ export async function updateVehicles() {
             ];
 
             if (vehicleMarkers[id]) {
-                vehicleMarkers[id].setLatLng(coordinates);
+                animateMarker(vehicleMarkers[id], coordinates);
                 return;
             }
 
