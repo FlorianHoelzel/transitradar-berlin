@@ -75,4 +75,4 @@ map.on("moveend", () => {
     updateVehicles();
 });
 
-setInterval(updateVehicles, 15000);
+setInterval(updateVehicles, 30000);

@@ -22,6 +22,47 @@ function createSkeletonHtml() {
     `;
 }
 
+function formatTime(dateString) {
+    if (!dateString) return "?";
+
+    return new Date(dateString).toLocaleTimeString("de-DE", {
+        hour: "2-digit",
+        minute: "2-digit"
+    });
+}
+
+function createTimeHtml(departure) {
+    const plannedTime = formatTime(departure.plannedWhen);
+    const realtime = formatTime(departure.when || departure.plannedWhen);
+    const delay = departure.delay ?? 0;
+
+    if (delay > 0) {
+        const delayMinutes = Math.round(delay / 60);
+        const delayClass = delay >= 300 ? "delay-large" : "delay-small";
+
+        return `
+            <div class="departure-time-wrapper">
+                <div class="departure-times">
+                    <span class="planned-time">${plannedTime}</span>
+                    <span class="realtime">${realtime}</span>
+                </div>
+
+                <div class="delay ${delayClass}">
+                    +${delayMinutes}
+                </div>
+            </div>
+        `;
+    }
+
+    return `
+        <div class="departure-time-wrapper">
+            <div class="departure-times">
+                <span class="realtime">${realtime}</span>
+            </div>
+        </div>
+    `;
+}
+
 export function createPopupContent(station, content = createSkeletonHtml()) {
     return `
         <div class="station-popup">
@@ -44,18 +85,16 @@ export function createDeparturesHtml(departures) {
     return departures.map(departure => {
         const line = createLineBadge(departure.line?.name);
         const direction = departure.direction || "Unbekannt";
-        const time = departure.when
-            ? new Date(departure.when).toLocaleTimeString("de-DE", {
-                hour: "2-digit",
-                minute: "2-digit"
-            })
-            : "?";
+        const timeHtml = createTimeHtml(departure);
 
         return `
             <div class="departure-row">
                 <div class="departure-top">
                     ${line}
-                    <span class="departure-time">${time}</span>
+
+                    <span class="departure-time">
+                        ${timeHtml}
+                    </span>
                 </div>
 
                 <div class="departure-direction">

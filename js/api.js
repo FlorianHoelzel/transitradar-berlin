@@ -65,9 +65,11 @@ async function fetchDeparturesForStation(station, results = 8, duration = 30) {
 
 export async function getDepartures(station) {
     const departures = await fetchDeparturesForStation(station, 20, 60);
+
+    console.log(departures);
+
     return departures.slice(0, 12);
 }
-
 export async function getVehicleMovements(bounds) {
     const url =
         `${API_BASE}/radar` +
@@ -75,7 +77,7 @@ export async function getVehicleMovements(bounds) {
         `&south=${bounds.getSouth()}` +
         `&east=${bounds.getEast()}` +
         `&west=${bounds.getWest()}` +
-        `&results=200`;
+        `&results=80`;
 
     const response = await fetch(url);
 

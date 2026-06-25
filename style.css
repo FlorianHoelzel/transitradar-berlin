@@ -253,3 +253,154 @@ body {
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
 }
 
+/* Vehicle popup */
+
+/* Vehicle popup */
+
+.vehicle-popup {
+    min-width: 250px;
+}
+
+.vehicle-popup-line {
+    margin-bottom: 14px;
+}
+
+.vehicle-popup-direction {
+    font-size: 15px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 18px;
+}
+
+/* Vehicle popup */
+
+.vehicle-popup {
+    min-width: 250px;
+}
+
+.vehicle-popup-line {
+    margin-bottom: 14px;
+}
+
+.vehicle-popup-line .line-badge {
+    transform: scale(1.12);
+    transform-origin: left center;
+}
+
+.vehicle-popup-direction {
+    font-size: 15px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 14px;
+}
+
+.vehicle-popup-title {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    color: #6b7280;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.vehicle-stops {
+    display: flex;
+    flex-direction: column;
+}
+
+.vehicle-stop {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 28px;
+    padding-bottom: 8px;
+}
+
+.vehicle-stop:last-child {
+    padding-bottom: 0;
+}
+
+.vehicle-stop-icon {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--line-color);
+    flex-shrink: 0;
+    position: relative;
+}
+
+.vehicle-stop:not(.last) .vehicle-stop-icon::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 22px;
+    background: var(--line-color);
+    opacity: 0.85;
+}
+
+.vehicle-stop.last .vehicle-stop-icon {
+    width: 15px;
+    height: 15px;
+    background: var(--line-color);
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.08);
+}
+
+.vehicle-stop.last .vehicle-stop-name {
+    font-weight: 800;
+    color: #111827;
+}
+
+.vehicle-stop-name {
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.25;
+}
+
+/* Delay */
+
+.departure-time {
+    margin-left: auto;
+}
+
+.departure-time-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    min-width: 72px;
+}
+
+.departure-times {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.planned-time {
+    font-size: 14px;
+    color: #9ca3af;
+    text-decoration: line-through;
+}
+
+.realtime {
+    font-size: 17px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.delay {
+    margin-top: 0;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.delay-small {
+    color: #f59e0b;
+}
+
+.delay-large {
+    color: #dc2626;
+}

@@ -1,6 +1,7 @@
 import { getVehicleMovements } from "./api.js";
 import { map } from "./map.js";
 import { createLineBadge } from "./badges.js";
+import { getBadgeStyle } from "./lineColors.js";
 
 const vehicleMarkers = {};
 
@@ -9,7 +10,6 @@ function animateMarker(marker, target) {
 
     const startLat = start.lat;
     const startLng = start.lng;
-
     const endLat = target[0];
     const endLng = target[1];
 
@@ -46,9 +46,7 @@ function shouldShowVehicle(movement) {
     const zoom = map.getZoom();
     const lineName = movement.line?.name || "";
 
-    if (zoom < 13) {
-        return false;
-    }
+    if (zoom < 13) return false;
 
     if (zoom < 15) {
         return (
@@ -61,6 +59,39 @@ function shouldShowVehicle(movement) {
     }
 
     return true;
+}
+
+function cleanStopName(name) {
+    return (name || "")
+        .replace(/^S\+U\s+/i, "")
+        .replace(/^U\s+/i, "")
+        .replace(/^S\s+/i, "")
+        .replace(/\s+\(Berlin\)$/i, "");
+}
+
+function createVehicleStopsHtml(stopovers, lineColor) {
+    return (stopovers || [])
+        .slice(0, 5)
+        .map((stopover, index, array) => {
+            const name = cleanStopName(
+                stopover.stop?.name ||
+                stopover.name ||
+                ""
+            );
+
+            const last = index === array.length - 1;
+
+            return `
+                <div class="vehicle-stop ${last ? "last" : ""}">
+                    <div 
+                        class="vehicle-stop-icon"
+                        style="--line-color: ${lineColor};"
+                    ></div>
+                    <div class="vehicle-stop-name">${name}</div>
+                </div>
+            `;
+        })
+        .join("");
 }
 
 function createVehicleIcon(movement) {
@@ -78,6 +109,43 @@ function createVehicleIcon(movement) {
         iconAnchor: [22, 14],
         popupAnchor: [0, -14]
     });
+}
+
+function createVehiclePopup(movement) {
+    const lineName = movement.line?.name || "?";
+    const style = getBadgeStyle(lineName);
+    const lineColor = style.background === "#fff" ? style.border.replace("3px solid ", "") : style.background;
+
+    const nextStops = createVehicleStopsHtml(
+        movement.nextStopovers,
+        lineColor
+    );
+
+    return `
+        <div class="vehicle-popup">
+            <div class="vehicle-popup-line">
+                ${createLineBadge(lineName)}
+            </div>
+
+            <div class="vehicle-popup-direction">
+                Richtung ${cleanStopName(movement.direction) || "Unbekannt"}
+            </div>
+
+            ${
+                nextStops
+                    ? `
+                        <div class="vehicle-popup-title">
+                            Nächste Haltestellen
+                        </div>
+
+                        <div class="vehicle-stops">
+                            ${nextStops}
+                        </div>
+                    `
+                    : ""
+            }
+        </div>
+    `;
 }
 
 export async function updateVehicles() {
@@ -104,6 +172,7 @@ export async function updateVehicles() {
 
             if (vehicleMarkers[id]) {
                 animateMarker(vehicleMarkers[id], coordinates);
+                vehicleMarkers[id].setPopupContent(createVehiclePopup(movement));
                 return;
             }
 
@@ -112,10 +181,7 @@ export async function updateVehicles() {
                 zIndexOffset: 500
             }).addTo(map);
 
-            marker.bindPopup(`
-                <strong>${movement.line?.name || "?"}</strong><br>
-                Richtung: ${movement.direction || "Unbekannt"}
-            `);
+            marker.bindPopup(createVehiclePopup(movement));
 
             vehicleMarkers[id] = marker;
         });
@@ -130,4 +196,9 @@ export async function updateVehicles() {
     } catch (error) {
         console.error(error);
     }
+}
+
+export async function getDepartures(station) {
+    const departures = await fetchDeparturesForStation(station, 20, 60);
+    return departures.slice(0, 12);
 }
