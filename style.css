@@ -115,7 +115,6 @@ body {
     max-height: 420px;
     overflow-y: auto;
     overflow-x: hidden;
-
     scrollbar-width: none;
 }
 
@@ -185,45 +184,6 @@ body {
     font-weight: 800;
     line-height: 1;
     flex-shrink: 0;
-    color: white;
-}
-
-.s-badge {
-    background: #00843d;
-}
-
-.u-badge {
-    background: #005aaa;
-}
-
-.metro-badge {
-    background: #c2185b;
-}
-
-.express-badge {
-    background: #f57c00;
-}
-
-.night-badge {
-    background: #212121;
-}
-
-.regional-badge {
-    background: #d50000;
-}
-
-.ferry-badge {
-    background: #00838f;
-}
-
-.bus-badge {
-    background: white;
-    color: #222;
-    border: 1px solid #bdbdbd;
-}
-
-.unknown-badge {
-    background: #757575;
 }
 
 /* Skeleton loading */
