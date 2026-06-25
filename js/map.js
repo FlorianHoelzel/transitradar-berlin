@@ -102,7 +102,8 @@ export function updateVisibleMarkers(stations) {
 
     visibleStations.slice(0, 200).forEach(station => {
         const marker = L.marker(station.coordinates, {
-            icon: getStationIcon(station)
+            icon: getStationIcon(station),
+            zIndexOffset: 2000
         }).addTo(map);
 
         markers[station.name] = marker;

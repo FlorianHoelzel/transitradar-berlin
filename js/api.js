@@ -67,3 +67,23 @@ export async function getDepartures(station) {
     const departures = await fetchDeparturesForStation(station, 20, 60);
     return departures.slice(0, 12);
 }
+
+export async function getVehicleMovements(bounds) {
+    const url =
+        `${API_BASE}/radar` +
+        `?north=${bounds.getNorth()}` +
+        `&south=${bounds.getSouth()}` +
+        `&east=${bounds.getEast()}` +
+        `&west=${bounds.getWest()}` +
+        `&results=200`;
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        throw new Error("Live-Fahrzeuge konnten nicht geladen werden.");
+    }
+
+    const data = await response.json();
+
+    return data.movements ?? [];
+}

@@ -1,6 +1,7 @@
 import { loadStationsFromApi } from "./api.js";
 import { map, updateVisibleMarkers } from "./map.js";
 import { setupSearch } from "./search.js";
+import { updateVehicles } from "./vehicles.js";
 
 let stations = [];
 
@@ -67,3 +68,11 @@ loadStations();
 map.on("moveend", () => {
     updateVisibleMarkers(stations);
 });
+
+updateVehicles();
+
+map.on("moveend", () => {
+    updateVehicles();
+});
+
+setInterval(updateVehicles, 15000);
