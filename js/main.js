@@ -15,7 +15,8 @@ async function loadStations() {
                 coordinates: [
                     stop.location.latitude,
                     stop.location.longitude
-                ]
+                ],
+                products: stop.products || {}
             };
         })
         .filter(station => {
@@ -33,14 +34,26 @@ async function loadStations() {
             groupedStations[station.name] = {
                 name: station.name,
                 coordinates: station.coordinates,
+                products: station.products,
                 stops: []
             };
         }
 
         groupedStations[station.name].stops.push({
             id: station.id,
-            coordinates: station.coordinates
+            coordinates: station.coordinates,
+            products: station.products
         });
+
+        groupedStations[station.name].products = {
+            subway: groupedStations[station.name].products.subway || station.products.subway,
+            suburban: groupedStations[station.name].products.suburban || station.products.suburban,
+            tram: groupedStations[station.name].products.tram || station.products.tram,
+            bus: groupedStations[station.name].products.bus || station.products.bus,
+            ferry: groupedStations[station.name].products.ferry || station.products.ferry,
+            express: groupedStations[station.name].products.express || station.products.express,
+            regional: groupedStations[station.name].products.regional || station.products.regional
+        };
     });
 
     stations = Object.values(groupedStations);

@@ -168,3 +168,41 @@ body {
     background: #64748b;
     color: white;
 }
+
+.station-marker {
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.station-marker {
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subway-marker {
+    color: #005aaa;
+    font-size: 28px;
+    text-shadow: 0 0 8px rgba(0, 90, 170, 0.9);
+}
+
+.suburban-marker {
+    color: #00843d;
+    font-size: 28px;
+    text-shadow: 0 0 8px rgba(0, 132, 61, 0.9);
+}
+
+.tram-marker {
+    color: #e4007c;
+    font-size: 22px;
+    text-shadow: 0 0 8px rgba(228, 0, 124, 0.9);
+}
+
+.bus-marker {
+    color: #ffd200;
+    font-size: 16px;
+    text-shadow: 0 0 6px rgba(255, 210, 0, 0.9);
+}

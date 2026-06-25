@@ -7,15 +7,82 @@ L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
     attribution: "&copy; OpenStreetMap &copy; CARTO"
 }).addTo(map);
 
-const stationIcon = L.divIcon({
-    className: "station-pin",
-    html: "📍",
-    iconSize: [32, 32],
-    iconAnchor: [16, 32],
-    popupAnchor: [0, -32]
+const subwayIcon = L.divIcon({
+    className: "station-marker subway-marker",
+    html: "●",
+    iconSize: [20, 20],
+    iconAnchor: [10, 10],
+    popupAnchor: [0, -10]
+});
+
+const suburbanIcon = L.divIcon({
+    className: "station-marker suburban-marker",
+    html: "●",
+    iconSize: [20, 20],
+    iconAnchor: [10, 10],
+    popupAnchor: [0, -10]
+});
+
+const tramIcon = L.divIcon({
+    className: "station-marker tram-marker",
+    html: "●",
+    iconSize: [16, 16],
+    iconAnchor: [8, 8],
+    popupAnchor: [0, -8]
+});
+
+const busIcon = L.divIcon({
+    className: "station-marker bus-marker",
+    html: "●",
+    iconSize: [12, 12],
+    iconAnchor: [6, 6],
+    popupAnchor: [0, -6]
 });
 
 export const markers = {};
+
+function getStationIcon(station) {
+    const name = station.name.toLowerCase();
+
+    if (name.startsWith("s+u ")) {
+        return suburbanIcon;
+    }
+
+    if (name.startsWith("s ")) {
+        return suburbanIcon;
+    }
+
+    if (name.startsWith("u ")) {
+        return subwayIcon;
+    }
+
+    if (
+        name.includes("platz") ||
+        name.includes("allee") ||
+        name.includes("tor") ||
+        name.includes("markt")
+    ) {
+        return tramIcon;
+    }
+
+    return busIcon;
+}
+
+function shouldShowStation(station) {
+    const zoom = map.getZoom();
+    const name = station.name.toLowerCase();
+
+    const isTrainStation =
+        name.startsWith("s+u ") ||
+        name.startsWith("s ") ||
+        name.startsWith("u ");
+
+    if (zoom < 14) {
+        return isTrainStation;
+    }
+
+    return true;
+}
 
 export function updateVisibleMarkers(stations) {
     const bounds = map.getBounds();
@@ -28,36 +95,32 @@ export function updateVisibleMarkers(stations) {
         delete markers[key];
     });
 
-    const visibleStations = stations.filter(station =>
-        bounds.contains(station.coordinates)
-    );
+    const visibleStations = stations.filter(station => {
+        return bounds.contains(station.coordinates) && shouldShowStation(station);
+    });
 
-    visibleStations.slice(0, 300).forEach(station => {
+    visibleStations.slice(0, 200).forEach(station => {
         const marker = L.marker(station.coordinates, {
-            icon: stationIcon
+            icon: getStationIcon(station)
         }).addTo(map);
+
+        markers[station.name] = marker;
 
         marker.bindPopup(createPopupContent(station));
 
         marker.on("popupopen", async () => {
-
             const popupElement = marker.getPopup().getElement();
             const departuresContainer = popupElement.querySelector(".departures");
 
             try {
                 const departures = await getDepartures(station);
-
                 const departuresHtml = createDeparturesHtml(departures);
 
                 departuresContainer.innerHTML = departuresHtml;
-
             } catch (error) {
                 console.error("Fehler beim Laden der Abfahrten:", error);
-
                 departuresContainer.innerHTML = "Abfahrten konnten nicht geladen werden.";
             }
         });
-
-        markers[station.name] = marker;
     });
 }
