@@ -26,8 +26,11 @@ export function createPopupContent(station, content = createSkeletonHtml()) {
     return `
         <div class="station-popup">
             <div class="station-title">${station.name}</div>
-            <div class="departures">
-                ${content}
+
+            <div class="departures-wrapper">
+                <div class="departures">
+                    ${content}
+                </div>
             </div>
         </div>
     `;

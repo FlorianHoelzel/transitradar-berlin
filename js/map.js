@@ -36,11 +36,7 @@ export const markers = {};
 function getStationIcon(station) {
     const name = station.name.toLowerCase();
 
-    if (name.startsWith("s+u ")) {
-        return suburbanIcon;
-    }
-
-    if (name.startsWith("s ")) {
+    if (name.startsWith("s+u ") || name.startsWith("s ")) {
         return suburbanIcon;
     }
 
@@ -65,6 +61,28 @@ function shouldShowStation(station) {
     }
 
     return true;
+}
+
+function updateFade(departures) {
+    if (!departures) return;
+
+    const canScroll = departures.scrollHeight > departures.clientHeight;
+    const atBottom =
+        departures.scrollTop + departures.clientHeight >= departures.scrollHeight - 2;
+
+    departures.classList.toggle("has-fade", canScroll && !atBottom);
+}
+
+function setupFade(popupElement) {
+    const departures = popupElement.querySelector(".departures");
+
+    if (!departures) return;
+
+    updateFade(departures);
+
+    departures.onscroll = () => {
+        updateFade(departures);
+    };
 }
 
 export function updateVisibleMarkers(stations) {
@@ -95,14 +113,21 @@ export function updateVisibleMarkers(stations) {
             const popupElement = marker.getPopup().getElement();
             const departuresContainer = popupElement.querySelector(".departures");
 
+            setupFade(popupElement);
+
             try {
                 const departures = await getDepartures(station);
                 const departuresHtml = createDeparturesHtml(departures);
 
                 departuresContainer.innerHTML = departuresHtml;
+
+                setupFade(popupElement);
             } catch (error) {
                 console.error("Fehler beim Laden der Abfahrten:", error);
+
                 departuresContainer.innerHTML = "Abfahrten konnten nicht geladen werden.";
+
+                setupFade(popupElement);
             }
         });
     });

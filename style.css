@@ -106,8 +106,37 @@ body {
 
 /* Departures */
 
+.departures-wrapper {
+    position: relative;
+}
+
 .departures {
     min-width: 250px;
+    max-height: 420px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    scrollbar-width: none;
+}
+
+.departures::-webkit-scrollbar {
+    display: none;
+}
+
+.departures.has-fade {
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 92%,
+        transparent 100%
+    );
+
+    mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 92%,
+        transparent 100%
+    );
 }
 
 .departure-row {
