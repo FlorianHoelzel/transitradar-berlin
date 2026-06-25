@@ -13,7 +13,7 @@ export function createPopupContent(station, content = "Lade Abfahrten...") {
 
 export function createDeparturesHtml(departures) {
     if (departures.length === 0) {
-        return "<div>Keine Abfahrten gefunden.</div>";
+        return "<div class='empty-departures'>Keine Abfahrten gefunden.</div>";
     }
 
     return departures.map(departure => {
@@ -28,10 +28,14 @@ export function createDeparturesHtml(departures) {
 
         return `
             <div class="departure-row">
-                <strong>${line}</strong>
-                <span>${time}</span>
-                <br>
-                <span>${direction}</span>
+                <div class="departure-top">
+                    ${line}
+                    <span class="departure-time">${time}</span>
+                </div>
+
+                <div class="departure-direction">
+                    ${direction}
+                </div>
             </div>
         `;
     }).join("");
