@@ -1,6 +1,28 @@
 import { createLineBadge } from "./badges.js";
 
-export function createPopupContent(station, content = "Lade Abfahrten...") {
+function createSkeletonHtml() {
+    return `
+        <div class="skeleton-row">
+            <div class="skeleton-badge"></div>
+            <div class="skeleton-time"></div>
+            <div class="skeleton-direction"></div>
+        </div>
+
+        <div class="skeleton-row">
+            <div class="skeleton-badge"></div>
+            <div class="skeleton-time"></div>
+            <div class="skeleton-direction"></div>
+        </div>
+
+        <div class="skeleton-row">
+            <div class="skeleton-badge"></div>
+            <div class="skeleton-time"></div>
+            <div class="skeleton-direction"></div>
+        </div>
+    `;
+}
+
+export function createPopupContent(station, content = createSkeletonHtml()) {
     return `
         <div class="station-popup">
             <div class="station-title">${station.name}</div>
