@@ -3,6 +3,8 @@ import { createPopupContent, createDeparturesHtml } from "./popup.js";
 
 export const map = L.map("map").setView([52.52, 13.40], 12);
 
+let popupRefreshInterval = null;
+
 L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
     attribution: "&copy; OpenStreetMap &copy; CARTO"
 }).addTo(map);
@@ -74,7 +76,7 @@ function updateFade(departures) {
 }
 
 function setupFade(popupElement) {
-    const departures = popupElement.querySelector(".departures");
+    const departures = popupElement?.querySelector(".departures");
 
     if (!departures) return;
 
@@ -83,6 +85,44 @@ function setupFade(popupElement) {
     departures.onscroll = () => {
         updateFade(departures);
     };
+}
+
+function stopPopupRefresh() {
+    if (popupRefreshInterval) {
+        clearInterval(popupRefreshInterval);
+        popupRefreshInterval = null;
+    }
+}
+
+async function refreshPopupDepartures(marker, station) {
+    const popupElement = marker.getPopup()?.getElement();
+    const departuresContainer = popupElement?.querySelector(".departures");
+
+    if (!departuresContainer) return;
+
+    const currentScrollTop = departuresContainer.scrollTop;
+
+    try {
+        const departures = await getDepartures(station);
+        const departuresHtml = createDeparturesHtml(departures);
+
+        departuresContainer.innerHTML = departuresHtml;
+        departuresContainer.scrollTop = currentScrollTop;
+
+        setupFade(popupElement);
+    } catch (error) {
+        console.error("Fehler beim Aktualisieren der Abfahrten:", error);
+        departuresContainer.innerHTML = "Abfahrten konnten nicht geladen werden.";
+        setupFade(popupElement);
+    }
+}
+
+function startPopupRefresh(marker, station) {
+    stopPopupRefresh();
+
+    popupRefreshInterval = setInterval(() => {
+        refreshPopupDepartures(marker, station);
+    }, 15000);
 }
 
 export function updateVisibleMarkers(stations) {
@@ -111,25 +151,15 @@ export function updateVisibleMarkers(stations) {
         marker.bindPopup(createPopupContent(station));
 
         marker.on("popupopen", async () => {
-            const popupElement = marker.getPopup().getElement();
-            const departuresContainer = popupElement.querySelector(".departures");
+            stopPopupRefresh();
 
-            setupFade(popupElement);
+            await refreshPopupDepartures(marker, station);
 
-            try {
-                const departures = await getDepartures(station);
-                const departuresHtml = createDeparturesHtml(departures);
+            startPopupRefresh(marker, station);
+        });
 
-                departuresContainer.innerHTML = departuresHtml;
-
-                setupFade(popupElement);
-            } catch (error) {
-                console.error("Fehler beim Laden der Abfahrten:", error);
-
-                departuresContainer.innerHTML = "Abfahrten konnten nicht geladen werden.";
-
-                setupFade(popupElement);
-            }
+        marker.on("popupclose", () => {
+            stopPopupRefresh();
         });
     });
 }
