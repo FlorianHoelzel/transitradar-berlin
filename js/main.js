@@ -1,7 +1,8 @@
 import { loadStationsFromApi } from "./api.js";
-import { map, updateVisibleMarkers, setupLineFilters } from "./map.js";
+import { map, updateVisibleMarkers, stopPopupRefresh } from "./map.js";
 import { setupSearch } from "./search.js";
 import { updateVehicles } from "./vehicles.js";
+import { setupFilters } from "./filters.js";
 
 let stations = [];
 
@@ -84,7 +85,12 @@ async function loadStations() {
 
     updateVisibleMarkers(stations);
     setupSearch(stations);
-    setupLineFilters(stations);
+
+    setupFilters(() => {
+        stopPopupRefresh();
+        updateVisibleMarkers(stations);
+        updateVehicles();
+    });
 }
 
 loadStations();

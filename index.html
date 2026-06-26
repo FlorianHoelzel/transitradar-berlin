@@ -25,15 +25,49 @@
 
     <div class="filter-control">
         <button id="filterToggle" class="filter-toggle">
-            ⚙ Filter
+            ⚙ Layers
         </button>
 
         <div id="filterPanel" class="filter-panel">
-            <div class="filter-panel-title">Filter</div>
+            <div class="filter-section">
+                <div class="filter-panel-title">Stations</div>
 
-            <button class="filter-option active" data-filter="suburban">S-Bahn</button>
-            <button class="filter-option active" data-filter="subway">U-Bahn</button>
-            <button class="filter-option active" data-filter="surface">Bus / Tram</button>
+                <button class="filter-option active" data-filter-group="stations" data-filter="suburban">
+                    S-Bahn
+                </button>
+
+                <button class="filter-option active" data-filter-group="stations" data-filter="subway">
+                    U-Bahn
+                </button>
+
+                <button class="filter-option active" data-filter-group="stations" data-filter="surface">
+                    Bus / Tram
+                </button>
+            </div>
+
+            <div class="filter-section">
+                <div class="filter-panel-title">Live Vehicles</div>
+
+                <button class="filter-option active" data-filter-group="vehicles" data-filter="suburban">
+                    S-Bahn
+                </button>
+
+                <button class="filter-option active" data-filter-group="vehicles" data-filter="subway">
+                    U-Bahn
+                </button>
+
+                <button class="filter-option active" data-filter-group="vehicles" data-filter="surface">
+                    Bus / Tram
+                </button>
+
+                <button class="filter-option active" data-filter-group="vehicles" data-filter="regional">
+                    RE / RB / RJ / FEX
+                </button>
+
+                <button class="filter-option active" data-filter-group="vehicles" data-filter="longDistance">
+                    ICE / IC / EC
+                </button>
+            </div>
         </div>
     </div>
 

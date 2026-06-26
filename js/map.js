@@ -1,15 +1,10 @@
 import { getDepartures } from "./api.js";
 import { createPopupContent, createDeparturesHtml } from "./popup.js";
+import { activeFilters } from "./filters.js";
 
 export const map = L.map("map").setView([52.52, 13.40], 12);
 
 let popupRefreshInterval = null;
-
-let activeFilters = {
-    suburban: true,
-    subway: true,
-    surface: true
-};
 
 L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
     attribution: "&copy; OpenStreetMap &copy; CARTO"
@@ -81,7 +76,7 @@ function hasProduct(station, productName) {
     }) === true;
 }
 
-function matchesActiveFilter(station) {
+function matchesActiveStationFilter(station) {
     const name = station.name.toLowerCase();
 
     const isSuburban =
@@ -99,9 +94,9 @@ function matchesActiveFilter(station) {
         !name.startsWith("u ") &&
         !name.startsWith("s+u ");
 
-    if (isSuburban && activeFilters.suburban) return true;
-    if (isSubway && activeFilters.subway) return true;
-    if (isSurface && activeFilters.surface) return true;
+    if (isSuburban && activeFilters.stations.suburban) return true;
+    if (isSubway && activeFilters.stations.subway) return true;
+    if (isSurface && activeFilters.stations.surface) return true;
 
     return false;
 }
@@ -128,7 +123,7 @@ function setupFade(popupElement) {
     };
 }
 
-function stopPopupRefresh() {
+export function stopPopupRefresh() {
     if (popupRefreshInterval) {
         clearInterval(popupRefreshInterval);
         popupRefreshInterval = null;
@@ -181,7 +176,7 @@ export function updateVisibleMarkers(stations) {
         return (
             bounds.contains(station.coordinates) &&
             shouldShowStation(station) &&
-            matchesActiveFilter(station)
+            matchesActiveStationFilter(station)
         );
     });
 
@@ -205,42 +200,6 @@ export function updateVisibleMarkers(stations) {
 
         marker.on("popupclose", () => {
             stopPopupRefresh();
-        });
-    });
-}
-
-export function setupLineFilters(stations) {
-    const filterToggle = document.getElementById("filterToggle");
-    const filterPanel = document.getElementById("filterPanel");
-    const filterOptions = document.querySelectorAll(".filter-option");
-
-    if (!filterToggle || !filterPanel) {
-        return;
-    }
-
-    filterToggle.addEventListener("click", event => {
-        event.stopPropagation();
-        filterPanel.classList.toggle("open");
-    });
-
-    filterPanel.addEventListener("click", event => {
-        event.stopPropagation();
-    });
-
-    document.addEventListener("click", () => {
-        filterPanel.classList.remove("open");
-    });
-
-    filterOptions.forEach(option => {
-        option.addEventListener("click", () => {
-            const filterName = option.dataset.filter;
-
-            activeFilters[filterName] = !activeFilters[filterName];
-
-            option.classList.toggle("active", activeFilters[filterName]);
-
-            stopPopupRefresh();
-            updateVisibleMarkers(stations);
         });
     });
 }

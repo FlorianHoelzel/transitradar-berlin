@@ -2,6 +2,7 @@ import { getVehicleMovements } from "./api.js";
 import { map } from "./map.js";
 import { createLineBadge } from "./badges.js";
 import { getBadgeStyle } from "./lineColors.js";
+import { activeFilters } from "./filters.js";
 
 const vehicleMarkers = {};
 
@@ -35,7 +36,7 @@ function animateMarker(marker, target) {
     requestAnimationFrame(animate);
 }
 
-function clearVehicleMarkers() {
+export function clearVehicleMarkers() {
     Object.values(vehicleMarkers).forEach(marker => {
         map.removeLayer(marker);
     });
@@ -45,31 +46,68 @@ function clearVehicleMarkers() {
     });
 }
 
-function shouldShowVehicle(movement) {
-    const zoom = map.getZoom();
+function getVehicleType(movement) {
     const lineName = movement.line?.name || "";
 
-    const isSurface =
-        lineName.startsWith("M") ||
-        lineName.startsWith("X") ||
-        /^\d+$/.test(lineName);
+    if (
+        lineName.startsWith("ICE") ||
+        lineName.startsWith("IC") ||
+        lineName.startsWith("EC")
+    ) {
+        return "longDistance";
+    }
 
-    const isRail =
-        lineName.startsWith("S") ||
-        lineName.startsWith("U") ||
+    if (
         lineName.startsWith("RE") ||
         lineName.startsWith("RB") ||
-        lineName === "FEX";
+        lineName.startsWith("RJ") ||
+        lineName === "FEX"
+    ) {
+        return "regional";
+    }
+
+    if (lineName.startsWith("S")) {
+        return "suburban";
+    }
+
+    if (lineName.startsWith("U")) {
+        return "subway";
+    }
+
+    if (
+        lineName.startsWith("M") ||
+        lineName.startsWith("X") ||
+        lineName.startsWith("N") ||
+        /^\d+$/.test(lineName)
+    ) {
+        return "surface";
+    }
+
+    return "surface";
+}
+
+function shouldShowVehicle(movement) {
+    const zoom = map.getZoom();
+    const vehicleType = getVehicleType(movement);
+
+    if (!activeFilters.vehicles[vehicleType]) {
+        return false;
+    }
 
     if (zoom < 14) {
         return false;
     }
 
     if (zoom === 14) {
-        return isRail;
+        return (
+            vehicleType === "suburban" ||
+            vehicleType === "subway" ||
+            vehicleType === "regional" ||
+            vehicleType === "longDistance"
+        );
     }
 
-    return isRail || isSurface;
+    return true;
 }
 
 function cleanStopName(name) {
