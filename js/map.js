@@ -76,18 +76,6 @@ function hasProduct(station, productName) {
     }) === true;
 }
 
-function isTrainStation(station) {
-    const name = station.name.toLowerCase();
-
-    return (
-        name.startsWith("s+u ") ||
-        name.startsWith("s ") ||
-        name.startsWith("u ") ||
-        hasProduct(station, "suburban") ||
-        hasProduct(station, "subway")
-    );
-}
-
 function matchesActiveFilter(station) {
     const name = station.name.toLowerCase();
 
@@ -111,18 +99,11 @@ function matchesActiveFilter(station) {
         );
     }
 
-    if (activeFilter === "tram") {
+    if (activeFilter === "surface") {
         return (
-            hasProduct(station, "tram") ||
-            hasProduct(station, "streetcar")
-        );
-    }
-
-    if (activeFilter === "bus") {
-        return (
-            !isTrainStation(station) &&
-            !hasProduct(station, "tram") &&
-            !hasProduct(station, "streetcar")
+            !name.startsWith("s ") &&
+            !name.startsWith("u ") &&
+            !name.startsWith("s+u ")
         );
     }
 
