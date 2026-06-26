@@ -62,7 +62,7 @@ function getNextStops(stopovers, destinationStop) {
     });
 
     if (stopsBeforeDestination.length >= 3) {
-        return stopsBeforeDestination.slice(1, 3);
+        return stopsBeforeDestination.slice(0, 3);
     }
 
     return stopsWithoutCurrent.slice(0, 3);
