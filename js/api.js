@@ -66,8 +66,6 @@ async function fetchDeparturesForStation(station, results = 8, duration = 30) {
 export async function getDepartures(station) {
     const departures = await fetchDeparturesForStation(station, 20, 60);
 
-    console.log(departures);
-
     return departures.slice(0, 12);
 }
 

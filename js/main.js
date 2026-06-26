@@ -12,8 +12,6 @@ function getProductsFromStop(stop) {
 async function loadStations() {
     const data = await loadStationsFromApi();
 
-    console.log("Original API Stop:", data[0]);
-
     const rawStations = data
         .map(stop => {
             return {
@@ -83,11 +81,6 @@ async function loadStations() {
     });
 
     stations = Object.values(groupedStations);
-
-    console.log(
-        "Alexanderplatz grouped:",
-        stations.filter(station => station.name.includes("Alexanderplatz"))
-    );
 
     updateVisibleMarkers(stations);
     setupSearch(stations);
