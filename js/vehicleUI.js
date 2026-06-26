@@ -2,29 +2,81 @@ import { createLineBadge } from "./badges.js";
 import { vehicleMarkers, vehicleState } from "./vehicleState.js";
 import { cleanStopName, getLineColor } from "./vehicleUtils.js";
 
-export function createVehicleStopsHtml(stopovers, lineColor) {
-    return (stopovers || [])
-        .slice(0, 5)
-        .map((stopover, index, array) => {
-            const name = cleanStopName(
-                stopover.stop?.name ||
-                stopover.name ||
-                ""
-            );
+function getStopName(stopover) {
+    return cleanStopName(
+        stopover?.stop?.name ||
+        stopover?.name ||
+        ""
+    );
+}
 
-            const last = index === array.length - 1;
+function createMiddleStopsHtml(stops, lineColor) {
+    return stops
+        .map(stopover => {
+            const name = getStopName(stopover);
 
             return `
-                <div class="vehicle-stop ${last ? "last" : ""}">
+                <div class="vehicle-stop">
                     <div
                         class="vehicle-stop-icon"
                         style="--line-color: ${lineColor};"
                     ></div>
-                    <div class="vehicle-stop-name">${name}</div>
+
+                    <div class="vehicle-stop-name">
+                        ${name}
+                    </div>
                 </div>
             `;
         })
         .join("");
+}
+
+export function createVehicleStopsHtml(stopovers, lineColor) {
+    if (!stopovers || stopovers.length === 0) {
+        return "";
+    }
+
+    const visibleStopovers = stopovers.slice(0, 5);
+
+    const currentStop = visibleStopovers[0];
+    const destinationStop = visibleStopovers[visibleStopovers.length - 1];
+    const middleStops = visibleStopovers.slice(1, -1);
+
+    const currentName = getStopName(currentStop);
+    const destinationName = getStopName(destinationStop);
+
+    return `
+        <div class="vehicle-timeline">
+            <div class="vehicle-current-stop">
+                <div
+                    class="vehicle-current-dot"
+                    style="--line-color: ${lineColor};"
+                ></div>
+
+                <div>
+                    <div class="vehicle-current-name">${currentName}</div>
+                </div>
+            </div>
+
+            <div class="vehicle-stop-connector"></div>
+
+            ${createMiddleStopsHtml(middleStops, lineColor)}
+
+            <div class="vehicle-destination-stop">
+                <div
+                    class="vehicle-destination-dot"
+                    style="--line-color: ${lineColor};"
+                >
+                    
+                </div>
+
+                <div>
+                    <div class="vehicle-destination-label">Destination</div>
+                    <div class="vehicle-destination-name">${destinationName}</div>
+                </div>
+            </div>
+        </div>
+    `;
 }
 
 export function createVehicleIcon(movement) {
@@ -56,7 +108,6 @@ export function createVehiclePopup(movement) {
     const lineName = movement.line?.name || "?";
     const lineColor = getLineColor(lineName);
     const nextStops = createVehicleStopsHtml(movement.nextStopovers, lineColor);
-    const isSelected = vehicleState.selectedLineName === lineName;
 
     return `
         <div class="vehicle-popup">
@@ -68,20 +119,14 @@ export function createVehiclePopup(movement) {
                 Richtung ${cleanStopName(movement.direction) || "Unbekannt"}
             </div>
 
-            <button class="vehicle-line-button">
-                ${isSelected ? "Line selected" : `Highlight ${lineName}`}
-            </button>
-
             ${
                 nextStops
                     ? `
                         <div class="vehicle-popup-title">
-                            Nächste Haltestellen
+                            Next stops
                         </div>
 
-                        <div class="vehicle-stops">
-                            ${nextStops}
-                        </div>
+                        ${nextStops}
                     `
                     : ""
             }
