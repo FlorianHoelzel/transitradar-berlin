@@ -1,3 +1,4 @@
+import { showRouteForTrip, clearRouteLayer } from "./routeLayer.js";
 import { getVehicleMovements } from "./api.js";
 import { map } from "./map.js";
 import { vehicleMarkers, vehicleState } from "./vehicleState.js";
@@ -25,6 +26,7 @@ export function clearVehicleMarkers() {
 
 export function clearSelectedLine() {
     vehicleState.selectedLineName = null;
+    clearRouteLayer();
 
     updateVehicleMarkerStyles();
     updateSelectedLineControl(() => {
@@ -50,6 +52,8 @@ function selectLineFromMovement(movement) {
     }
 
     vehicleState.selectedLineName = lineName;
+
+    showRouteForTrip(movement.tripId, lineName);
 
     updateVehicleMarkerStyles();
 

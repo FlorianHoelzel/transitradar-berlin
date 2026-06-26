@@ -88,3 +88,19 @@ export async function getVehicleMovements(bounds) {
 
     return data.movements ?? [];
 }
+
+export async function getTripDetails(tripId, lineName) {
+    const url =
+        `${API_BASE}/trips/${encodeURIComponent(tripId)}` +
+        `?lineName=${encodeURIComponent(lineName)}` +
+        `&polyline=true` +
+        `&remarks=false`;
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        throw new Error("Trip route could not be loaded.");
+    }
+
+    return await response.json();
+}
