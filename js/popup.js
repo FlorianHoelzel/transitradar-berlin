@@ -83,18 +83,21 @@ export function createDeparturesHtml(departures) {
     }
 
     return departures.map(departure => {
-        const line = createLineBadge(departure.line?.name);
+        const lineName = departure.line?.name || "";
+        const tripId = departure.tripId || "";
+        const line = createLineBadge(lineName);
         const direction = departure.direction || "Unbekannt";
         const timeHtml = createTimeHtml(departure);
 
         return `
-            <div class="departure-row">
+            <div
+                class="departure-row clickable-departure"
+                data-trip-id="${tripId}"
+                data-line-name="${lineName}"
+            >
                 <div class="departure-top">
                     ${line}
-
-                    <span class="departure-time">
-                        ${timeHtml}
-                    </span>
+                    ${timeHtml}
                 </div>
 
                 <div class="departure-direction">

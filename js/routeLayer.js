@@ -1,8 +1,10 @@
 import { getTripDetails } from "./api.js";
 import { map } from "./map.js";
 import { getLineColor } from "./vehicleUtils.js";
+import { createLineBadge } from "./badges.js";
 
 let activeRouteLayer = null;
+let routePreviewControl = null;
 
 function extractRouteCoordinates(polyline) {
     if (!polyline) {
@@ -40,21 +42,66 @@ function extractRouteCoordinates(polyline) {
     return [];
 }
 
-export function clearRouteLayer() {
-    if (!activeRouteLayer) {
+function createRoutePreviewControl() {
+    if (routePreviewControl) {
         return;
     }
 
-    map.removeLayer(activeRouteLayer);
-    activeRouteLayer = null;
+    routePreviewControl = document.createElement("div");
+    routePreviewControl.className = "selected-line-control route-preview-control";
+
+    routePreviewControl.innerHTML = `
+        <div class="selected-line-label"></div>
+        <button class="selected-line-clear">Clear</button>
+    `;
+
+    document.body.appendChild(routePreviewControl);
+
+    routePreviewControl
+        .querySelector(".selected-line-clear")
+        .addEventListener("click", () => {
+            clearRouteLayer();
+        });
 }
 
-export async function showRouteForTrip(tripId, lineName) {
+function showRoutePreviewControl(lineName) {
+    createRoutePreviewControl();
+
+    routePreviewControl
+        .querySelector(".selected-line-label")
+        .innerHTML = `
+            <span>Route preview</span>
+            ${createLineBadge(lineName)}
+        `;
+
+    routePreviewControl.classList.add("visible");
+}
+
+function hideRoutePreviewControl() {
+    if (!routePreviewControl) {
+        return;
+    }
+
+    routePreviewControl.classList.remove("visible");
+}
+
+export function clearRouteLayer() {
+    if (activeRouteLayer) {
+        map.removeLayer(activeRouteLayer);
+        activeRouteLayer = null;
+    }
+
+    hideRoutePreviewControl();
+}
+
+export async function showRouteForTrip(tripId, lineName, options = {}) {
     clearRouteLayer();
 
     if (!tripId || !lineName) {
         return;
     }
+
+    const showControl = options.showControl ?? false;
 
     try {
         const data = await getTripDetails(tripId, lineName);
@@ -76,6 +123,10 @@ export async function showRouteForTrip(tripId, lineName) {
         }).addTo(map);
 
         activeRouteLayer.bringToFront();
+
+        if (showControl) {
+            showRoutePreviewControl(lineName);
+        }
 
     } catch (error) {
         console.error("Route could not be displayed:", error);

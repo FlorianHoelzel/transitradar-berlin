@@ -618,3 +618,15 @@ body {
 .selected-line-clear:hover {
     background: rgba(255, 255, 255, 0.2);
 }
+
+.clickable-departure {
+    cursor: pointer;
+}
+
+.clickable-departure:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.route-preview-control {
+    bottom: 28px;
+}

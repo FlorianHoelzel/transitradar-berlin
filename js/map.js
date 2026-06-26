@@ -1,3 +1,5 @@
+import { clearRouteLayer } from "./routeLayer.js";
+import { showRouteForTrip } from "./routeLayer.js";
 import { getDepartures } from "./api.js";
 import { createPopupContent, createDeparturesHtml } from "./popup.js";
 import { activeFilters } from "./filters.js";
@@ -125,6 +127,25 @@ function setupFade(popupElement) {
     };
 }
 
+function setupDepartureRouteClicks(popupElement) {
+    const departureRows = popupElement?.querySelectorAll(".clickable-departure");
+
+    if (!departureRows) return;
+
+    departureRows.forEach(row => {
+        row.addEventListener("click", () => {
+            const tripId = row.dataset.tripId;
+            const lineName = row.dataset.lineName;
+
+            if (!tripId || !lineName) return;
+
+            showRouteForTrip(tripId, lineName, {
+                showControl: true
+            });
+        });
+    });
+}
+
 export function stopPopupRefresh() {
     if (popupRefreshInterval) {
         clearInterval(popupRefreshInterval);
@@ -147,6 +168,7 @@ async function refreshPopupDepartures(marker, station) {
         departuresContainer.innerHTML = departuresHtml;
         departuresContainer.scrollTop = currentScrollTop;
 
+        setupDepartureRouteClicks(popupElement);
         setupFade(popupElement);
     } catch (error) {
         console.error("Fehler beim Aktualisieren der Abfahrten:", error);
