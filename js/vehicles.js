@@ -29,6 +29,7 @@ export function clearSelectedLine() {
     clearRouteLayer();
 
     updateVehicleMarkerStyles();
+
     updateSelectedLineControl(() => {
         clearSelectedLine();
         updateVehicles();
@@ -53,7 +54,9 @@ function selectLineFromMovement(movement) {
 
     vehicleState.selectedLineName = lineName;
 
-    showRouteForTrip(movement.tripId, lineName);
+    showRouteForTrip(movement.tripId, lineName).then(() => {
+        updateVehicleMarkerStyles();
+    });
 
     updateVehicleMarkerStyles();
 
@@ -116,12 +119,19 @@ function createNewVehicleMarker(id, movement, coordinates) {
 }
 
 function renderVehicleMovement(movement, visibleVehicleIds) {
-    if (!movement.location) return;
-    if (!shouldShowVehicle(movement)) return;
+    if (!movement.location) {
+        return;
+    }
+
+    if (!shouldShowVehicle(movement)) {
+        return;
+    }
 
     const id = movement.tripId || `${movement.line?.name}-${movement.direction}`;
 
-    if (!id) return;
+    if (!id) {
+        return;
+    }
 
     visibleVehicleIds.add(id);
 
@@ -168,7 +178,6 @@ export async function updateVehicles() {
         });
 
         removeOutdatedVehicleMarkers(visibleVehicleIds);
-
     } catch (error) {
         console.error("Fehler beim Laden der Fahrzeuge:", error);
     } finally {

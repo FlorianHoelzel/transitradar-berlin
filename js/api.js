@@ -94,6 +94,7 @@ export async function getTripDetails(tripId, lineName) {
         `${API_BASE}/trips/${encodeURIComponent(tripId)}` +
         `?lineName=${encodeURIComponent(lineName)}` +
         `&polyline=true` +
+        `&stopovers=true` +
         `&remarks=false`;
 
     const response = await fetch(url);

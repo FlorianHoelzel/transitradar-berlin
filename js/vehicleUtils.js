@@ -9,6 +9,7 @@ export function getRadarBounds() {
 
 export function getVehicleType(movement) {
     const lineName = movement.line?.name || "";
+    const product = movement.line?.product || "";
 
     if (
         lineName.startsWith("ICE") ||
@@ -27,12 +28,16 @@ export function getVehicleType(movement) {
         return "regional";
     }
 
-    if (lineName.startsWith("S")) {
+    if (lineName.startsWith("S") || product === "suburban") {
         return "suburban";
     }
 
-    if (lineName.startsWith("U")) {
+    if (lineName.startsWith("U") || product === "subway") {
         return "subway";
+    }
+
+    if (product === "tram") {
+        return "surface";
     }
 
     if (
@@ -65,7 +70,7 @@ export function shouldShowVehicle(movement) {
         return false;
     }
 
-    if (zoom === 14) {
+    if (zoom < 15) {
         return (
             vehicleType === "suburban" ||
             vehicleType === "subway" ||

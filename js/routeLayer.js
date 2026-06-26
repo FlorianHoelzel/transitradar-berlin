@@ -7,6 +7,8 @@ let activeRouteLayer = null;
 let activeGlowLayer = null;
 let routePreviewControl = null;
 
+export let activeTripDetails = null;
+
 function extractRouteCoordinates(polyline) {
     if (!polyline) {
         return [];
@@ -87,6 +89,8 @@ function hideRoutePreviewControl() {
 }
 
 export function clearRouteLayer() {
+    activeTripDetails = null;
+
     if (activeGlowLayer) {
         map.removeLayer(activeGlowLayer);
         activeGlowLayer = null;
@@ -111,6 +115,8 @@ export async function showRouteForTrip(tripId, lineName, options = {}) {
 
     try {
         const data = await getTripDetails(tripId, lineName);
+        activeTripDetails = data;
+
         const polyline = data.trip?.polyline || data.polyline;
         const coordinates = extractRouteCoordinates(polyline);
 

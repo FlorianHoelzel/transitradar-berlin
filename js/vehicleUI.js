@@ -1,4 +1,5 @@
 import { createLineBadge } from "./badges.js";
+import { activeTripDetails } from "./routeLayer.js";
 import { vehicleMarkers, vehicleState } from "./vehicleState.js";
 import { cleanStopName, getLineColor } from "./vehicleUtils.js";
 
@@ -8,6 +9,96 @@ function getStopName(stopover) {
         stopover?.name ||
         ""
     );
+}
+
+function getStopTime(stopover) {
+    return (
+        stopover?.departure ||
+        stopover?.arrival ||
+        stopover?.plannedDeparture ||
+        stopover?.plannedArrival ||
+        null
+    );
+}
+
+function isStopInPast(stopover) {
+    const time = getStopTime(stopover);
+
+    if (!time) {
+        return false;
+    }
+
+    return new Date(time).getTime() < Date.now() - 60_000;
+}
+
+function removeInvalidStops(stopovers) {
+    return stopovers.filter(stopover => {
+        return getStopName(stopover) !== "";
+    });
+}
+
+function removePastStops(stopovers) {
+    return stopovers.filter(stopover => {
+        return !isStopInPast(stopover);
+    });
+}
+
+function removeDuplicateStops(stopovers) {
+    const seenStops = new Set();
+
+    return stopovers.filter(stopover => {
+        const name = getStopName(stopover);
+
+        if (seenStops.has(name)) {
+            return false;
+        }
+
+        seenStops.add(name);
+        return true;
+    });
+}
+
+function normalizeStopovers(stopovers) {
+    return removeDuplicateStops(
+        removePastStops(
+            removeInvalidStops(stopovers)
+        )
+    );
+}
+
+function getDestinationStop(stopovers) {
+    return stopovers[stopovers.length - 1];
+}
+
+function getNextStops(stopovers, destinationStop) {
+    const cleanStopovers = normalizeStopovers(stopovers);
+    const destinationName = getStopName(destinationStop);
+
+    const stopsBeforeDestination = cleanStopovers.filter(stopover => {
+        return getStopName(stopover) !== destinationName;
+    });
+
+    return stopsBeforeDestination.slice(0, 3);
+}
+
+function getPopupStopovers(movement) {
+    const radarStopovers = movement.nextStopovers || [];
+
+    if (normalizeStopovers(radarStopovers).length >= 4) {
+        return radarStopovers;
+    }
+
+    const trip = activeTripDetails?.trip || activeTripDetails;
+
+    if (
+        trip?.id === movement.tripId &&
+        Array.isArray(trip.stopovers) &&
+        trip.stopovers.length > radarStopovers.length
+    ) {
+        return trip.stopovers;
+    }
+
+    return radarStopovers;
 }
 
 function createMiddleStopsHtml(stops, lineColor) {
@@ -31,56 +122,25 @@ function createMiddleStopsHtml(stops, lineColor) {
         .join("");
 }
 
-function removeDuplicateStops(stopovers) {
-    const seenStops = new Set();
-
-    return stopovers.filter(stopover => {
-        const name = getStopName(stopover);
-
-        if (!name || seenStops.has(name)) {
-            return false;
-        }
-
-        seenStops.add(name);
-        return true;
-    });
-}
-
-function getDestinationStop(stopovers) {
-    return stopovers[stopovers.length - 1];
-}
-
-function getNextStops(stopovers, destinationStop) {
-    const cleanStopovers = removeDuplicateStops(stopovers);
-
-    const destinationName = getStopName(destinationStop);
-
-    const stopsWithoutCurrent = cleanStopovers.slice(1);
-
-    const stopsBeforeDestination = stopsWithoutCurrent.filter(stopover => {
-        return getStopName(stopover) !== destinationName;
-    });
-
-    if (stopsBeforeDestination.length >= 3) {
-        return stopsBeforeDestination.slice(0, 3);
-    }
-
-    return stopsWithoutCurrent.slice(0, 3);
-}
-
 export function createVehicleStopsHtml(stopovers, lineColor) {
     if (!stopovers || stopovers.length === 0) {
         return "";
     }
 
-    const destinationStop = getDestinationStop(stopovers);
+    const cleanStopovers = normalizeStopovers(stopovers);
+
+    if (cleanStopovers.length === 0) {
+        return "";
+    }
+
+    const destinationStop = getDestinationStop(cleanStopovers);
 
     if (!destinationStop) {
         return "";
     }
 
     const destinationName = getStopName(destinationStop);
-    const nextStops = getNextStops(stopovers, destinationStop);
+    const nextStops = getNextStops(cleanStopovers, destinationStop);
 
     if (nextStops.length === 0) {
         return "";
@@ -133,7 +193,8 @@ export function createVehicleIcon(movement) {
 export function createVehiclePopup(movement) {
     const lineName = movement.line?.name || "?";
     const lineColor = getLineColor(lineName);
-    const nextStops = createVehicleStopsHtml(movement.nextStopovers, lineColor);
+    const stopovers = getPopupStopovers(movement);
+    const nextStops = createVehicleStopsHtml(stopovers, lineColor);
 
     return `
         <div class="vehicle-popup">
