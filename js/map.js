@@ -2,7 +2,9 @@ import { getDepartures } from "./api.js";
 import { createPopupContent, createDeparturesHtml } from "./popup.js";
 import { activeFilters } from "./filters.js";
 
-export const map = L.map("map").setView([52.52, 13.40], 12);
+export const map = L.map("map", {
+    zoomControl: false
+}).setView([52.52, 13.40], 12);
 
 let popupRefreshInterval = null;
 
