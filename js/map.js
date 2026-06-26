@@ -214,20 +214,41 @@ export function updateVisibleMarkers(stations) {
 }
 
 export function setupLineFilters(stations) {
-    const filterButtons = document.querySelectorAll(".filter-button");
+    const filterToggle = document.getElementById("filterToggle");
+    const filterPanel = document.getElementById("filterPanel");
+    const filterOptions = document.querySelectorAll(".filter-option");
 
-    filterButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            activeFilter = button.dataset.filter;
+    if (!filterToggle || !filterPanel) {
+        return;
+    }
 
-            filterButtons.forEach(btn => {
+    filterToggle.addEventListener("click", event => {
+        event.stopPropagation();
+        filterPanel.classList.toggle("open");
+    });
+
+    filterPanel.addEventListener("click", event => {
+        event.stopPropagation();
+    });
+
+    document.addEventListener("click", () => {
+        filterPanel.classList.remove("open");
+    });
+
+    filterOptions.forEach(option => {
+        option.addEventListener("click", () => {
+            activeFilter = option.dataset.filter;
+
+            filterOptions.forEach(btn => {
                 btn.classList.remove("active");
             });
 
-            button.classList.add("active");
+            option.classList.add("active");
 
             stopPopupRefresh();
             updateVisibleMarkers(stations);
+
+            filterPanel.classList.remove("open");
         });
     });
 }

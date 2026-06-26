@@ -5,47 +5,174 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background: #020617;
 }
 
 #map {
     height: 100vh;
 }
 
-/* Search */
+/* Top UI */
 
 .search-box {
-    position: absolute;
-    top: 20px;
+    position: fixed;
+    top: 12px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1000;
+    z-index: 20000;
+    width: 380px;
 }
 
 #searchInput {
-    width: 280px;
-    padding: 12px 16px;
-    border: none;
-    border-radius: 12px;
-    font-size: 16px;
+    width: 100%;
+    height: 48px;
+    padding: 0 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
     outline: none;
+
+    background: rgba(15, 23, 42, 0.92);
+    color: #ffffff;
+    backdrop-filter: blur(18px);
+
+    font-size: 16px;
+    font-weight: 500;
+
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+}
+
+#searchInput::placeholder {
+    color: #cbd5e1;
 }
 
 #searchResults {
-    margin-top: 8px;
-    background: white;
-    color: #111827;
-    border-radius: 12px;
+    position: absolute;
+    top: 58px;
+    left: 0;
+    right: 0;
+    z-index: 20001;
+
+    background: rgba(15, 23, 42, 0.98);
+    color: #ffffff;
+
+    border-radius: 22px;
     overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+}
+
+#searchResults:empty {
+    display: none;
 }
 
 #searchResults div {
-    padding: 12px 16px;
+    padding: 13px 16px;
     cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: #e5e7eb;
 }
 
 #searchResults div:hover {
-    background: #f1f5f9;
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+
+/* Floating filter */
+
+.filter-control {
+    position: fixed;
+    right: 22px;
+    bottom: 28px;
+    z-index: 15000;
+}
+
+.filter-toggle {
+    height: 48px;
+    padding: 0 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+
+    background: rgba(15, 23, 42, 0.92);
+    color: #ffffff;
+    backdrop-filter: blur(18px);
+
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+}
+
+.filter-toggle:hover {
+    background: rgba(30, 41, 59, 0.96);
+}
+
+.filter-panel {
+    position: absolute;
+    right: 0;
+    bottom: 62px;
+
+    width: 210px;
+    padding: 12px;
+
+    border-radius: 22px;
+    background: rgba(15, 23, 42, 0.96);
+    color: #ffffff;
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+
+    display: none;
+}
+
+.filter-panel.open {
+    display: block;
+}
+
+.filter-panel-title {
+    padding: 8px 10px 12px;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #94a3b8;
+}
+
+.filter-option {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 6px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: transparent;
+    color: #cbd5e1;
+
+    text-align: left;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.filter-option:last-child {
+    margin-bottom: 0;
+}
+
+.filter-option:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+
+.filter-option.active {
+    background: #ffffff;
+    color: #020617;
 }
 
 /* Map markers */
@@ -170,6 +297,47 @@ body {
     line-height: 1.3;
 }
 
+/* Delay */
+
+.departure-time-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    min-width: 72px;
+}
+
+.departure-times {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.planned-time {
+    font-size: 14px;
+    color: #9ca3af;
+    text-decoration: line-through;
+}
+
+.realtime {
+    font-size: 17px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.delay {
+    margin-top: 0;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.delay-small {
+    color: #f59e0b;
+}
+
+.delay-large {
+    color: #dc2626;
+}
+
 /* Line badges */
 
 .line-badge {
@@ -242,6 +410,8 @@ body {
     }
 }
 
+/* Vehicle marker */
+
 .vehicle-marker {
     background: transparent;
     border: none;
@@ -251,23 +421,6 @@ body {
     transform: scale(0.72);
     transform-origin: center;
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
-}
-
-/* Vehicle popup */
-
-.vehicle-popup {
-    min-width: 250px;
-}
-
-.vehicle-popup-line {
-    margin-bottom: 14px;
-}
-
-.vehicle-popup-direction {
-    font-size: 15px;
-    font-weight: 700;
-    color: #111827;
-    margin-bottom: 18px;
 }
 
 /* Vehicle popup */
@@ -354,90 +507,4 @@ body {
     color: #4b5563;
     font-size: 14px;
     line-height: 1.25;
-}
-
-/* Delay */
-
-.departure-time {
-    margin-left: auto;
-}
-
-.departure-time-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    min-width: 72px;
-}
-
-.departure-times {
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
-}
-
-.planned-time {
-    font-size: 14px;
-    color: #9ca3af;
-    text-decoration: line-through;
-}
-
-.realtime {
-    font-size: 17px;
-    font-weight: 700;
-    color: #111827;
-}
-
-.delay {
-    margin-top: 0;
-    font-size: 13px;
-    font-weight: 700;
-}
-
-.delay-small {
-    color: #f59e0b;
-}
-
-.delay-large {
-    color: #dc2626;
-}
-
-.filter-bar {
-    position: absolute;
-    top: 82px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-
-    display: flex;
-    gap: 8px;
-
-    padding: 8px;
-    border-radius: 999px;
-
-    background: rgba(15, 23, 42, 0.78);
-    backdrop-filter: blur(18px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.filter-button {
-    border: none;
-    border-radius: 999px;
-    padding: 8px 14px;
-
-    background: transparent;
-    color: #cbd5e1;
-
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.filter-button:hover {
-    background: rgba(255, 255, 255, 0.08);
-    color: white;
-}
-
-.filter-button.active {
-    background: white;
-    color: #020617;
 }
