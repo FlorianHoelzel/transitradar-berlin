@@ -1,40 +1,17 @@
 import { getVehicleMovements } from "./api.js";
 import { map } from "./map.js";
-import { createLineBadge } from "./badges.js";
-import { getBadgeStyle } from "./lineColors.js";
-import { activeFilters } from "./filters.js";
-
-const vehicleMarkers = {};
-
-let vehicleUpdateRunning = false;
-let lastVehicleUpdate = 0;
-
-function animateMarker(marker, target) {
-    const start = marker.getLatLng();
-
-    const startLat = start.lat;
-    const startLng = start.lng;
-    const endLat = target[0];
-    const endLng = target[1];
-
-    const duration = 14500;
-    const startTime = performance.now();
-
-    function animate(now) {
-        const progress = Math.min((now - startTime) / duration, 1);
-
-        marker.setLatLng([
-            startLat + (endLat - startLat) * progress,
-            startLng + (endLng - startLng) * progress
-        ]);
-
-        if (progress < 1) {
-            requestAnimationFrame(animate);
-        }
-    }
-
-    requestAnimationFrame(animate);
-}
+import { vehicleMarkers, vehicleState } from "./vehicleState.js";
+import {
+    getRadarBounds,
+    shouldShowVehicle,
+    animateMarker
+} from "./vehicleUtils.js";
+import {
+    createVehicleIcon,
+    createVehiclePopup,
+    updateVehicleMarkerStyles,
+    updateSelectedLineControl
+} from "./vehicleUI.js";
 
 export function clearVehicleMarkers() {
     Object.values(vehicleMarkers).forEach(marker => {
@@ -46,237 +23,151 @@ export function clearVehicleMarkers() {
     });
 }
 
-function getVehicleType(movement) {
-    const lineName = movement.line?.name || "";
+export function clearSelectedLine() {
+    vehicleState.selectedLineName = null;
 
-    if (
-        lineName.startsWith("ICE") ||
-        lineName.startsWith("IC") ||
-        lineName.startsWith("EC")
-    ) {
-        return "longDistance";
+    updateVehicleMarkerStyles();
+    updateSelectedLineControl(() => {
+        clearSelectedLine();
+        updateVehicles();
+    });
+
+    if (map.getZoom() < 14) {
+        clearVehicleMarkers();
     }
-
-    if (
-        lineName.startsWith("RE") ||
-        lineName.startsWith("RB") ||
-        lineName.startsWith("RJ") ||
-        lineName === "FEX"
-    ) {
-        return "regional";
-    }
-
-    if (lineName.startsWith("S")) {
-        return "suburban";
-    }
-
-    if (lineName.startsWith("U")) {
-        return "subway";
-    }
-
-    if (
-        lineName.startsWith("M") ||
-        lineName.startsWith("X") ||
-        lineName.startsWith("N") ||
-        /^\d+$/.test(lineName)
-    ) {
-        return "surface";
-    }
-
-    return "surface";
 }
 
-function shouldShowVehicle(movement) {
-    const zoom = map.getZoom();
-    const vehicleType = getVehicleType(movement);
+function selectLineFromMovement(movement) {
+    const lineName = movement.line?.name;
 
-    if (!activeFilters.vehicles[vehicleType]) {
-        return false;
+    if (!lineName) {
+        return;
     }
 
-    if (zoom < 14) {
-        return false;
+    if (vehicleState.selectedLineName === lineName) {
+        clearSelectedLine();
+        return;
     }
 
-    if (zoom === 14) {
-        return (
-            vehicleType === "suburban" ||
-            vehicleType === "subway" ||
-            vehicleType === "regional" ||
-            vehicleType === "longDistance"
-        );
-    }
+    vehicleState.selectedLineName = lineName;
 
-    return true;
+    updateVehicleMarkerStyles();
+
+    updateSelectedLineControl(() => {
+        clearSelectedLine();
+        updateVehicles();
+    });
+
+    updateVehicles();
 }
 
-function cleanStopName(name) {
-    return (name || "")
-        .replace(/^S\+U\s+/i, "")
-        .replace(/^U\s+/i, "")
-        .replace(/^S\s+/i, "")
-        .replace(/\s+\(Berlin\)$/i, "");
-}
+function removeOutdatedVehicleMarkers(visibleVehicleIds) {
+    Object.keys(vehicleMarkers).forEach(id => {
+        const marker = vehicleMarkers[id];
 
-function createVehicleStopsHtml(stopovers, lineColor) {
-    return (stopovers || [])
-        .slice(0, 5)
-        .map((stopover, index, array) => {
-            const name = cleanStopName(
-                stopover.stop?.name ||
-                stopover.name ||
-                ""
-            );
+        if (!marker) {
+            return;
+        }
 
-            const last = index === array.length - 1;
+        const markerLine = marker.transitMovement?.line?.name;
 
-            return `
-                <div class="vehicle-stop ${last ? "last" : ""}">
-                    <div 
-                        class="vehicle-stop-icon"
-                        style="--line-color: ${lineColor};"
-                    ></div>
-                    <div class="vehicle-stop-name">${name}</div>
-                </div>
-            `;
-        })
-        .join("");
-}
+        if (
+            vehicleState.selectedLineName &&
+            markerLine === vehicleState.selectedLineName
+        ) {
+            visibleVehicleIds.add(id);
+            return;
+        }
 
-function createVehicleIcon(movement) {
-    const lineName = movement.line?.name || "?";
-    const badge = createLineBadge(lineName);
-
-    return L.divIcon({
-        className: "vehicle-marker",
-        html: `
-            <div class="vehicle-badge">
-                ${badge}
-            </div>
-        `,
-        iconSize: [44, 28],
-        iconAnchor: [22, 14],
-        popupAnchor: [0, -14]
+        if (!visibleVehicleIds.has(id)) {
+            map.removeLayer(marker);
+            delete vehicleMarkers[id];
+        }
     });
 }
 
-function createVehiclePopup(movement) {
-    const lineName = movement.line?.name || "?";
-    const style = getBadgeStyle(lineName);
+function updateExistingVehicleMarker(id, movement, coordinates) {
+    const marker = vehicleMarkers[id];
 
-    let lineColor;
+    marker.transitMovement = movement;
+    animateMarker(marker, coordinates);
+    marker.setIcon(createVehicleIcon(movement));
+    marker.setPopupContent(createVehiclePopup(movement));
+}
 
-    if (lineName.startsWith("M")) {
-        lineColor = "#C0007A";
-    } else if (lineName.startsWith("X")) {
-        lineColor = "#F39200";
-    } else if (/^\d+$/.test(lineName)) {
-        lineColor = "#6B7280";
-    } else if (style.background !== "#fff") {
-        lineColor = style.background;
-    } else {
-        lineColor = "#6B7280";
+function createNewVehicleMarker(id, movement, coordinates) {
+    const marker = L.marker(coordinates, {
+        icon: createVehicleIcon(movement),
+        zIndexOffset: 500
+    }).addTo(map);
+
+    marker.transitMovement = movement;
+    marker.bindPopup(createVehiclePopup(movement));
+
+    marker.on("click", () => {
+        selectLineFromMovement(marker.transitMovement);
+    });
+
+    vehicleMarkers[id] = marker;
+}
+
+function renderVehicleMovement(movement, visibleVehicleIds) {
+    if (!movement.location) return;
+    if (!shouldShowVehicle(movement)) return;
+
+    const id = movement.tripId || `${movement.line?.name}-${movement.direction}`;
+
+    if (!id) return;
+
+    visibleVehicleIds.add(id);
+
+    const coordinates = [
+        movement.location.latitude,
+        movement.location.longitude
+    ];
+
+    if (vehicleMarkers[id]) {
+        updateExistingVehicleMarker(id, movement, coordinates);
+        return;
     }
 
-    const nextStops = createVehicleStopsHtml(
-        movement.nextStopovers,
-        lineColor
-    );
-
-    return `
-        <div class="vehicle-popup">
-            <div class="vehicle-popup-line">
-                ${createLineBadge(lineName)}
-            </div>
-
-            <div class="vehicle-popup-direction">
-                Richtung ${cleanStopName(movement.direction) || "Unbekannt"}
-            </div>
-
-            ${
-                nextStops
-                    ? `
-                        <div class="vehicle-popup-title">
-                            Nächste Haltestellen
-                        </div>
-
-                        <div class="vehicle-stops">
-                            ${nextStops}
-                        </div>
-                    `
-                    : ""
-            }
-        </div>
-    `;
+    createNewVehicleMarker(id, movement, coordinates);
 }
 
 export async function updateVehicles() {
     const zoom = map.getZoom();
 
-    if (zoom < 14) {
+    if (zoom < 14 && !vehicleState.selectedLineName) {
         clearVehicleMarkers();
         return;
     }
 
     const now = Date.now();
 
-    if (vehicleUpdateRunning) {
+    if (vehicleState.updateRunning) {
         return;
     }
 
-    if (now - lastVehicleUpdate < 1000) {
+    if (now - vehicleState.lastUpdate < 1000) {
         return;
     }
 
-    vehicleUpdateRunning = true;
-    lastVehicleUpdate = now;
+    vehicleState.updateRunning = true;
+    vehicleState.lastUpdate = now;
 
     try {
-        const movements = await getVehicleMovements(map.getBounds());
+        const movements = await getVehicleMovements(getRadarBounds());
         const visibleVehicleIds = new Set();
 
         movements.forEach(movement => {
-            if (!movement.location) return;
-            if (!shouldShowVehicle(movement)) return;
-
-            const id = movement.tripId || `${movement.line?.name}-${movement.direction}`;
-
-            if (!id) return;
-
-            visibleVehicleIds.add(id);
-
-            const coordinates = [
-                movement.location.latitude,
-                movement.location.longitude
-            ];
-
-            if (vehicleMarkers[id]) {
-                animateMarker(vehicleMarkers[id], coordinates);
-                vehicleMarkers[id].setIcon(createVehicleIcon(movement));
-                vehicleMarkers[id].setPopupContent(createVehiclePopup(movement));
-                return;
-            }
-
-            const marker = L.marker(coordinates, {
-                icon: createVehicleIcon(movement),
-                zIndexOffset: 500
-            }).addTo(map);
-
-            marker.bindPopup(createVehiclePopup(movement));
-
-            vehicleMarkers[id] = marker;
+            renderVehicleMovement(movement, visibleVehicleIds);
         });
 
-        Object.keys(vehicleMarkers).forEach(id => {
-            if (!visibleVehicleIds.has(id)) {
-                map.removeLayer(vehicleMarkers[id]);
-                delete vehicleMarkers[id];
-            }
-        });
+        removeOutdatedVehicleMarkers(visibleVehicleIds);
 
     } catch (error) {
         console.error("Fehler beim Laden der Fahrzeuge:", error);
     } finally {
-        vehicleUpdateRunning = false;
+        vehicleState.updateRunning = false;
     }
 }

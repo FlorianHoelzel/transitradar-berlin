@@ -76,7 +76,7 @@ export async function getVehicleMovements(bounds) {
         `&south=${bounds.getSouth()}` +
         `&east=${bounds.getEast()}` +
         `&west=${bounds.getWest()}` +
-        `&results=80`;
+        `&results=1000`;
 
     const response = await fetch(url);
 
