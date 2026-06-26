@@ -4,7 +4,12 @@ import { createPopupContent, createDeparturesHtml } from "./popup.js";
 export const map = L.map("map").setView([52.52, 13.40], 12);
 
 let popupRefreshInterval = null;
-let activeFilter = "all";
+
+let activeFilters = {
+    suburban: true,
+    subway: true,
+    surface: true
+};
 
 L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
     attribution: "&copy; OpenStreetMap &copy; CARTO"
@@ -79,35 +84,26 @@ function hasProduct(station, productName) {
 function matchesActiveFilter(station) {
     const name = station.name.toLowerCase();
 
-    if (activeFilter === "all") {
-        return true;
-    }
+    const isSuburban =
+        name.startsWith("s ") ||
+        name.startsWith("s+u ") ||
+        hasProduct(station, "suburban");
 
-    if (activeFilter === "suburban") {
-        return (
-            name.startsWith("s ") ||
-            name.startsWith("s+u ") ||
-            hasProduct(station, "suburban")
-        );
-    }
+    const isSubway =
+        name.startsWith("u ") ||
+        name.startsWith("s+u ") ||
+        hasProduct(station, "subway");
 
-    if (activeFilter === "subway") {
-        return (
-            name.startsWith("u ") ||
-            name.startsWith("s+u ") ||
-            hasProduct(station, "subway")
-        );
-    }
+    const isSurface =
+        !name.startsWith("s ") &&
+        !name.startsWith("u ") &&
+        !name.startsWith("s+u ");
 
-    if (activeFilter === "surface") {
-        return (
-            !name.startsWith("s ") &&
-            !name.startsWith("u ") &&
-            !name.startsWith("s+u ")
-        );
-    }
+    if (isSuburban && activeFilters.suburban) return true;
+    if (isSubway && activeFilters.subway) return true;
+    if (isSurface && activeFilters.surface) return true;
 
-    return true;
+    return false;
 }
 
 function updateFade(departures) {
@@ -237,18 +233,14 @@ export function setupLineFilters(stations) {
 
     filterOptions.forEach(option => {
         option.addEventListener("click", () => {
-            activeFilter = option.dataset.filter;
+            const filterName = option.dataset.filter;
 
-            filterOptions.forEach(btn => {
-                btn.classList.remove("active");
-            });
+            activeFilters[filterName] = !activeFilters[filterName];
 
-            option.classList.add("active");
+            option.classList.toggle("active", activeFilters[filterName]);
 
             stopPopupRefresh();
             updateVisibleMarkers(stations);
-
-            filterPanel.classList.remove("open");
         });
     });
 }
