@@ -1,5 +1,5 @@
 import { loadStationsFromApi } from "./api.js";
-import { map, updateVisibleMarkers } from "./map.js";
+import { map, updateVisibleMarkers, setupLineFilters } from "./map.js";
 import { setupSearch } from "./search.js";
 import { updateVehicles } from "./vehicles.js";
 
@@ -61,18 +61,16 @@ async function loadStations() {
 
     updateVisibleMarkers(stations);
     setupSearch(stations);
+    setupLineFilters(stations);
 }
 
 loadStations();
 
 map.on("moveend", () => {
     updateVisibleMarkers(stations);
+    updateVehicles();
 });
 
 updateVehicles();
-
-map.on("moveend", () => {
-    updateVehicles();
-});
 
 setInterval(updateVehicles, 30000);

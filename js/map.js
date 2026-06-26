@@ -4,6 +4,7 @@ import { createPopupContent, createDeparturesHtml } from "./popup.js";
 export const map = L.map("map").setView([52.52, 13.40], 12);
 
 let popupRefreshInterval = null;
+let activeFilter = "all";
 
 L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
     attribution: "&copy; OpenStreetMap &copy; CARTO"
@@ -60,6 +61,69 @@ function shouldShowStation(station) {
 
     if (zoom < 14) {
         return isTrainStation;
+    }
+
+    return true;
+}
+
+function hasProduct(station, productName) {
+    if (station.products?.[productName] === true) {
+        return true;
+    }
+
+    return station.stops?.some(stop => {
+        return stop.products?.[productName] === true;
+    }) === true;
+}
+
+function isTrainStation(station) {
+    const name = station.name.toLowerCase();
+
+    return (
+        name.startsWith("s+u ") ||
+        name.startsWith("s ") ||
+        name.startsWith("u ") ||
+        hasProduct(station, "suburban") ||
+        hasProduct(station, "subway")
+    );
+}
+
+function matchesActiveFilter(station) {
+    const name = station.name.toLowerCase();
+
+    if (activeFilter === "all") {
+        return true;
+    }
+
+    if (activeFilter === "suburban") {
+        return (
+            name.startsWith("s ") ||
+            name.startsWith("s+u ") ||
+            hasProduct(station, "suburban")
+        );
+    }
+
+    if (activeFilter === "subway") {
+        return (
+            name.startsWith("u ") ||
+            name.startsWith("s+u ") ||
+            hasProduct(station, "subway")
+        );
+    }
+
+    if (activeFilter === "tram") {
+        return (
+            hasProduct(station, "tram") ||
+            hasProduct(station, "streetcar")
+        );
+    }
+
+    if (activeFilter === "bus") {
+        return (
+            !isTrainStation(station) &&
+            !hasProduct(station, "tram") &&
+            !hasProduct(station, "streetcar")
+        );
     }
 
     return true;
@@ -137,7 +201,11 @@ export function updateVisibleMarkers(stations) {
     });
 
     const visibleStations = stations.filter(station => {
-        return bounds.contains(station.coordinates) && shouldShowStation(station);
+        return (
+            bounds.contains(station.coordinates) &&
+            shouldShowStation(station) &&
+            matchesActiveFilter(station)
+        );
     });
 
     visibleStations.slice(0, 200).forEach(station => {
@@ -160,6 +228,25 @@ export function updateVisibleMarkers(stations) {
 
         marker.on("popupclose", () => {
             stopPopupRefresh();
+        });
+    });
+}
+
+export function setupLineFilters(stations) {
+    const filterButtons = document.querySelectorAll(".filter-button");
+
+    filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            activeFilter = button.dataset.filter;
+
+            filterButtons.forEach(btn => {
+                btn.classList.remove("active");
+            });
+
+            button.classList.add("active");
+
+            stopPopupRefresh();
+            updateVisibleMarkers(stations);
         });
     });
 }
