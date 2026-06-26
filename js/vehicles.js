@@ -5,6 +5,9 @@ import { getBadgeStyle } from "./lineColors.js";
 
 const vehicleMarkers = {};
 
+let vehicleUpdateRunning = false;
+let lastVehicleUpdate = 0;
+
 function animateMarker(marker, target) {
     const start = marker.getLatLng();
 
@@ -46,19 +49,27 @@ function shouldShowVehicle(movement) {
     const zoom = map.getZoom();
     const lineName = movement.line?.name || "";
 
-    if (zoom < 13) return false;
+    const isSurface =
+        lineName.startsWith("M") ||
+        lineName.startsWith("X") ||
+        /^\d+$/.test(lineName);
 
-    if (zoom < 15) {
-        return (
-            lineName.startsWith("S") ||
-            lineName.startsWith("U") ||
-            lineName.startsWith("RE") ||
-            lineName.startsWith("RB") ||
-            lineName === "FEX"
-        );
+    const isRail =
+        lineName.startsWith("S") ||
+        lineName.startsWith("U") ||
+        lineName.startsWith("RE") ||
+        lineName.startsWith("RB") ||
+        lineName === "FEX";
+
+    if (zoom < 14) {
+        return false;
     }
 
-    return true;
+    if (zoom === 14) {
+        return isRail;
+    }
+
+    return isRail || isSurface;
 }
 
 function cleanStopName(name) {
@@ -162,10 +173,25 @@ function createVehiclePopup(movement) {
 }
 
 export async function updateVehicles() {
-    if (map.getZoom() < 13) {
+    const zoom = map.getZoom();
+
+    if (zoom < 14) {
         clearVehicleMarkers();
         return;
     }
+
+    const now = Date.now();
+
+    if (vehicleUpdateRunning) {
+        return;
+    }
+
+    if (now - lastVehicleUpdate < 1000) {
+        return;
+    }
+
+    vehicleUpdateRunning = true;
+    lastVehicleUpdate = now;
 
     try {
         const movements = await getVehicleMovements(map.getBounds());
@@ -175,7 +201,10 @@ export async function updateVehicles() {
             if (!movement.location) return;
             if (!shouldShowVehicle(movement)) return;
 
-            const id = movement.tripId;
+            const id = movement.tripId || `${movement.line?.name}-${movement.direction}`;
+
+            if (!id) return;
+
             visibleVehicleIds.add(id);
 
             const coordinates = [
@@ -185,6 +214,7 @@ export async function updateVehicles() {
 
             if (vehicleMarkers[id]) {
                 animateMarker(vehicleMarkers[id], coordinates);
+                vehicleMarkers[id].setIcon(createVehicleIcon(movement));
                 vehicleMarkers[id].setPopupContent(createVehiclePopup(movement));
                 return;
             }
@@ -207,6 +237,8 @@ export async function updateVehicles() {
         });
 
     } catch (error) {
-        console.error(error);
+        console.error("Fehler beim Laden der Fahrzeuge:", error);
+    } finally {
+        vehicleUpdateRunning = false;
     }
 }
