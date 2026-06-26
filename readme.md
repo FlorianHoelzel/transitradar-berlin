@@ -32,6 +32,9 @@ Users can search for stations, view nearby stops, and see upcoming departures di
 ├─ readme.md
 └─ js/
    ├─ api.js
+   ├─ badges.js
+   ├─ lineColors.js
+   ├─ vehicles.js
    ├─ main.js
    ├─ map.js
    ├─ popup.js
