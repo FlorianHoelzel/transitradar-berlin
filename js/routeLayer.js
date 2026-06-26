@@ -4,6 +4,7 @@ import { getLineColor } from "./vehicleUtils.js";
 import { createLineBadge } from "./badges.js";
 
 let activeRouteLayer = null;
+let activeGlowLayer = null;
 let routePreviewControl = null;
 
 function extractRouteCoordinates(polyline) {
@@ -86,6 +87,11 @@ function hideRoutePreviewControl() {
 }
 
 export function clearRouteLayer() {
+    if (activeGlowLayer) {
+        map.removeLayer(activeGlowLayer);
+        activeGlowLayer = null;
+    }
+
     if (activeRouteLayer) {
         map.removeLayer(activeRouteLayer);
         activeRouteLayer = null;
@@ -113,15 +119,27 @@ export async function showRouteForTrip(tripId, lineName, options = {}) {
             return;
         }
 
-        activeRouteLayer = L.polyline(coordinates, {
-            color: getLineColor(lineName),
-            weight: 7,
-            opacity: 0.9,
+        const lineColor = getLineColor(lineName);
+
+        activeGlowLayer = L.polyline(coordinates, {
+            color: lineColor,
+            weight: 16,
+            opacity: 0.18,
             lineCap: "round",
             lineJoin: "round",
             interactive: false
         }).addTo(map);
 
+        activeRouteLayer = L.polyline(coordinates, {
+            color: lineColor,
+            weight: 7,
+            opacity: 1,
+            lineCap: "round",
+            lineJoin: "round",
+            interactive: false
+        }).addTo(map);
+
+        activeGlowLayer.bringToBack();
         activeRouteLayer.bringToFront();
 
         if (showControl) {
