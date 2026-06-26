@@ -101,6 +101,32 @@ function getPopupStopovers(movement) {
     return radarStopovers;
 }
 
+function getDisplayDirection(movement) {
+    const lineName = movement.line?.name || "";
+    const direction = cleanStopName(movement.direction) || "Unbekannt";
+
+    if (lineName === "S41") {
+        return "Ringbahn ↻";
+    }
+
+    if (lineName === "S42") {
+        return "Ringbahn ↺";
+    }
+
+    return direction;
+}
+
+function getDirectionLabel(movement) {
+    const lineName = movement.line?.name || "";
+    const direction = getDisplayDirection(movement);
+
+    if (lineName === "S41" || lineName === "S42") {
+        return direction;
+    }
+
+    return `Richtung ${direction}`;
+}
+
 function createMiddleStopsHtml(stops, lineColor) {
     return stops
         .map((stopover, index) => {
@@ -203,7 +229,7 @@ export function createVehiclePopup(movement) {
             </div>
 
             <div class="vehicle-popup-direction">
-                Richtung ${cleanStopName(movement.direction) || "Unbekannt"}
+                ${getDirectionLabel(movement)}
             </div>
 
             ${
