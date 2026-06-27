@@ -97,9 +97,11 @@ loadStations();
 
 map.on("moveend", () => {
     updateVisibleMarkers(stations);
-    updateVehicles();
+    updateVehicles(true);
 });
 
-updateVehicles();
+updateVehicles(true);
 
-setInterval(updateVehicles, 30000);
+setInterval(() => {
+    updateVehicles();
+}, 30000);
