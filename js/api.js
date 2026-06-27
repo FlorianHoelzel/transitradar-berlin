@@ -1,7 +1,8 @@
-const API_BASE = "https://v6.bvg.transport.rest";
+const BVG_API_BASE = "https://v6.bvg.transport.rest";
+const VBB_API_BASE = "https://v6.vbb.transport.rest";
 
 export async function loadStationsFromApi() {
-    const response = await fetch(`${API_BASE}/stops?results=1000`);
+    const response = await fetch(`${BVG_API_BASE}/stops?results=1000`);
 
     if (!response.ok) {
         throw new Error("Stations konnten nicht geladen werden.");
@@ -19,7 +20,6 @@ function getCleanStopId(stopId) {
 
     return stopId;
 }
-
 function removeDuplicateDepartures(departures) {
     return departures.filter((departure, index, array) => {
         const key = `${departure.line?.name}-${departure.direction}-${departure.when}`;
@@ -40,7 +40,7 @@ async function fetchDeparturesForStation(station, results = 8, duration = 30) {
 
     for (const stopId of uniqueStopIds) {
         const response = await fetch(
-            `${API_BASE}/stops/${stopId}/departures?results=${results}&duration=${duration}`
+            `${BVG_API_BASE}/stops/${stopId}/departures?results=${results}&duration=${duration}`
         );
 
         if (!response.ok) {
@@ -71,7 +71,7 @@ export async function getDepartures(station) {
 
 export async function getVehicleMovements(bounds) {
     const url =
-        `${API_BASE}/radar` +
+        `${VBB_API_BASE}/radar` +
         `?north=${bounds.getNorth()}` +
         `&south=${bounds.getSouth()}` +
         `&east=${bounds.getEast()}` +
@@ -91,7 +91,7 @@ export async function getVehicleMovements(bounds) {
 
 export async function getTripDetails(tripId, lineName) {
     const url =
-        `${API_BASE}/trips/${encodeURIComponent(tripId)}` +
+        `${BVG_API_BASE}/trips/${encodeURIComponent(tripId)}` +
         `?lineName=${encodeURIComponent(lineName)}` +
         `&polyline=true` +
         `&stopovers=true` +
