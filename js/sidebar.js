@@ -3,8 +3,6 @@ export function setupSidebar() {
     sidebarToggle.id = "sidebarToggle";
     sidebarToggle.className = "sidebar-toggle";
     sidebarToggle.type = "button";
-    sidebarToggle.setAttribute("aria-label", "Open sidebar");
-    sidebarToggle.setAttribute("aria-expanded", "false");
     sidebarToggle.innerHTML = "☰";
 
     const sidebarOverlay = document.createElement("div");
@@ -14,7 +12,6 @@ export function setupSidebar() {
     const sidebar = document.createElement("aside");
     sidebar.id = "sidebar";
     sidebar.className = "sidebar";
-    sidebar.setAttribute("aria-hidden", "true");
 
     sidebar.innerHTML = `
         <div class="sidebar-header">
@@ -23,12 +20,10 @@ export function setupSidebar() {
                 <h2>Menu</h2>
             </div>
 
-            <button id="sidebarClose" class="sidebar-close" type="button" aria-label="Close sidebar">
-                ×
-            </button>
+            <button id="sidebarClose" class="sidebar-close" type="button">×</button>
         </div>
 
-        <nav class="sidebar-nav" aria-label="Sidebar navigation">
+        <nav class="sidebar-nav">
             <button class="sidebar-item" type="button">
                 <span class="sidebar-item-emoji">⭐</span>
                 <span>Favorites</span>
@@ -41,40 +36,103 @@ export function setupSidebar() {
         </nav>
 
         <div class="sidebar-footer">
-            <button class="sidebar-item sidebar-about" type="button">
+            <button id="aboutButton" class="sidebar-item sidebar-about" type="button">
                 <span class="sidebar-item-emoji">ℹ️</span>
                 <span>About</span>
             </button>
         </div>
     `;
 
-    document.body.append(sidebarToggle, sidebarOverlay, sidebar);
+    const aboutOverlay = document.createElement("div");
+    aboutOverlay.id = "aboutOverlay";
+    aboutOverlay.className = "about-overlay";
+
+    aboutOverlay.innerHTML = `
+        <section class="about-panel">
+            <div class="about-header">
+                <div>
+                    <div class="about-kicker">About</div>
+                    <h2>TransitRadar Berlin</h2>
+                </div>
+
+                <button id="aboutClose" class="about-close" type="button">×</button>
+            </div>
+
+            <div class="about-content">
+                <p>
+                    <strong>TransitRadar Berlin</strong> is a personal web project for exploring public transport in Berlin.
+                    The app shows nearby stops, live departures, live vehicle positions, highlighted lines and selected vehicle routes on an interactive map.
+                </p>
+
+                <div class="about-card">
+                    <h3>🛰️ Data sources</h3>
+                    <p>
+                        TransitRadar Berlin uses public transport API data from BVG / VBB related endpoints.
+                        Stop data, departures, trip details and live vehicle positions may come from different APIs and can update at different intervals.
+                    </p>
+                </div>
+
+                <div class="about-card warning">
+                    <h3>⚠️ Important disclaimer</h3>
+                    <p>
+                        All information is provided without guarantee. Departures, delays, routes and live vehicle locations may be incomplete,
+                        delayed or inaccurate due to API limitations, network issues or changes in public transport operations.
+                    </p>
+                    <p>
+                        Live vehicle positions are especially not always exact. Vehicles can appear delayed, jump between positions or temporarily disappear.
+                    </p>
+                    <p>
+                        For accurate and official travel information, always check official sources such as bahn.de, bvg.de or the official BVG / VBB apps.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+    `;
+
+    document.body.append(sidebarToggle, sidebarOverlay, sidebar, aboutOverlay);
 
     const sidebarClose = document.getElementById("sidebarClose");
+    const aboutButton = document.getElementById("aboutButton");
+    const aboutClose = document.getElementById("aboutClose");
 
     function openSidebar() {
         sidebar.classList.add("open");
         sidebarOverlay.classList.add("open");
         sidebarToggle.classList.add("hidden");
-        sidebarToggle.setAttribute("aria-expanded", "true");
-        sidebar.setAttribute("aria-hidden", "false");
     }
 
     function closeSidebar() {
         sidebar.classList.remove("open");
         sidebarOverlay.classList.remove("open");
         sidebarToggle.classList.remove("hidden");
-        sidebarToggle.setAttribute("aria-expanded", "false");
-        sidebar.setAttribute("aria-hidden", "true");
+    }
+
+    function openAbout() {
+        aboutOverlay.classList.add("open");
+    }
+
+    function closeAbout() {
+        aboutOverlay.classList.remove("open");
     }
 
     sidebarToggle.addEventListener("click", openSidebar);
     sidebarClose.addEventListener("click", closeSidebar);
     sidebarOverlay.addEventListener("click", closeSidebar);
 
+    aboutButton.addEventListener("click", openAbout);
+    aboutClose.addEventListener("click", closeAbout);
+
+    aboutOverlay.addEventListener("click", event => {
+        if (event.target === aboutOverlay) {
+            closeAbout();
+        }
+    });
+
     document.addEventListener("keydown", event => {
         if (event.key === "Escape") {
             closeSidebar();
+            closeAbout();
         }
     });
 }
