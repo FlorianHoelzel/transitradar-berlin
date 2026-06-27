@@ -1,6 +1,8 @@
 const BVG_API_BASE = "https://v6.bvg.transport.rest";
 const VBB_API_BASE = "https://v6.vbb.transport.rest";
 
+import { map } from "./map.js";
+
 export async function loadStationsFromApi() {
     const response = await fetch(`${BVG_API_BASE}/stops?results=1000`);
 
@@ -70,13 +72,18 @@ export async function getDepartures(station) {
 }
 
 export async function getVehicleMovements(bounds) {
+    const zoom = map.getZoom();
+    const results = zoom >= 16 ? 1000 : zoom >= 15 ? 600 : 300;
+
     const url =
         `${VBB_API_BASE}/radar` +
         `?north=${bounds.getNorth()}` +
         `&south=${bounds.getSouth()}` +
         `&east=${bounds.getEast()}` +
         `&west=${bounds.getWest()}` +
-        `&results=1000`;
+        `&results=${results}` +
+        `&polylines=false` +
+        `&frames=1`;
 
     const response = await fetch(url);
 

@@ -36,19 +36,6 @@ export function getVehicleType(movement) {
         return "subway";
     }
 
-    if (product === "tram") {
-        return "surface";
-    }
-
-    if (
-        lineName.startsWith("M") ||
-        lineName.startsWith("X") ||
-        lineName.startsWith("N") ||
-        /^\d+$/.test(lineName)
-    ) {
-        return "surface";
-    }
-
     return "surface";
 }
 
@@ -68,15 +55,6 @@ export function shouldShowVehicle(movement) {
 
     if (zoom < 14) {
         return false;
-    }
-
-    if (zoom < 15) {
-        return (
-            vehicleType === "suburban" ||
-            vehicleType === "subway" ||
-            vehicleType === "regional" ||
-            vehicleType === "longDistance"
-        );
     }
 
     return true;
@@ -113,6 +91,11 @@ export function getLineColor(lineName) {
 }
 
 export function animateMarker(marker, target) {
+    if (marker.animationFrameId) {
+        cancelAnimationFrame(marker.animationFrameId);
+        marker.animationFrameId = null;
+    }
+
     const start = marker.getLatLng();
 
     const startLat = start.lat;
@@ -120,7 +103,11 @@ export function animateMarker(marker, target) {
     const endLat = target[0];
     const endLng = target[1];
 
-    const duration = 14500;
+    if (startLat === endLat && startLng === endLng) {
+        return;
+    }
+
+    const duration = 16000;
     const startTime = performance.now();
 
     function animate(now) {
@@ -132,9 +119,11 @@ export function animateMarker(marker, target) {
         ]);
 
         if (progress < 1) {
-            requestAnimationFrame(animate);
+            marker.animationFrameId = requestAnimationFrame(animate);
+        } else {
+            marker.animationFrameId = null;
         }
     }
 
-    requestAnimationFrame(animate);
+    marker.animationFrameId = requestAnimationFrame(animate);
 }

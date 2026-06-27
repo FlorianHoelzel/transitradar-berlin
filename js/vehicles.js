@@ -162,7 +162,7 @@ export async function updateVehicles() {
         return;
     }
 
-    if (now - vehicleState.lastUpdate < 1000) {
+    if (now - vehicleState.lastUpdate < 15000) {
         return;
     }
 
