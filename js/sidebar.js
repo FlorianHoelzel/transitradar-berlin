@@ -1,7 +1,7 @@
 export function setupSidebar() {
     const sidebarToggle = document.createElement("button");
     sidebarToggle.id = "sidebarToggle";
-    sidebarToggle.className = "sidebar-toggle";
+    sidebarToggle.className = "sidebar-toggle liquid-button";
     sidebarToggle.type = "button";
     sidebarToggle.innerHTML = "☰";
 
@@ -11,7 +11,7 @@ export function setupSidebar() {
 
     const sidebar = document.createElement("aside");
     sidebar.id = "sidebar";
-    sidebar.className = "sidebar";
+    sidebar.className = "sidebar liquid-glass";
 
     sidebar.innerHTML = `
         <div class="sidebar-header">
@@ -20,10 +20,13 @@ export function setupSidebar() {
                 <h2>Menu</h2>
             </div>
 
-            <button id="sidebarClose" class="sidebar-close" type="button">×</button>
+            <button id="sidebarClose" class="sidebar-close liquid-button" type="button">
+                ×
+            </button>
         </div>
 
         <nav class="sidebar-nav">
+
             <button class="sidebar-item" type="button">
                 <span class="sidebar-item-emoji">⭐</span>
                 <span>Favorites</span>
@@ -33,13 +36,21 @@ export function setupSidebar() {
                 <span class="sidebar-item-emoji">⚙️</span>
                 <span>Settings</span>
             </button>
+
         </nav>
 
         <div class="sidebar-footer">
-            <button id="aboutButton" class="sidebar-item sidebar-about" type="button">
+
+            <button
+                id="aboutButton"
+                class="sidebar-item sidebar-about"
+                type="button">
+
                 <span class="sidebar-item-emoji">ℹ️</span>
                 <span>About</span>
+
             </button>
+
         </div>
     `;
 
@@ -72,25 +83,44 @@ export function setupSidebar() {
                     </p>
                 </div>
 
-                <div class="about-card warning">
-                    <h3>⚠️ Important disclaimer</h3>
-                    <p>
-                        All information is provided without guarantee. Departures, delays, routes and live vehicle locations may be incomplete,
-                        delayed or inaccurate due to API limitations, network issues or changes in public transport operations.
-                    </p>
-                    <p>
-                        Live vehicle positions are especially not always exact. Vehicles can appear delayed, jump between positions or temporarily disappear.
-                    </p>
-                    <p>
-                        For accurate and official travel information, always check official sources such as bahn.de, bvg.de or the official BVG / VBB apps.
-                    </p>
-                </div>
+            <div class="about-card warning">
+                <h3>⚠️ Important disclaimer</h3>
+
+                <p>
+                    All information is provided without guarantee.
+                </p>
+
+                <p>
+                    Live vehicle positions are estimates based on publicly available API data and may be delayed,
+                    temporarily unavailable or inaccurate due to API limitations.
+                </p>
+
+                <p>
+                    Departures, delays, destinations, routes and stop information may change at any time and should
+                    not be considered legally binding.
+                </p>
+
+                <p>
+                    TransitRadar Berlin is an independent project and is <strong>not affiliated with BVG,
+                    VBB or Deutsche Bahn.</strong>
+                </p>
+
+                <p>
+                    For official and up-to-date travel information, always use official sources such as
+                    <strong>bvg.de</strong>, <strong>bahn.de</strong> or the official BVG / VBB apps.
+                </p>
+            </div>
 
             </div>
         </section>
     `;
 
-    document.body.append(sidebarToggle, sidebarOverlay, sidebar, aboutOverlay);
+    document.body.append(
+        sidebarToggle,
+        sidebarOverlay,
+        sidebar,
+        aboutOverlay
+    );
 
     const sidebarClose = document.getElementById("sidebarClose");
     const aboutButton = document.getElementById("aboutButton");

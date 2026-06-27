@@ -95,7 +95,10 @@ function createNewVehicleMarker(id, movement, coordinates) {
     }).addTo(map);
 
     marker.transitMovement = movement;
-    marker.bindPopup(createVehiclePopup(movement));
+
+    marker.bindPopup(createVehiclePopup(movement), {
+        closeButton: false
+    });
 
     marker.on("click", () => {
         selectLineFromMovement(marker.transitMovement);

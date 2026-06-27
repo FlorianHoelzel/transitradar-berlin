@@ -212,7 +212,9 @@ export function updateVisibleMarkers(stations) {
 
         markers[station.name] = marker;
 
-        marker.bindPopup(createPopupContent(station));
+        marker.bindPopup(createPopupContent(station), {
+            closeButton: false
+        });
 
         marker.on("popupopen", async () => {
             stopPopupRefresh();
