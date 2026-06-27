@@ -3,8 +3,11 @@ import { map, updateVisibleMarkers, stopPopupRefresh } from "./map.js";
 import { setupSearch } from "./search.js";
 import { updateVehicles } from "./vehicles.js";
 import { setupFilters } from "./filters.js";
+import { setupSidebar } from "./sidebar.js";
 
 let stations = [];
+
+setupSidebar();
 
 function getProductsFromStop(stop) {
     return stop.products || {};
