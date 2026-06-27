@@ -12,6 +12,7 @@ export function getVehicleType(movement) {
     const product = movement.line?.product || "";
 
     if (
+        product === "express" ||
         lineName.startsWith("ICE") ||
         lineName.startsWith("IC") ||
         lineName.startsWith("EC")
@@ -20,6 +21,7 @@ export function getVehicleType(movement) {
     }
 
     if (
+        product === "regional" ||
         lineName.startsWith("RE") ||
         lineName.startsWith("RB") ||
         lineName.startsWith("RJ") ||
@@ -28,12 +30,23 @@ export function getVehicleType(movement) {
         return "regional";
     }
 
-    if (lineName.startsWith("S") || product === "suburban") {
+    if (product === "suburban" || lineName.startsWith("S")) {
         return "suburban";
     }
 
-    if (lineName.startsWith("U") || product === "subway") {
+    if (product === "subway" || lineName.startsWith("U")) {
         return "subway";
+    }
+
+    if (
+        product === "bus" ||
+        product === "tram" ||
+        lineName.startsWith("M") ||
+        lineName.startsWith("X") ||
+        lineName.startsWith("N") ||
+        /^\d+$/.test(lineName)
+    ) {
+        return "surface";
     }
 
     return "surface";

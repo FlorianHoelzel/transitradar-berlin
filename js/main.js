@@ -89,7 +89,7 @@ async function loadStations() {
     setupFilters(() => {
         stopPopupRefresh();
         updateVisibleMarkers(stations);
-        updateVehicles();
+        updateVehicles(true);
     });
 }
 

@@ -148,7 +148,7 @@ function renderVehicleMovement(movement, visibleVehicleIds) {
     createNewVehicleMarker(id, movement, coordinates);
 }
 
-export async function updateVehicles() {
+export async function updateVehicles(force = false) {
     const zoom = map.getZoom();
 
     if (zoom < 14 && !vehicleState.selectedLineName) {
@@ -162,7 +162,7 @@ export async function updateVehicles() {
         return;
     }
 
-    if (now - vehicleState.lastUpdate < 15000) {
+    if (!force && now - vehicleState.lastUpdate < 15000) {
         return;
     }
 
