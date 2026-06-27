@@ -1,3 +1,5 @@
+import { createApiStatusElement, startApiStatusWatcher } from "./apiStatus.js";
+
 export function setupSidebar() {
     const sidebarToggle = document.createElement("button");
     sidebarToggle.id = "sidebarToggle";
@@ -51,6 +53,13 @@ export function setupSidebar() {
 
             </button>
 
+            <div class="sidebar-footer-divider"></div>
+
+            <div
+                id="sidebarStatusContainer"
+                class="sidebar-status-container">
+            </div>
+
         </div>
     `;
 
@@ -83,33 +92,35 @@ export function setupSidebar() {
                     </p>
                 </div>
 
-            <div class="about-card warning">
-                <h3>⚠️ Important disclaimer</h3>
+                <div class="about-card warning">
+                    <h3>⚠️ Important disclaimer</h3>
 
-                <p>
-                    All information is provided without guarantee.
-                </p>
+                    <p>
+                        All information is provided without guarantee.
+                    </p>
 
-                <p>
-                    Live vehicle positions are estimates based on publicly available API data and may be delayed,
-                    temporarily unavailable or inaccurate due to API limitations.
-                </p>
+                    <p>
+                        Live vehicle positions are estimates based on publicly available API data and may be delayed,
+                        temporarily unavailable or inaccurate due to API limitations.
+                    </p>
 
-                <p>
-                    Departures, delays, destinations, routes and stop information may change at any time and should
-                    not be considered legally binding.
-                </p>
+                    <p>
+                        Departures, delays, destinations, routes and stop information may change at any time and should
+                        not be considered legally binding.
+                    </p>
 
-                <p>
-                    TransitRadar Berlin is an independent project and is <strong>not affiliated with BVG,
-                    VBB or Deutsche Bahn.</strong>
-                </p>
+                    <p>
+                        TransitRadar Berlin is an independent project and is
+                        <strong>not affiliated with BVG, VBB or Deutsche Bahn.</strong>
+                    </p>
 
-                <p>
-                    For official and up-to-date travel information, always use official sources such as
-                    <strong>bvg.de</strong>, <strong>bahn.de</strong> or the official BVG / VBB apps.
-                </p>
-            </div>
+                    <p>
+                        For official and up-to-date travel information, always use official sources such as
+                        <strong>bvg.de</strong>,
+                        <strong>bahn.de</strong>
+                        or the official BVG / VBB apps.
+                    </p>
+                </div>
 
             </div>
         </section>
@@ -125,6 +136,10 @@ export function setupSidebar() {
     const sidebarClose = document.getElementById("sidebarClose");
     const aboutButton = document.getElementById("aboutButton");
     const aboutClose = document.getElementById("aboutClose");
+    const sidebarStatusContainer = document.getElementById("sidebarStatusContainer");
+
+    sidebarStatusContainer.append(createApiStatusElement());
+    startApiStatusWatcher();
 
     function openSidebar() {
         sidebar.classList.add("open");
