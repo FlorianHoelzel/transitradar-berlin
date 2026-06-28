@@ -1,3 +1,9 @@
+import {
+    startFavoritesRefresh,
+    stopFavoritesRefresh,
+    renderFavorites
+} from "../favorites/favoriteController.js";
+
 export function setupSidebar() {
     const sidebarToggle = document.createElement("button");
     sidebarToggle.id = "sidebarToggle";
@@ -26,8 +32,7 @@ export function setupSidebar() {
         </div>
 
         <nav class="sidebar-nav">
-
-            <button class="sidebar-item" type="button">
+            <button id="favoritesButton" class="sidebar-item" type="button">
                 <span class="sidebar-item-emoji">⭐</span>
                 <span>Favorites</span>
             </button>
@@ -36,19 +41,28 @@ export function setupSidebar() {
                 <span class="sidebar-item-emoji">⚙️</span>
                 <span>Settings</span>
             </button>
-
         </nav>
 
-        <div class="sidebar-footer">
+        <section id="favoritesPanel" class="favorites-panel">
+            <div class="favorites-panel-header">
+                <h3>Favorites</h3>
+                <span>Live departures</span>
+            </div>
 
+            <div id="favoritesListWrapper" class="favorites-list-wrapper">
+                <div id="favoritesList" class="favorites-list"></div>
+            </div>
+        </section>
+
+        <div class="sidebar-footer">
             <button
                 id="aboutButton"
                 class="sidebar-item sidebar-about"
-                type="button">
-
+                type="button"
+            >
                 <span class="sidebar-item-emoji">ℹ️</span>
                 <span>About</span>
-
+            </button>
         </div>
     `;
 
@@ -84,9 +98,7 @@ export function setupSidebar() {
                 <div class="about-card warning">
                     <h3>⚠️ Important disclaimer</h3>
 
-                    <p>
-                        All information is provided without guarantee.
-                    </p>
+                    <p>All information is provided without guarantee.</p>
 
                     <p>
                         Live vehicle positions are estimates based on publicly available API data and may be delayed,
@@ -110,7 +122,6 @@ export function setupSidebar() {
                         or the official BVG / VBB apps.
                     </p>
                 </div>
-
             </div>
         </section>
     `;
@@ -123,8 +134,24 @@ export function setupSidebar() {
     );
 
     const sidebarClose = document.getElementById("sidebarClose");
+    const favoritesButton = document.getElementById("favoritesButton");
+    const favoritesPanel = document.getElementById("favoritesPanel");
+    const favoritesList = document.getElementById("favoritesList");
+    const favoritesListWrapper = document.getElementById("favoritesListWrapper");
     const aboutButton = document.getElementById("aboutButton");
     const aboutClose = document.getElementById("aboutClose");
+
+    function updateFavoritesFade() {
+        if (!favoritesList || !favoritesListWrapper) {
+            return;
+        }
+
+        const canScroll = favoritesList.scrollHeight > favoritesList.clientHeight;
+        const atBottom =
+            favoritesList.scrollTop + favoritesList.clientHeight >= favoritesList.scrollHeight - 2;
+
+        favoritesList.classList.toggle("has-fade", canScroll && !atBottom);
+    }
 
     function openSidebar() {
         sidebar.classList.add("open");
@@ -136,6 +163,24 @@ export function setupSidebar() {
         sidebar.classList.remove("open");
         sidebarOverlay.classList.remove("open");
         sidebarToggle.classList.remove("hidden");
+
+        closeFavorites();
+    }
+
+    async function openFavorites() {
+        favoritesPanel.classList.add("open");
+
+        await renderFavorites();
+        updateFavoritesFade();
+
+        startFavoritesRefresh();
+
+        setTimeout(updateFavoritesFade, 50);
+    }
+
+    function closeFavorites() {
+        favoritesPanel.classList.remove("open");
+        stopFavoritesRefresh();
     }
 
     function openAbout() {
@@ -149,6 +194,13 @@ export function setupSidebar() {
     sidebarToggle.addEventListener("click", openSidebar);
     sidebarClose.addEventListener("click", closeSidebar);
     sidebarOverlay.addEventListener("click", closeSidebar);
+
+    favoritesButton.addEventListener("click", openFavorites);
+
+    favoritesList?.addEventListener("scroll", updateFavoritesFade);
+    window.addEventListener("favoritesChanged", () => {
+        setTimeout(updateFavoritesFade, 50);
+    });
 
     aboutButton.addEventListener("click", openAbout);
     aboutClose.addEventListener("click", closeAbout);

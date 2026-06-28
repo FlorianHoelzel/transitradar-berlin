@@ -1,4 +1,5 @@
 import { createLineBadge } from "../lines/badges.js";
+import { isFavoriteStation } from "../favorites/favoriteService.js";
 
 function createSkeletonHtml() {
     return `
@@ -66,9 +67,22 @@ function createTimeHtml(departure) {
 }
 
 export function createPopupContent(station, content = createSkeletonHtml()) {
+    const favoriteIcon = isFavoriteStation(station) ? "★" : "☆";
+
     return `
         <div class="station-popup">
-            <div class="station-title">${station.name}</div>
+            <div class="station-popup-header">
+                <div class="station-title">${station.name}</div>
+
+                <button
+                    class="station-favorite-button"
+                    type="button"
+                    title="Toggle favorite"
+                >
+                    ${favoriteIcon}
+                </button>
+            </div>
+
             <div class="station-divider"></div>
 
             <div class="departures-wrapper station-departures-wrapper">
@@ -82,14 +96,14 @@ export function createPopupContent(station, content = createSkeletonHtml()) {
 
 export function createDeparturesHtml(departures) {
     if (departures.length === 0) {
-        return "<div class='empty-departures'>Keine Abfahrten gefunden.</div>";
+        return "<div class='empty-departures'>No departures found.</div>";
     }
 
     return departures.map(departure => {
         const lineName = departure.line?.name || "";
         const tripId = departure.tripId || "";
         const line = createLineBadge(lineName);
-        const direction = departure.direction || "Unbekannt";
+        const direction = departure.direction || "Unknown direction";
         const timeHtml = createTimeHtml(departure);
 
         return `
