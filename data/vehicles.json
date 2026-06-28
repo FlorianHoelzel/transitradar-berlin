@@ -1,193 +1,2453 @@
 [
     {
-        "tripId": "mock-u2-001",
+        "tripId": "mock-u1-1",
+        "direction": "Warschauer Straße",
+        "line": {
+            "name": "U1",
+            "product": "subway"
+        },
+        "location": {
+            "longitude": 13.32785,
+            "latitude": 52.4992
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Uhlandstraße"
+                },
+                "arrival": "2026-06-28T19:56:52.966Z"
+            },
+            {
+                "stop": {
+                    "name": "Wittenbergplatz"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Gleisdreieck"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Kottbusser Tor"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-u1-2",
+        "direction": "Warschauer Straße",
+        "line": {
+            "name": "U1",
+            "product": "subway"
+        },
+        "location": {
+            "longitude": 13.359644,
+            "latitude": 52.498498000000005
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Wittenbergplatz"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Gleisdreieck"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Kottbusser Tor"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Warschauer Straße"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-u1-3",
+        "direction": "Warschauer Straße",
+        "line": {
+            "name": "U1",
+            "product": "subway"
+        },
+        "location": {
+            "longitude": 13.404347,
+            "latitude": 52.499364
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Gleisdreieck"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Kottbusser Tor"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Warschauer Straße"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-u2-1",
         "direction": "Pankow",
         "line": {
             "name": "U2",
             "product": "subway"
         },
         "location": {
-            "latitude": 52.5163,
-            "longitude": 13.3777
+            "longitude": 13.26445,
+            "latitude": 52.521675
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Ruhleben"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Zoo"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Potsdamer Platz"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Stadtmitte"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-u2-2",
+        "direction": "Pankow",
+        "line": {
+            "name": "U2",
+            "product": "subway"
+        },
+        "location": {
+            "longitude": 13.336269999999999,
+            "latitude": 52.5096
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Zoo"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Potsdamer Platz"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Stadtmitte"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Alexanderplatz"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-u2-3",
+        "direction": "Pankow",
+        "line": {
+            "name": "U2",
+            "product": "subway"
+        },
+        "location": {
+            "longitude": 13.384437,
+            "latitude": 52.511252
         },
         "nextStopovers": [
             {
                 "stop": {
                     "name": "Potsdamer Platz"
                 },
-                "arrival": "2026-06-28T21:45:00+02:00"
+                "arrival": "2026-06-28T19:56:52.967Z"
             },
             {
                 "stop": {
                     "name": "Stadtmitte"
                 },
-                "arrival": "2026-06-28T21:48:00+02:00"
+                "arrival": "2026-06-28T20:00:52.967Z"
             },
             {
                 "stop": {
                     "name": "Alexanderplatz"
                 },
-                "arrival": "2026-06-28T21:53:00+02:00"
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Pankow"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
             }
         ]
     },
     {
-        "tripId": "mock-u8-001",
+        "tripId": "mock-u2-4",
+        "direction": "Pankow",
+        "line": {
+            "name": "U2",
+            "product": "subway"
+        },
+        "location": {
+            "longitude": 13.407703999999999,
+            "latitude": 52.51962
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Stadtmitte"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Alexanderplatz"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Pankow"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-u5-1",
+        "direction": "Hönow",
+        "line": {
+            "name": "U5",
+            "product": "subway"
+        },
+        "location": {
+            "longitude": 13.373775,
+            "latitude": 52.523825
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Hauptbahnhof"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Brandenburger Tor"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Alexanderplatz"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Frankfurter Tor"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-u5-2",
+        "direction": "Hönow",
+        "line": {
+            "name": "U5",
+            "product": "subway"
+        },
+        "location": {
+            "longitude": 13.397946000000001,
+            "latitude": 52.520798000000006
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Brandenburger Tor"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Alexanderplatz"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Frankfurter Tor"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Lichtenberg"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-u5-3",
+        "direction": "Hönow",
+        "line": {
+            "name": "U5",
+            "product": "subway"
+        },
+        "location": {
+            "longitude": 13.424114999999999,
+            "latitude": 52.514879
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Alexanderplatz"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Frankfurter Tor"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Lichtenberg"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Hönow"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-u5-4",
+        "direction": "Hönow",
+        "line": {
+            "name": "U5",
+            "product": "subway"
+        },
+        "location": {
+            "longitude": 13.493260000000001,
+            "latitude": 52.499435999999996
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Frankfurter Tor"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Lichtenberg"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Hönow"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-u7-1",
+        "direction": "Rudow",
+        "line": {
+            "name": "U7",
+            "product": "subway"
+        },
+        "location": {
+            "longitude": 13.302125,
+            "latitude": 52.552899999999994
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Rathaus Spandau"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Bismarckstraße"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Yorckstraße"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Hermannplatz"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-u7-2",
+        "direction": "Rudow",
+        "line": {
+            "name": "U7",
+            "product": "subway"
+        },
+        "location": {
+            "longitude": 13.333826,
+            "latitude": 52.505242
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Bismarckstraße"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Yorckstraße"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Hermannplatz"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Rudow"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-u7-3",
+        "direction": "Rudow",
+        "line": {
+            "name": "U7",
+            "product": "subway"
+        },
+        "location": {
+            "longitude": 13.387127,
+            "latitude": 52.498134
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Yorckstraße"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Hermannplatz"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Rudow"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-u7-4",
+        "direction": "Rudow",
+        "line": {
+            "name": "U7",
+            "product": "subway"
+        },
+        "location": {
+            "longitude": 13.440572,
+            "latitude": 52.474728
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Hermannplatz"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Rudow"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-u8-1",
         "direction": "Hermannstraße",
         "line": {
             "name": "U8",
             "product": "subway"
         },
         "location": {
-            "latitude": 52.5266,
-            "longitude": 13.4028
+            "longitude": 13.392299999999999,
+            "latitude": 52.530425
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Rosenthaler Platz"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Alexanderplatz"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Jannowitzbrücke"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Kottbusser Tor"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-u8-2",
+        "direction": "Hermannstraße",
+        "line": {
+            "name": "U8",
+            "product": "subway"
+        },
+        "location": {
+            "longitude": 13.409436,
+            "latitude": 52.521854000000005
         },
         "nextStopovers": [
             {
                 "stop": {
                     "name": "Alexanderplatz"
                 },
-                "arrival": "2026-06-28T21:44:00+02:00"
+                "arrival": "2026-06-28T19:56:52.967Z"
             },
             {
                 "stop": {
                     "name": "Jannowitzbrücke"
                 },
-                "arrival": "2026-06-28T21:47:00+02:00"
+                "arrival": "2026-06-28T20:00:52.967Z"
             },
             {
                 "stop": {
                     "name": "Kottbusser Tor"
                 },
-                "arrival": "2026-06-28T21:52:00+02:00"
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Hermannstraße"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
             }
         ]
     },
     {
-        "tripId": "mock-s41-001",
-        "direction": "Ringbahn clockwise",
+        "tripId": "mock-u8-3",
+        "direction": "Hermannstraße",
         "line": {
-            "name": "S41",
-            "product": "suburban"
+            "name": "U8",
+            "product": "subway"
         },
         "location": {
-            "latitude": 52.5103,
-            "longitude": 13.4357
+            "longitude": 13.418246,
+            "latitude": 52.505801000000005
         },
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Ostkreuz"
+                    "name": "Jannowitzbrücke"
                 },
-                "arrival": "2026-06-28T21:46:00+02:00"
+                "arrival": "2026-06-28T19:56:52.967Z"
             },
             {
                 "stop": {
-                    "name": "Frankfurter Allee"
+                    "name": "Kottbusser Tor"
                 },
-                "arrival": "2026-06-28T21:49:00+02:00"
+                "arrival": "2026-06-28T20:00:52.967Z"
             },
             {
                 "stop": {
-                    "name": "Greifswalder Straße"
+                    "name": "Hermannstraße"
                 },
-                "arrival": "2026-06-28T21:55:00+02:00"
+                "arrival": "2026-06-28T20:04:52.967Z"
             }
         ]
     },
     {
-        "tripId": "mock-m10-001",
-        "direction": "Warschauer Straße",
+        "tripId": "mock-u8-4",
+        "direction": "Hermannstraße",
         "line": {
-            "name": "M10",
-            "product": "tram"
+            "name": "U8",
+            "product": "subway"
         },
         "location": {
-            "latitude": 52.5321,
-            "longitude": 13.3972
+            "longitude": 13.423016,
+            "latitude": 52.489624
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Kottbusser Tor"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Hermannstraße"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s1-1",
+        "direction": "Wannsee",
+        "line": {
+            "name": "S1",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.3888,
+            "latitude": 52.544375
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Gesundbrunnen"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Nordbahnhof"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Hauptbahnhof"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Wannsee"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s1-2",
+        "direction": "Wannsee",
+        "line": {
+            "name": "S1",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.380652,
+            "latitude": 52.528928
         },
         "nextStopovers": [
             {
                 "stop": {
                     "name": "Nordbahnhof"
                 },
-                "arrival": "2026-06-28T21:43:00+02:00"
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Hauptbahnhof"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Wannsee"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Potsdam"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s1-3",
+        "direction": "Wannsee",
+        "line": {
+            "name": "S1",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.347334,
+            "latitude": 52.514539
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Hauptbahnhof"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Wannsee"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Potsdam"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s1-4",
+        "direction": "Wannsee",
+        "line": {
+            "name": "S1",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.2161,
+            "latitude": 52.441688
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Wannsee"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Potsdam"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s3-1",
+        "direction": "Erkner",
+        "line": {
+            "name": "S3",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.34135,
+            "latitude": 52.511675
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Westkreuz"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Hauptbahnhof"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Ostbahnhof"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Ostkreuz"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s3-2",
+        "direction": "Erkner",
+        "line": {
+            "name": "S3",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.395566,
+            "latitude": 52.518758
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Hauptbahnhof"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Ostbahnhof"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Ostkreuz"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Erkner"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s3-3",
+        "direction": "Erkner",
+        "line": {
+            "name": "S3",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.45412,
+            "latitude": 52.50528
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Ostbahnhof"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Ostkreuz"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Erkner"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s3-4",
+        "direction": "Erkner",
+        "line": {
+            "name": "S3",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.684248,
+            "latitude": 52.43968
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Ostkreuz"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Erkner"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s7-1",
+        "direction": "Ahrensfelde",
+        "line": {
+            "name": "S7",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.1325,
+            "latitude": 52.420049999999996
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Potsdam Hbf"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Westkreuz"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Hauptbahnhof"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Alexanderplatz"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s7-2",
+        "direction": "Ahrensfelde",
+        "line": {
+            "name": "S7",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.347708,
+            "latitude": 52.514718
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Westkreuz"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Hauptbahnhof"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Alexanderplatz"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Ahrensfelde"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s7-3",
+        "direction": "Ahrensfelde",
+        "line": {
+            "name": "S7",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.395242,
+            "latitude": 52.523212
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Hauptbahnhof"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Alexanderplatz"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Ahrensfelde"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s7-4",
+        "direction": "Ahrensfelde",
+        "line": {
+            "name": "S7",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.528568,
+            "latitude": 52.559216
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Alexanderplatz"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Ahrensfelde"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s7-5",
+        "direction": "Ahrensfelde",
+        "line": {
+            "name": "S7",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.153780000000001,
+            "latitude": 52.429345999999995
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Potsdam Hbf"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Westkreuz"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Hauptbahnhof"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Alexanderplatz"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s41-1",
+        "direction": "Ring clockwise",
+        "line": {
+            "name": "S41",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.445400000000001,
+            "latitude": 52.508225
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Ostkreuz"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Treptower Park"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Greifswalder Straße"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Wedding"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s41-2",
+        "direction": "Ring clockwise",
+        "line": {
+            "name": "S41",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.472484,
+            "latitude": 52.522034000000005
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Treptower Park"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Greifswalder Straße"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Wedding"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Westkreuz"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s41-3",
+        "direction": "Ring clockwise",
+        "line": {
+            "name": "S41",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.422028,
+            "latitude": 52.549051
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Greifswalder Straße"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Wedding"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Westkreuz"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Ostkreuz"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s41-4",
+        "direction": "Ring clockwise",
+        "line": {
+            "name": "S41",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.345656,
+            "latitude": 52.517136
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Wedding"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Westkreuz"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Ostkreuz"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s41-5",
+        "direction": "Ring clockwise",
+        "line": {
+            "name": "S41",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.366221000000001,
+            "latitude": 52.508223
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Westkreuz"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Ostkreuz"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s41-6",
+        "direction": "Ring clockwise",
+        "line": {
+            "name": "S41",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.455100000000002,
+            "latitude": 52.50615
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Ostkreuz"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Treptower Park"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Greifswalder Straße"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Wedding"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s42-1",
+        "direction": "Ring counterclockwise",
+        "line": {
+            "name": "S42",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.346225,
+            "latitude": 52.51755
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Westkreuz"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Wedding"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Greifswalder Straße"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Treptower Park"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s42-2",
+        "direction": "Ring counterclockwise",
+        "line": {
+            "name": "S42",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.422836,
+            "latitude": 52.549062
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Wedding"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Greifswalder Straße"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Treptower Park"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Ostkreuz"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s42-3",
+        "direction": "Ring counterclockwise",
+        "line": {
+            "name": "S42",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.472532000000001,
+            "latitude": 52.521557
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Greifswalder Straße"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Treptower Park"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Ostkreuz"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Westkreuz"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s42-4",
+        "direction": "Ring counterclockwise",
+        "line": {
+            "name": "S42",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.445012,
+            "latitude": 52.508308
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Treptower Park"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Ostkreuz"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Westkreuz"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s42-5",
+        "direction": "Ring counterclockwise",
+        "line": {
+            "name": "S42",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.401479,
+            "latitude": 52.509277
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Ostkreuz"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Westkreuz"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s42-6",
+        "direction": "Ring counterclockwise",
+        "line": {
+            "name": "S42",
+            "product": "suburban"
+        },
+        "location": {
+            "longitude": 13.36045,
+            "latitude": 52.5279
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Westkreuz"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Wedding"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Greifswalder Straße"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Treptower Park"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-m4-1",
+        "direction": "Hackescher Markt",
+        "line": {
+            "name": "M4",
+            "product": "tram"
+        },
+        "location": {
+            "longitude": 13.5075,
+            "latitude": 52.56
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Hohenschönhausen"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Antonplatz"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Greifswalder Straße"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Hackescher Markt"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-m4-2",
+        "direction": "Hackescher Markt",
+        "line": {
+            "name": "M4",
+            "product": "tram"
+        },
+        "location": {
+            "longitude": 13.4532,
+            "latitude": 52.5408
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Antonplatz"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Greifswalder Straße"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Hackescher Markt"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-m4-3",
+        "direction": "Hackescher Markt",
+        "line": {
+            "name": "M4",
+            "product": "tram"
+        },
+        "location": {
+            "longitude": 13.41348,
+            "latitude": 52.52851
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Greifswalder Straße"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Hackescher Markt"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-m4-4",
+        "direction": "Hackescher Markt",
+        "line": {
+            "name": "M4",
+            "product": "tram"
+        },
+        "location": {
+            "longitude": 13.482000000000001,
+            "latitude": 52.5498
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Hohenschönhausen"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Antonplatz"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Greifswalder Straße"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Hackescher Markt"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-m10-1",
+        "direction": "Warschauer Straße",
+        "line": {
+            "name": "M10",
+            "product": "tram"
+        },
+        "location": {
+            "longitude": 13.37425,
+            "latitude": 52.52675
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Hauptbahnhof"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Nordbahnhof"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Naturkundemuseum"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
             },
             {
                 "stop": {
                     "name": "Eberswalder Straße"
                 },
-                "arrival": "2026-06-28T21:49:00+02:00"
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-m10-2",
+        "direction": "Warschauer Straße",
+        "line": {
+            "name": "M10",
+            "product": "tram"
+        },
+        "location": {
+            "longitude": 13.392328,
+            "latitude": 52.531868
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Nordbahnhof"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Naturkundemuseum"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Eberswalder Straße"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
             },
             {
                 "stop": {
                     "name": "Warschauer Straße"
                 },
-                "arrival": "2026-06-28T22:02:00+02:00"
+                "arrival": "2026-06-28T20:08:52.967Z"
             }
         ]
     },
     {
-        "tripId": "mock-bus-100-001",
+        "tripId": "mock-m10-3",
+        "direction": "Warschauer Straße",
+        "line": {
+            "name": "M10",
+            "product": "tram"
+        },
+        "location": {
+            "longitude": 13.406286,
+            "latitude": 52.53741
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Naturkundemuseum"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Eberswalder Straße"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Warschauer Straße"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-m10-4",
+        "direction": "Warschauer Straße",
+        "line": {
+            "name": "M10",
+            "product": "tram"
+        },
+        "location": {
+            "longitude": 13.442772,
+            "latitude": 52.513664
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Eberswalder Straße"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Warschauer Straße"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-m10-5",
+        "direction": "Warschauer Straße",
+        "line": {
+            "name": "M10",
+            "product": "tram"
+        },
+        "location": {
+            "longitude": 13.375802,
+            "latitude": 52.527278
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Hauptbahnhof"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Nordbahnhof"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Naturkundemuseum"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Eberswalder Straße"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-bus100-1",
         "direction": "Alexanderplatz",
         "line": {
             "name": "100",
             "product": "bus"
         },
         "location": {
-            "latitude": 52.5186,
-            "longitude": 13.3762
+            "longitude": 13.356625,
+            "latitude": 52.509525000000004
         },
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Reichstag/Bundestag"
+                    "name": "Zoo"
                 },
-                "arrival": "2026-06-28T21:42:00+02:00"
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Reichstag"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
             },
             {
                 "stop": {
                     "name": "Unter den Linden"
                 },
-                "arrival": "2026-06-28T21:47:00+02:00"
+                "arrival": "2026-06-28T20:04:52.967Z"
             },
             {
                 "stop": {
                     "name": "Alexanderplatz"
                 },
-                "arrival": "2026-06-28T21:56:00+02:00"
+                "arrival": "2026-06-28T20:08:52.967Z"
             }
         ]
     },
     {
-        "tripId": "mock-re1-001",
+        "tripId": "mock-bus100-2",
+        "direction": "Alexanderplatz",
+        "line": {
+            "name": "100",
+            "product": "bus"
+        },
+        "location": {
+            "longitude": 13.381534,
+            "latitude": 52.517928
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Reichstag"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Unter den Linden"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Alexanderplatz"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-bus100-3",
+        "direction": "Alexanderplatz",
+        "line": {
+            "name": "100",
+            "product": "bus"
+        },
+        "location": {
+            "longitude": 13.403236999999999,
+            "latitude": 52.519891
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Unter den Linden"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Alexanderplatz"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-bus100-4",
+        "direction": "Alexanderplatz",
+        "line": {
+            "name": "100",
+            "product": "bus"
+        },
+        "location": {
+            "longitude": 13.369936000000001,
+            "latitude": 52.515696
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Zoo"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Reichstag"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Unter den Linden"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Alexanderplatz"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-bus200-1",
+        "direction": "Michelangelostraße",
+        "line": {
+            "name": "200",
+            "product": "bus"
+        },
+        "location": {
+            "longitude": 13.356575,
+            "latitude": 52.507275
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Zoo"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Potsdamer Platz"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Alexanderplatz"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Michelangelostraße"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-bus200-2",
+        "direction": "Michelangelostraße",
+        "line": {
+            "name": "200",
+            "product": "bus"
+        },
+        "location": {
+            "longitude": 13.391624,
+            "latitude": 52.514766
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Potsdamer Platz"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Alexanderplatz"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Michelangelostraße"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-bus200-3",
+        "direction": "Michelangelostraße",
+        "line": {
+            "name": "200",
+            "product": "bus"
+        },
+        "location": {
+            "longitude": 13.434911999999999,
+            "latitude": 52.529629
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Alexanderplatz"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Michelangelostraße"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-bus200-4",
+        "direction": "Michelangelostraße",
+        "line": {
+            "name": "200",
+            "product": "bus"
+        },
+        "location": {
+            "longitude": 13.369784,
+            "latitude": 52.508856
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Zoo"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Potsdamer Platz"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Alexanderplatz"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Michelangelostraße"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-m41-1",
+        "direction": "Sonnenallee",
+        "line": {
+            "name": "M41",
+            "product": "bus"
+        },
+        "location": {
+            "longitude": 13.374625,
+            "latitude": 52.521925
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Hauptbahnhof"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Potsdamer Platz"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Hermannplatz"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Sonnenallee"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-m41-2",
+        "direction": "Sonnenallee",
+        "line": {
+            "name": "M41",
+            "product": "bus"
+        },
+        "location": {
+            "longitude": 13.401933999999999,
+            "latitude": 52.506856
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Potsdamer Platz"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Hermannplatz"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Sonnenallee"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-m41-3",
+        "direction": "Sonnenallee",
+        "line": {
+            "name": "M41",
+            "product": "bus"
+        },
+        "location": {
+            "longitude": 13.43747,
+            "latitude": 52.482562
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Hermannplatz"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Sonnenallee"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-m41-4",
+        "direction": "Sonnenallee",
+        "line": {
+            "name": "M41",
+            "product": "bus"
+        },
+        "location": {
+            "longitude": 13.385284,
+            "latitude": 52.515448
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Hauptbahnhof"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Potsdamer Platz"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Hermannplatz"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Sonnenallee"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-re1-1",
         "direction": "Frankfurt (Oder)",
         "line": {
             "name": "RE1",
             "product": "regional"
         },
         "location": {
-            "latitude": 52.5251,
-            "longitude": 13.3694
+            "longitude": 13.1325,
+            "latitude": 52.420049999999996
         },
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Berlin Hauptbahnhof"
+                    "name": "Potsdam Hbf"
                 },
-                "arrival": "2026-06-28T21:40:00+02:00"
+                "arrival": "2026-06-28T19:56:52.967Z"
             },
             {
                 "stop": {
-                    "name": "Berlin Friedrichstraße"
+                    "name": "Wannsee"
                 },
-                "arrival": "2026-06-28T21:43:00+02:00"
+                "arrival": "2026-06-28T20:00:52.967Z"
             },
             {
                 "stop": {
-                    "name": "Berlin Ostbahnhof"
+                    "name": "Hauptbahnhof"
                 },
-                "arrival": "2026-06-28T21:51:00+02:00"
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Friedrichstraße"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-re1-2",
+        "direction": "Frankfurt (Oder)",
+        "line": {
+            "name": "RE1",
+            "product": "regional"
+        },
+        "location": {
+            "longitude": 13.347708,
+            "latitude": 52.514718
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Wannsee"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Hauptbahnhof"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Friedrichstraße"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Ostbahnhof"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-re1-3",
+        "direction": "Frankfurt (Oder)",
+        "line": {
+            "name": "RE1",
+            "product": "regional"
+        },
+        "location": {
+            "longitude": 13.379725,
+            "latitude": 52.522091
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Hauptbahnhof"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Friedrichstraße"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Ostbahnhof"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-re7-1",
+        "direction": "Dessau",
+        "line": {
+            "name": "RE7",
+            "product": "regional"
+        },
+        "location": {
+            "longitude": 13.4205,
+            "latitude": 52.5125
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Ostbahnhof"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Friedrichstraße"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Hauptbahnhof"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Wannsee"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-re7-2",
+        "direction": "Dessau",
+        "line": {
+            "name": "RE7",
+            "product": "regional"
+        },
+        "location": {
+            "longitude": 13.37955,
+            "latitude": 52.522142
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Friedrichstraße"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Hauptbahnhof"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Wannsee"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Potsdam Hbf"
+                },
+                "arrival": "2026-06-28T20:08:52.967Z"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-re7-3",
+        "direction": "Dessau",
+        "line": {
+            "name": "RE7",
+            "product": "regional"
+        },
+        "location": {
+            "longitude": 13.347334,
+            "latitude": 52.514539
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Hauptbahnhof"
+                },
+                "arrival": "2026-06-28T19:56:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Wannsee"
+                },
+                "arrival": "2026-06-28T20:00:52.967Z"
+            },
+            {
+                "stop": {
+                    "name": "Potsdam Hbf"
+                },
+                "arrival": "2026-06-28T20:04:52.967Z"
             }
         ]
     }

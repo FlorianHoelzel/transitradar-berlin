@@ -1,6 +1,129 @@
 {
-    "mock-u2-001": {
-        "id": "mock-u2-001",
+    "mock-u1-1": {
+        "id": "mock-u1-1",
+        "direction": "Warschauer Straße",
+        "line": {
+            "name": "U1",
+            "product": "subway"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3233,
+                                52.4997
+                            ],
+                            [
+                                13.3415,
+                                52.4977
+                            ],
+                            [
+                                13.3847,
+                                52.4996
+                            ],
+                            [
+                                13.418,
+                                52.4992
+                            ],
+                            [
+                                13.4523,
+                                52.505
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-u1-2": {
+        "id": "mock-u1-2",
+        "direction": "Warschauer Straße",
+        "line": {
+            "name": "U1",
+            "product": "subway"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3233,
+                                52.4997
+                            ],
+                            [
+                                13.3415,
+                                52.4977
+                            ],
+                            [
+                                13.3847,
+                                52.4996
+                            ],
+                            [
+                                13.418,
+                                52.4992
+                            ],
+                            [
+                                13.4523,
+                                52.505
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-u1-3": {
+        "id": "mock-u1-3",
+        "direction": "Warschauer Straße",
+        "line": {
+            "name": "U1",
+            "product": "subway"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3233,
+                                52.4997
+                            ],
+                            [
+                                13.3415,
+                                52.4977
+                            ],
+                            [
+                                13.3847,
+                                52.4996
+                            ],
+                            [
+                                13.418,
+                                52.4992
+                            ],
+                            [
+                                13.4523,
+                                52.505
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-u2-1": {
+        "id": "mock-u2-1",
         "direction": "Pankow",
         "line": {
             "name": "U2",
@@ -14,19 +137,517 @@
                     "geometry": {
                         "type": "LineString",
                         "coordinates": [
-                            [13.3760, 52.5096],
-                            [13.3777, 52.5163],
-                            [13.3903, 52.5124],
-                            [13.4132, 52.5219],
-                            [13.4127, 52.5321]
+                            [
+                                13.2501,
+                                52.5257
+                            ],
+                            [
+                                13.3075,
+                                52.5096
+                            ],
+                            [
+                                13.376,
+                                52.5096
+                            ],
+                            [
+                                13.3903,
+                                52.5124
+                            ],
+                            [
+                                13.4132,
+                                52.5219
+                            ],
+                            [
+                                13.4127,
+                                52.5321
+                            ]
                         ]
                     }
                 }
             ]
         }
     },
-    "mock-u8-001": {
-        "id": "mock-u8-001",
+    "mock-u2-2": {
+        "id": "mock-u2-2",
+        "direction": "Pankow",
+        "line": {
+            "name": "U2",
+            "product": "subway"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.2501,
+                                52.5257
+                            ],
+                            [
+                                13.3075,
+                                52.5096
+                            ],
+                            [
+                                13.376,
+                                52.5096
+                            ],
+                            [
+                                13.3903,
+                                52.5124
+                            ],
+                            [
+                                13.4132,
+                                52.5219
+                            ],
+                            [
+                                13.4127,
+                                52.5321
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-u2-3": {
+        "id": "mock-u2-3",
+        "direction": "Pankow",
+        "line": {
+            "name": "U2",
+            "product": "subway"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.2501,
+                                52.5257
+                            ],
+                            [
+                                13.3075,
+                                52.5096
+                            ],
+                            [
+                                13.376,
+                                52.5096
+                            ],
+                            [
+                                13.3903,
+                                52.5124
+                            ],
+                            [
+                                13.4132,
+                                52.5219
+                            ],
+                            [
+                                13.4127,
+                                52.5321
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-u2-4": {
+        "id": "mock-u2-4",
+        "direction": "Pankow",
+        "line": {
+            "name": "U2",
+            "product": "subway"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.2501,
+                                52.5257
+                            ],
+                            [
+                                13.3075,
+                                52.5096
+                            ],
+                            [
+                                13.376,
+                                52.5096
+                            ],
+                            [
+                                13.3903,
+                                52.5124
+                            ],
+                            [
+                                13.4132,
+                                52.5219
+                            ],
+                            [
+                                13.4127,
+                                52.5321
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-u5-1": {
+        "id": "mock-u5-1",
+        "direction": "Hönow",
+        "line": {
+            "name": "U5",
+            "product": "subway"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.3869,
+                                52.52
+                            ],
+                            [
+                                13.4132,
+                                52.5219
+                            ],
+                            [
+                                13.4317,
+                                52.51
+                            ],
+                            [
+                                13.5127,
+                                52.4961
+                            ],
+                            [
+                                13.6336,
+                                52.538
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-u5-2": {
+        "id": "mock-u5-2",
+        "direction": "Hönow",
+        "line": {
+            "name": "U5",
+            "product": "subway"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.3869,
+                                52.52
+                            ],
+                            [
+                                13.4132,
+                                52.5219
+                            ],
+                            [
+                                13.4317,
+                                52.51
+                            ],
+                            [
+                                13.5127,
+                                52.4961
+                            ],
+                            [
+                                13.6336,
+                                52.538
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-u5-3": {
+        "id": "mock-u5-3",
+        "direction": "Hönow",
+        "line": {
+            "name": "U5",
+            "product": "subway"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.3869,
+                                52.52
+                            ],
+                            [
+                                13.4132,
+                                52.5219
+                            ],
+                            [
+                                13.4317,
+                                52.51
+                            ],
+                            [
+                                13.5127,
+                                52.4961
+                            ],
+                            [
+                                13.6336,
+                                52.538
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-u5-4": {
+        "id": "mock-u5-4",
+        "direction": "Hönow",
+        "line": {
+            "name": "U5",
+            "product": "subway"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.3869,
+                                52.52
+                            ],
+                            [
+                                13.4132,
+                                52.5219
+                            ],
+                            [
+                                13.4317,
+                                52.51
+                            ],
+                            [
+                                13.5127,
+                                52.4961
+                            ],
+                            [
+                                13.6336,
+                                52.538
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-u7-1": {
+        "id": "mock-u7-1",
+        "direction": "Rudow",
+        "line": {
+            "name": "U7",
+            "product": "subway"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.2937,
+                                52.5667
+                            ],
+                            [
+                                13.3274,
+                                52.5115
+                            ],
+                            [
+                                13.3427,
+                                52.4966
+                            ],
+                            [
+                                13.418,
+                                52.4992
+                            ],
+                            [
+                                13.4477,
+                                52.467
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-u7-2": {
+        "id": "mock-u7-2",
+        "direction": "Rudow",
+        "line": {
+            "name": "U7",
+            "product": "subway"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.2937,
+                                52.5667
+                            ],
+                            [
+                                13.3274,
+                                52.5115
+                            ],
+                            [
+                                13.3427,
+                                52.4966
+                            ],
+                            [
+                                13.418,
+                                52.4992
+                            ],
+                            [
+                                13.4477,
+                                52.467
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-u7-3": {
+        "id": "mock-u7-3",
+        "direction": "Rudow",
+        "line": {
+            "name": "U7",
+            "product": "subway"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.2937,
+                                52.5667
+                            ],
+                            [
+                                13.3274,
+                                52.5115
+                            ],
+                            [
+                                13.3427,
+                                52.4966
+                            ],
+                            [
+                                13.418,
+                                52.4992
+                            ],
+                            [
+                                13.4477,
+                                52.467
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-u7-4": {
+        "id": "mock-u7-4",
+        "direction": "Rudow",
+        "line": {
+            "name": "U7",
+            "product": "subway"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.2937,
+                                52.5667
+                            ],
+                            [
+                                13.3274,
+                                52.5115
+                            ],
+                            [
+                                13.3427,
+                                52.4966
+                            ],
+                            [
+                                13.418,
+                                52.4992
+                            ],
+                            [
+                                13.4477,
+                                52.467
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-u8-1": {
+        "id": "mock-u8-1",
         "direction": "Hermannstraße",
         "line": {
             "name": "U8",
@@ -40,19 +661,691 @@
                     "geometry": {
                         "type": "LineString",
                         "coordinates": [
-                            [13.4028, 52.5266],
-                            [13.4186, 52.5153],
-                            [13.4180, 52.4992],
-                            [13.4246, 52.4866]
+                            [
+                                13.3888,
+                                52.5317
+                            ],
+                            [
+                                13.4028,
+                                52.5266
+                            ],
+                            [
+                                13.4186,
+                                52.5153
+                            ],
+                            [
+                                13.418,
+                                52.4992
+                            ],
+                            [
+                                13.4246,
+                                52.4866
+                            ]
                         ]
                     }
                 }
             ]
         }
     },
-    "mock-s41-001": {
-        "id": "mock-s41-001",
-        "direction": "Ringbahn clockwise",
+    "mock-u8-2": {
+        "id": "mock-u8-2",
+        "direction": "Hermannstraße",
+        "line": {
+            "name": "U8",
+            "product": "subway"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3888,
+                                52.5317
+                            ],
+                            [
+                                13.4028,
+                                52.5266
+                            ],
+                            [
+                                13.4186,
+                                52.5153
+                            ],
+                            [
+                                13.418,
+                                52.4992
+                            ],
+                            [
+                                13.4246,
+                                52.4866
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-u8-3": {
+        "id": "mock-u8-3",
+        "direction": "Hermannstraße",
+        "line": {
+            "name": "U8",
+            "product": "subway"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3888,
+                                52.5317
+                            ],
+                            [
+                                13.4028,
+                                52.5266
+                            ],
+                            [
+                                13.4186,
+                                52.5153
+                            ],
+                            [
+                                13.418,
+                                52.4992
+                            ],
+                            [
+                                13.4246,
+                                52.4866
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-u8-4": {
+        "id": "mock-u8-4",
+        "direction": "Hermannstraße",
+        "line": {
+            "name": "U8",
+            "product": "subway"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3888,
+                                52.5317
+                            ],
+                            [
+                                13.4028,
+                                52.5266
+                            ],
+                            [
+                                13.4186,
+                                52.5153
+                            ],
+                            [
+                                13.418,
+                                52.4992
+                            ],
+                            [
+                                13.4246,
+                                52.4866
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s1-1": {
+        "id": "mock-s1-1",
+        "direction": "Wannsee",
+        "line": {
+            "name": "S1",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3888,
+                                52.5486
+                            ],
+                            [
+                                13.3888,
+                                52.5317
+                            ],
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.1795,
+                                52.421
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s1-2": {
+        "id": "mock-s1-2",
+        "direction": "Wannsee",
+        "line": {
+            "name": "S1",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3888,
+                                52.5486
+                            ],
+                            [
+                                13.3888,
+                                52.5317
+                            ],
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.1795,
+                                52.421
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s1-3": {
+        "id": "mock-s1-3",
+        "direction": "Wannsee",
+        "line": {
+            "name": "S1",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3888,
+                                52.5486
+                            ],
+                            [
+                                13.3888,
+                                52.5317
+                            ],
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.1795,
+                                52.421
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s1-4": {
+        "id": "mock-s1-4",
+        "direction": "Wannsee",
+        "line": {
+            "name": "S1",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3888,
+                                52.5486
+                            ],
+                            [
+                                13.3888,
+                                52.5317
+                            ],
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.1795,
+                                52.421
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s3-1": {
+        "id": "mock-s3-1",
+        "direction": "Erkner",
+        "line": {
+            "name": "S3",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.4317,
+                                52.51
+                            ],
+                            [
+                                13.4697,
+                                52.502
+                            ],
+                            [
+                                13.752,
+                                52.42
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s3-2": {
+        "id": "mock-s3-2",
+        "direction": "Erkner",
+        "line": {
+            "name": "S3",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.4317,
+                                52.51
+                            ],
+                            [
+                                13.4697,
+                                52.502
+                            ],
+                            [
+                                13.752,
+                                52.42
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s3-3": {
+        "id": "mock-s3-3",
+        "direction": "Erkner",
+        "line": {
+            "name": "S3",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.4317,
+                                52.51
+                            ],
+                            [
+                                13.4697,
+                                52.502
+                            ],
+                            [
+                                13.752,
+                                52.42
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s3-4": {
+        "id": "mock-s3-4",
+        "direction": "Erkner",
+        "line": {
+            "name": "S3",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.4317,
+                                52.51
+                            ],
+                            [
+                                13.4697,
+                                52.502
+                            ],
+                            [
+                                13.752,
+                                52.42
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s7-1": {
+        "id": "mock-s7-1",
+        "direction": "Ahrensfelde",
+        "line": {
+            "name": "S7",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.066,
+                                52.391
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.4132,
+                                52.5219
+                            ],
+                            [
+                                13.565,
+                                52.571
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s7-2": {
+        "id": "mock-s7-2",
+        "direction": "Ahrensfelde",
+        "line": {
+            "name": "S7",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.066,
+                                52.391
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.4132,
+                                52.5219
+                            ],
+                            [
+                                13.565,
+                                52.571
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s7-3": {
+        "id": "mock-s7-3",
+        "direction": "Ahrensfelde",
+        "line": {
+            "name": "S7",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.066,
+                                52.391
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.4132,
+                                52.5219
+                            ],
+                            [
+                                13.565,
+                                52.571
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s7-4": {
+        "id": "mock-s7-4",
+        "direction": "Ahrensfelde",
+        "line": {
+            "name": "S7",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.066,
+                                52.391
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.4132,
+                                52.5219
+                            ],
+                            [
+                                13.565,
+                                52.571
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s7-5": {
+        "id": "mock-s7-5",
+        "direction": "Ahrensfelde",
+        "line": {
+            "name": "S7",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.066,
+                                52.391
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.4132,
+                                52.5219
+                            ],
+                            [
+                                13.565,
+                                52.571
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s41-1": {
+        "id": "mock-s41-1",
+        "direction": "Ring clockwise",
         "line": {
             "name": "S41",
             "product": "suburban"
@@ -65,19 +1358,681 @@
                     "geometry": {
                         "type": "LineString",
                         "coordinates": [
-                            [13.4357, 52.5103],
-                            [13.4745, 52.5020],
-                            [13.4697, 52.5497],
-                            [13.3889, 52.5486],
-                            [13.4357, 52.5103]
+                            [
+                                13.4357,
+                                52.5103
+                            ],
+                            [
+                                13.4745,
+                                52.502
+                            ],
+                            [
+                                13.4697,
+                                52.5497
+                            ],
+                            [
+                                13.3889,
+                                52.5486
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.4357,
+                                52.5103
+                            ]
                         ]
                     }
                 }
             ]
         }
     },
-    "mock-m10-001": {
-        "id": "mock-m10-001",
+    "mock-s41-2": {
+        "id": "mock-s41-2",
+        "direction": "Ring clockwise",
+        "line": {
+            "name": "S41",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.4357,
+                                52.5103
+                            ],
+                            [
+                                13.4745,
+                                52.502
+                            ],
+                            [
+                                13.4697,
+                                52.5497
+                            ],
+                            [
+                                13.3889,
+                                52.5486
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.4357,
+                                52.5103
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s41-3": {
+        "id": "mock-s41-3",
+        "direction": "Ring clockwise",
+        "line": {
+            "name": "S41",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.4357,
+                                52.5103
+                            ],
+                            [
+                                13.4745,
+                                52.502
+                            ],
+                            [
+                                13.4697,
+                                52.5497
+                            ],
+                            [
+                                13.3889,
+                                52.5486
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.4357,
+                                52.5103
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s41-4": {
+        "id": "mock-s41-4",
+        "direction": "Ring clockwise",
+        "line": {
+            "name": "S41",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.4357,
+                                52.5103
+                            ],
+                            [
+                                13.4745,
+                                52.502
+                            ],
+                            [
+                                13.4697,
+                                52.5497
+                            ],
+                            [
+                                13.3889,
+                                52.5486
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.4357,
+                                52.5103
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s41-5": {
+        "id": "mock-s41-5",
+        "direction": "Ring clockwise",
+        "line": {
+            "name": "S41",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.4357,
+                                52.5103
+                            ],
+                            [
+                                13.4745,
+                                52.502
+                            ],
+                            [
+                                13.4697,
+                                52.5497
+                            ],
+                            [
+                                13.3889,
+                                52.5486
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.4357,
+                                52.5103
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s41-6": {
+        "id": "mock-s41-6",
+        "direction": "Ring clockwise",
+        "line": {
+            "name": "S41",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.4357,
+                                52.5103
+                            ],
+                            [
+                                13.4745,
+                                52.502
+                            ],
+                            [
+                                13.4697,
+                                52.5497
+                            ],
+                            [
+                                13.3889,
+                                52.5486
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.4357,
+                                52.5103
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s42-1": {
+        "id": "mock-s42-1",
+        "direction": "Ring counterclockwise",
+        "line": {
+            "name": "S42",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.3889,
+                                52.5486
+                            ],
+                            [
+                                13.4697,
+                                52.5497
+                            ],
+                            [
+                                13.4745,
+                                52.502
+                            ],
+                            [
+                                13.4357,
+                                52.5103
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s42-2": {
+        "id": "mock-s42-2",
+        "direction": "Ring counterclockwise",
+        "line": {
+            "name": "S42",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.3889,
+                                52.5486
+                            ],
+                            [
+                                13.4697,
+                                52.5497
+                            ],
+                            [
+                                13.4745,
+                                52.502
+                            ],
+                            [
+                                13.4357,
+                                52.5103
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s42-3": {
+        "id": "mock-s42-3",
+        "direction": "Ring counterclockwise",
+        "line": {
+            "name": "S42",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.3889,
+                                52.5486
+                            ],
+                            [
+                                13.4697,
+                                52.5497
+                            ],
+                            [
+                                13.4745,
+                                52.502
+                            ],
+                            [
+                                13.4357,
+                                52.5103
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s42-4": {
+        "id": "mock-s42-4",
+        "direction": "Ring counterclockwise",
+        "line": {
+            "name": "S42",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.3889,
+                                52.5486
+                            ],
+                            [
+                                13.4697,
+                                52.5497
+                            ],
+                            [
+                                13.4745,
+                                52.502
+                            ],
+                            [
+                                13.4357,
+                                52.5103
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s42-5": {
+        "id": "mock-s42-5",
+        "direction": "Ring counterclockwise",
+        "line": {
+            "name": "S42",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.3889,
+                                52.5486
+                            ],
+                            [
+                                13.4697,
+                                52.5497
+                            ],
+                            [
+                                13.4745,
+                                52.502
+                            ],
+                            [
+                                13.4357,
+                                52.5103
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s42-6": {
+        "id": "mock-s42-6",
+        "direction": "Ring counterclockwise",
+        "line": {
+            "name": "S42",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.3889,
+                                52.5486
+                            ],
+                            [
+                                13.4697,
+                                52.5497
+                            ],
+                            [
+                                13.4745,
+                                52.502
+                            ],
+                            [
+                                13.4357,
+                                52.5103
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-m4-1": {
+        "id": "mock-m4-1",
+        "direction": "Hackescher Markt",
+        "line": {
+            "name": "M4",
+            "product": "tram"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.52,
+                                52.565
+                            ],
+                            [
+                                13.47,
+                                52.545
+                            ],
+                            [
+                                13.43,
+                                52.535
+                            ],
+                            [
+                                13.402,
+                                52.524
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-m4-2": {
+        "id": "mock-m4-2",
+        "direction": "Hackescher Markt",
+        "line": {
+            "name": "M4",
+            "product": "tram"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.52,
+                                52.565
+                            ],
+                            [
+                                13.47,
+                                52.545
+                            ],
+                            [
+                                13.43,
+                                52.535
+                            ],
+                            [
+                                13.402,
+                                52.524
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-m4-3": {
+        "id": "mock-m4-3",
+        "direction": "Hackescher Markt",
+        "line": {
+            "name": "M4",
+            "product": "tram"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.52,
+                                52.565
+                            ],
+                            [
+                                13.47,
+                                52.545
+                            ],
+                            [
+                                13.43,
+                                52.535
+                            ],
+                            [
+                                13.402,
+                                52.524
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-m4-4": {
+        "id": "mock-m4-4",
+        "direction": "Hackescher Markt",
+        "line": {
+            "name": "M4",
+            "product": "tram"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.52,
+                                52.565
+                            ],
+                            [
+                                13.47,
+                                52.545
+                            ],
+                            [
+                                13.43,
+                                52.535
+                            ],
+                            [
+                                13.402,
+                                52.524
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-m10-1": {
+        "id": "mock-m10-1",
         "direction": "Warschauer Straße",
         "line": {
             "name": "M10",
@@ -91,19 +2046,198 @@
                     "geometry": {
                         "type": "LineString",
                         "coordinates": [
-                            [13.3694, 52.5251],
-                            [13.3888, 52.5317],
-                            [13.3972, 52.5321],
-                            [13.4126, 52.5411],
-                            [13.4523, 52.5050]
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.3888,
+                                52.5317
+                            ],
+                            [
+                                13.3972,
+                                52.5321
+                            ],
+                            [
+                                13.4126,
+                                52.5411
+                            ],
+                            [
+                                13.4523,
+                                52.505
+                            ]
                         ]
                     }
                 }
             ]
         }
     },
-    "mock-bus-100-001": {
-        "id": "mock-bus-100-001",
+    "mock-m10-2": {
+        "id": "mock-m10-2",
+        "direction": "Warschauer Straße",
+        "line": {
+            "name": "M10",
+            "product": "tram"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.3888,
+                                52.5317
+                            ],
+                            [
+                                13.3972,
+                                52.5321
+                            ],
+                            [
+                                13.4126,
+                                52.5411
+                            ],
+                            [
+                                13.4523,
+                                52.505
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-m10-3": {
+        "id": "mock-m10-3",
+        "direction": "Warschauer Straße",
+        "line": {
+            "name": "M10",
+            "product": "tram"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.3888,
+                                52.5317
+                            ],
+                            [
+                                13.3972,
+                                52.5321
+                            ],
+                            [
+                                13.4126,
+                                52.5411
+                            ],
+                            [
+                                13.4523,
+                                52.505
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-m10-4": {
+        "id": "mock-m10-4",
+        "direction": "Warschauer Straße",
+        "line": {
+            "name": "M10",
+            "product": "tram"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.3888,
+                                52.5317
+                            ],
+                            [
+                                13.3972,
+                                52.5321
+                            ],
+                            [
+                                13.4126,
+                                52.5411
+                            ],
+                            [
+                                13.4523,
+                                52.505
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-m10-5": {
+        "id": "mock-m10-5",
+        "direction": "Warschauer Straße",
+        "line": {
+            "name": "M10",
+            "product": "tram"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.3888,
+                                52.5317
+                            ],
+                            [
+                                13.3972,
+                                52.5321
+                            ],
+                            [
+                                13.4126,
+                                52.5411
+                            ],
+                            [
+                                13.4523,
+                                52.505
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-bus100-1": {
+        "id": "mock-bus100-1",
         "direction": "Alexanderplatz",
         "line": {
             "name": "100",
@@ -117,18 +2251,437 @@
                     "geometry": {
                         "type": "LineString",
                         "coordinates": [
-                            [13.3501, 52.5065],
-                            [13.3762, 52.5186],
-                            [13.3889, 52.5170],
-                            [13.4132, 52.5219]
+                            [
+                                13.3501,
+                                52.5065
+                            ],
+                            [
+                                13.3762,
+                                52.5186
+                            ],
+                            [
+                                13.3889,
+                                52.517
+                            ],
+                            [
+                                13.4132,
+                                52.5219
+                            ]
                         ]
                     }
                 }
             ]
         }
     },
-    "mock-re1-001": {
-        "id": "mock-re1-001",
+    "mock-bus100-2": {
+        "id": "mock-bus100-2",
+        "direction": "Alexanderplatz",
+        "line": {
+            "name": "100",
+            "product": "bus"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3501,
+                                52.5065
+                            ],
+                            [
+                                13.3762,
+                                52.5186
+                            ],
+                            [
+                                13.3889,
+                                52.517
+                            ],
+                            [
+                                13.4132,
+                                52.5219
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-bus100-3": {
+        "id": "mock-bus100-3",
+        "direction": "Alexanderplatz",
+        "line": {
+            "name": "100",
+            "product": "bus"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3501,
+                                52.5065
+                            ],
+                            [
+                                13.3762,
+                                52.5186
+                            ],
+                            [
+                                13.3889,
+                                52.517
+                            ],
+                            [
+                                13.4132,
+                                52.5219
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-bus100-4": {
+        "id": "mock-bus100-4",
+        "direction": "Alexanderplatz",
+        "line": {
+            "name": "100",
+            "product": "bus"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3501,
+                                52.5065
+                            ],
+                            [
+                                13.3762,
+                                52.5186
+                            ],
+                            [
+                                13.3889,
+                                52.517
+                            ],
+                            [
+                                13.4132,
+                                52.5219
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-bus200-1": {
+        "id": "mock-bus200-1",
+        "direction": "Michelangelostraße",
+        "line": {
+            "name": "200",
+            "product": "bus"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3501,
+                                52.5065
+                            ],
+                            [
+                                13.376,
+                                52.5096
+                            ],
+                            [
+                                13.4132,
+                                52.5219
+                            ],
+                            [
+                                13.45,
+                                52.535
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-bus200-2": {
+        "id": "mock-bus200-2",
+        "direction": "Michelangelostraße",
+        "line": {
+            "name": "200",
+            "product": "bus"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3501,
+                                52.5065
+                            ],
+                            [
+                                13.376,
+                                52.5096
+                            ],
+                            [
+                                13.4132,
+                                52.5219
+                            ],
+                            [
+                                13.45,
+                                52.535
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-bus200-3": {
+        "id": "mock-bus200-3",
+        "direction": "Michelangelostraße",
+        "line": {
+            "name": "200",
+            "product": "bus"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3501,
+                                52.5065
+                            ],
+                            [
+                                13.376,
+                                52.5096
+                            ],
+                            [
+                                13.4132,
+                                52.5219
+                            ],
+                            [
+                                13.45,
+                                52.535
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-bus200-4": {
+        "id": "mock-bus200-4",
+        "direction": "Michelangelostraße",
+        "line": {
+            "name": "200",
+            "product": "bus"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3501,
+                                52.5065
+                            ],
+                            [
+                                13.376,
+                                52.5096
+                            ],
+                            [
+                                13.4132,
+                                52.5219
+                            ],
+                            [
+                                13.45,
+                                52.535
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-m41-1": {
+        "id": "mock-m41-1",
+        "direction": "Sonnenallee",
+        "line": {
+            "name": "M41",
+            "product": "bus"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.3903,
+                                52.5124
+                            ],
+                            [
+                                13.418,
+                                52.4992
+                            ],
+                            [
+                                13.451,
+                                52.471
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-m41-2": {
+        "id": "mock-m41-2",
+        "direction": "Sonnenallee",
+        "line": {
+            "name": "M41",
+            "product": "bus"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.3903,
+                                52.5124
+                            ],
+                            [
+                                13.418,
+                                52.4992
+                            ],
+                            [
+                                13.451,
+                                52.471
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-m41-3": {
+        "id": "mock-m41-3",
+        "direction": "Sonnenallee",
+        "line": {
+            "name": "M41",
+            "product": "bus"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.3903,
+                                52.5124
+                            ],
+                            [
+                                13.418,
+                                52.4992
+                            ],
+                            [
+                                13.451,
+                                52.471
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-m41-4": {
+        "id": "mock-m41-4",
+        "direction": "Sonnenallee",
+        "line": {
+            "name": "M41",
+            "product": "bus"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.3903,
+                                52.5124
+                            ],
+                            [
+                                13.418,
+                                52.4992
+                            ],
+                            [
+                                13.451,
+                                52.471
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-re1-1": {
+        "id": "mock-re1-1",
         "direction": "Frankfurt (Oder)",
         "line": {
             "name": "RE1",
@@ -142,10 +2695,231 @@
                     "geometry": {
                         "type": "LineString",
                         "coordinates": [
-                            [13.3320, 52.5072],
-                            [13.3694, 52.5251],
-                            [13.3869, 52.5200],
-                            [13.4317, 52.5100]
+                            [
+                                13.066,
+                                52.391
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.3869,
+                                52.52
+                            ],
+                            [
+                                13.4317,
+                                52.51
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-re1-2": {
+        "id": "mock-re1-2",
+        "direction": "Frankfurt (Oder)",
+        "line": {
+            "name": "RE1",
+            "product": "regional"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.066,
+                                52.391
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.3869,
+                                52.52
+                            ],
+                            [
+                                13.4317,
+                                52.51
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-re1-3": {
+        "id": "mock-re1-3",
+        "direction": "Frankfurt (Oder)",
+        "line": {
+            "name": "RE1",
+            "product": "regional"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.066,
+                                52.391
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.3869,
+                                52.52
+                            ],
+                            [
+                                13.4317,
+                                52.51
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-re7-1": {
+        "id": "mock-re7-1",
+        "direction": "Dessau",
+        "line": {
+            "name": "RE7",
+            "product": "regional"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.4317,
+                                52.51
+                            ],
+                            [
+                                13.3869,
+                                52.52
+                            ],
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.066,
+                                52.391
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-re7-2": {
+        "id": "mock-re7-2",
+        "direction": "Dessau",
+        "line": {
+            "name": "RE7",
+            "product": "regional"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.4317,
+                                52.51
+                            ],
+                            [
+                                13.3869,
+                                52.52
+                            ],
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.066,
+                                52.391
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-re7-3": {
+        "id": "mock-re7-3",
+        "direction": "Dessau",
+        "line": {
+            "name": "RE7",
+            "product": "regional"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                13.4317,
+                                52.51
+                            ],
+                            [
+                                13.3869,
+                                52.52
+                            ],
+                            [
+                                13.3694,
+                                52.5251
+                            ],
+                            [
+                                13.332,
+                                52.5072
+                            ],
+                            [
+                                13.066,
+                                52.391
+                            ]
                         ]
                     }
                 }
