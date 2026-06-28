@@ -166,17 +166,35 @@ function interpolatePosition(start, end, progress) {
     ];
 }
 
-function createStopovers(route, startIndex) {
-    return route.stops.slice(startIndex, startIndex + 4).map((stopName, stopIndex) => {
-        const date = new Date(Date.now() + (stopIndex + 1) * 4 * 60 * 1000);
+function createMockDate(minutesFromNow) {
+    return new Date(Date.now() + minutesFromNow * 60 * 1000).toISOString();
+}
 
-        return {
-            stop: {
-                name: stopName
-            },
-            arrival: date.toISOString()
-        };
-    });
+function createStopover(route, stopIndex, minutesFromNow) {
+    const coordinate = route.coordinates[stopIndex] ?? route.coordinates[route.coordinates.length - 1];
+    const time = createMockDate(minutesFromNow);
+
+    return {
+        stop: {
+            name: route.stops[stopIndex],
+            location: {
+                longitude: coordinate[0],
+                latitude: coordinate[1]
+            }
+        },
+        arrival: time,
+        departure: time,
+        plannedArrival: time,
+        plannedDeparture: time
+    };
+}
+
+function createStopovers(route, startIndex) {
+    return route.stops
+        .slice(startIndex, startIndex + 4)
+        .map((_, index) => {
+            return createStopover(route, startIndex + index, (index + 1) * 4);
+        });
 }
 
 function createVehicles() {
@@ -209,6 +227,12 @@ function createVehicles() {
     return vehicles;
 }
 
+function createTripStopovers(route) {
+    return route.stops.map((_, index) => {
+        return createStopover(route, index, (index + 1) * 4);
+    });
+}
+
 function createTrips() {
     const trips = {};
 
@@ -218,11 +242,13 @@ function createTrips() {
 
             trips[tripId] = {
                 id: tripId,
+                tripId,
                 direction: route.direction,
                 line: {
                     name: route.line,
                     product: route.product
                 },
+                stopovers: createTripStopovers(route),
                 polyline: {
                     type: "FeatureCollection",
                     features: [

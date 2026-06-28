@@ -13,27 +13,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Uhlandstraße"
+                    "name": "Uhlandstraße",
+                    "location": {
+                        "longitude": 13.3233,
+                        "latitude": 52.4997
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.966Z"
+                "arrival": "2026-06-28T20:40:00.048Z",
+                "departure": "2026-06-28T20:40:00.048Z",
+                "plannedArrival": "2026-06-28T20:40:00.048Z",
+                "plannedDeparture": "2026-06-28T20:40:00.048Z"
             },
             {
                 "stop": {
-                    "name": "Wittenbergplatz"
+                    "name": "Wittenbergplatz",
+                    "location": {
+                        "longitude": 13.3415,
+                        "latitude": 52.4977
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.048Z",
+                "departure": "2026-06-28T20:44:00.048Z",
+                "plannedArrival": "2026-06-28T20:44:00.048Z",
+                "plannedDeparture": "2026-06-28T20:44:00.048Z"
             },
             {
                 "stop": {
-                    "name": "Gleisdreieck"
+                    "name": "Gleisdreieck",
+                    "location": {
+                        "longitude": 13.3847,
+                        "latitude": 52.4996
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.048Z",
+                "departure": "2026-06-28T20:48:00.048Z",
+                "plannedArrival": "2026-06-28T20:48:00.048Z",
+                "plannedDeparture": "2026-06-28T20:48:00.048Z"
             },
             {
                 "stop": {
-                    "name": "Kottbusser Tor"
+                    "name": "Kottbusser Tor",
+                    "location": {
+                        "longitude": 13.418,
+                        "latitude": 52.4992
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.048Z",
+                "departure": "2026-06-28T20:52:00.048Z",
+                "plannedArrival": "2026-06-28T20:52:00.048Z",
+                "plannedDeparture": "2026-06-28T20:52:00.048Z"
             }
         ]
     },
@@ -51,27 +79,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Wittenbergplatz"
+                    "name": "Wittenbergplatz",
+                    "location": {
+                        "longitude": 13.3415,
+                        "latitude": 52.4977
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.048Z",
+                "departure": "2026-06-28T20:40:00.048Z",
+                "plannedArrival": "2026-06-28T20:40:00.048Z",
+                "plannedDeparture": "2026-06-28T20:40:00.048Z"
             },
             {
                 "stop": {
-                    "name": "Gleisdreieck"
+                    "name": "Gleisdreieck",
+                    "location": {
+                        "longitude": 13.3847,
+                        "latitude": 52.4996
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.048Z",
+                "departure": "2026-06-28T20:44:00.048Z",
+                "plannedArrival": "2026-06-28T20:44:00.048Z",
+                "plannedDeparture": "2026-06-28T20:44:00.048Z"
             },
             {
                 "stop": {
-                    "name": "Kottbusser Tor"
+                    "name": "Kottbusser Tor",
+                    "location": {
+                        "longitude": 13.418,
+                        "latitude": 52.4992
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Warschauer Straße"
+                    "name": "Warschauer Straße",
+                    "location": {
+                        "longitude": 13.4523,
+                        "latitude": 52.505
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -89,21 +145,42 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Gleisdreieck"
+                    "name": "Gleisdreieck",
+                    "location": {
+                        "longitude": 13.3847,
+                        "latitude": 52.4996
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Kottbusser Tor"
+                    "name": "Kottbusser Tor",
+                    "location": {
+                        "longitude": 13.418,
+                        "latitude": 52.4992
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Warschauer Straße"
+                    "name": "Warschauer Straße",
+                    "location": {
+                        "longitude": 13.4523,
+                        "latitude": 52.505
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             }
         ]
     },
@@ -121,27 +198,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Ruhleben"
+                    "name": "Ruhleben",
+                    "location": {
+                        "longitude": 13.2501,
+                        "latitude": 52.5257
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Zoo"
+                    "name": "Zoo",
+                    "location": {
+                        "longitude": 13.3075,
+                        "latitude": 52.5096
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Potsdamer Platz"
+                    "name": "Potsdamer Platz",
+                    "location": {
+                        "longitude": 13.376,
+                        "latitude": 52.5096
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Stadtmitte"
+                    "name": "Stadtmitte",
+                    "location": {
+                        "longitude": 13.3903,
+                        "latitude": 52.5124
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -159,27 +264,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Zoo"
+                    "name": "Zoo",
+                    "location": {
+                        "longitude": 13.3075,
+                        "latitude": 52.5096
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Potsdamer Platz"
+                    "name": "Potsdamer Platz",
+                    "location": {
+                        "longitude": 13.376,
+                        "latitude": 52.5096
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Stadtmitte"
+                    "name": "Stadtmitte",
+                    "location": {
+                        "longitude": 13.3903,
+                        "latitude": 52.5124
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Alexanderplatz"
+                    "name": "Alexanderplatz",
+                    "location": {
+                        "longitude": 13.4132,
+                        "latitude": 52.5219
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -197,27 +330,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Potsdamer Platz"
+                    "name": "Potsdamer Platz",
+                    "location": {
+                        "longitude": 13.376,
+                        "latitude": 52.5096
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Stadtmitte"
+                    "name": "Stadtmitte",
+                    "location": {
+                        "longitude": 13.3903,
+                        "latitude": 52.5124
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Alexanderplatz"
+                    "name": "Alexanderplatz",
+                    "location": {
+                        "longitude": 13.4132,
+                        "latitude": 52.5219
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Pankow"
+                    "name": "Pankow",
+                    "location": {
+                        "longitude": 13.4127,
+                        "latitude": 52.5321
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -235,21 +396,42 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Stadtmitte"
+                    "name": "Stadtmitte",
+                    "location": {
+                        "longitude": 13.3903,
+                        "latitude": 52.5124
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Alexanderplatz"
+                    "name": "Alexanderplatz",
+                    "location": {
+                        "longitude": 13.4132,
+                        "latitude": 52.5219
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Pankow"
+                    "name": "Pankow",
+                    "location": {
+                        "longitude": 13.4127,
+                        "latitude": 52.5321
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             }
         ]
     },
@@ -267,27 +449,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Hauptbahnhof"
+                    "name": "Hauptbahnhof",
+                    "location": {
+                        "longitude": 13.3694,
+                        "latitude": 52.5251
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Brandenburger Tor"
+                    "name": "Brandenburger Tor",
+                    "location": {
+                        "longitude": 13.3869,
+                        "latitude": 52.52
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Alexanderplatz"
+                    "name": "Alexanderplatz",
+                    "location": {
+                        "longitude": 13.4132,
+                        "latitude": 52.5219
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Frankfurter Tor"
+                    "name": "Frankfurter Tor",
+                    "location": {
+                        "longitude": 13.4317,
+                        "latitude": 52.51
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -305,27 +515,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Brandenburger Tor"
+                    "name": "Brandenburger Tor",
+                    "location": {
+                        "longitude": 13.3869,
+                        "latitude": 52.52
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Alexanderplatz"
+                    "name": "Alexanderplatz",
+                    "location": {
+                        "longitude": 13.4132,
+                        "latitude": 52.5219
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Frankfurter Tor"
+                    "name": "Frankfurter Tor",
+                    "location": {
+                        "longitude": 13.4317,
+                        "latitude": 52.51
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Lichtenberg"
+                    "name": "Lichtenberg",
+                    "location": {
+                        "longitude": 13.5127,
+                        "latitude": 52.4961
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -343,27 +581,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Alexanderplatz"
+                    "name": "Alexanderplatz",
+                    "location": {
+                        "longitude": 13.4132,
+                        "latitude": 52.5219
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Frankfurter Tor"
+                    "name": "Frankfurter Tor",
+                    "location": {
+                        "longitude": 13.4317,
+                        "latitude": 52.51
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Lichtenberg"
+                    "name": "Lichtenberg",
+                    "location": {
+                        "longitude": 13.5127,
+                        "latitude": 52.4961
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hönow"
+                    "name": "Hönow",
+                    "location": {
+                        "longitude": 13.6336,
+                        "latitude": 52.538
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -381,21 +647,42 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Frankfurter Tor"
+                    "name": "Frankfurter Tor",
+                    "location": {
+                        "longitude": 13.4317,
+                        "latitude": 52.51
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Lichtenberg"
+                    "name": "Lichtenberg",
+                    "location": {
+                        "longitude": 13.5127,
+                        "latitude": 52.4961
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hönow"
+                    "name": "Hönow",
+                    "location": {
+                        "longitude": 13.6336,
+                        "latitude": 52.538
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             }
         ]
     },
@@ -413,27 +700,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Rathaus Spandau"
+                    "name": "Rathaus Spandau",
+                    "location": {
+                        "longitude": 13.2937,
+                        "latitude": 52.5667
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Bismarckstraße"
+                    "name": "Bismarckstraße",
+                    "location": {
+                        "longitude": 13.3274,
+                        "latitude": 52.5115
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Yorckstraße"
+                    "name": "Yorckstraße",
+                    "location": {
+                        "longitude": 13.3427,
+                        "latitude": 52.4966
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hermannplatz"
+                    "name": "Hermannplatz",
+                    "location": {
+                        "longitude": 13.418,
+                        "latitude": 52.4992
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -451,27 +766,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Bismarckstraße"
+                    "name": "Bismarckstraße",
+                    "location": {
+                        "longitude": 13.3274,
+                        "latitude": 52.5115
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Yorckstraße"
+                    "name": "Yorckstraße",
+                    "location": {
+                        "longitude": 13.3427,
+                        "latitude": 52.4966
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hermannplatz"
+                    "name": "Hermannplatz",
+                    "location": {
+                        "longitude": 13.418,
+                        "latitude": 52.4992
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Rudow"
+                    "name": "Rudow",
+                    "location": {
+                        "longitude": 13.4477,
+                        "latitude": 52.467
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -489,21 +832,42 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Yorckstraße"
+                    "name": "Yorckstraße",
+                    "location": {
+                        "longitude": 13.3427,
+                        "latitude": 52.4966
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hermannplatz"
+                    "name": "Hermannplatz",
+                    "location": {
+                        "longitude": 13.418,
+                        "latitude": 52.4992
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Rudow"
+                    "name": "Rudow",
+                    "location": {
+                        "longitude": 13.4477,
+                        "latitude": 52.467
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             }
         ]
     },
@@ -521,15 +885,29 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Hermannplatz"
+                    "name": "Hermannplatz",
+                    "location": {
+                        "longitude": 13.418,
+                        "latitude": 52.4992
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Rudow"
+                    "name": "Rudow",
+                    "location": {
+                        "longitude": 13.4477,
+                        "latitude": 52.467
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             }
         ]
     },
@@ -547,27 +925,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Rosenthaler Platz"
+                    "name": "Rosenthaler Platz",
+                    "location": {
+                        "longitude": 13.3888,
+                        "latitude": 52.5317
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Alexanderplatz"
+                    "name": "Alexanderplatz",
+                    "location": {
+                        "longitude": 13.4028,
+                        "latitude": 52.5266
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Jannowitzbrücke"
+                    "name": "Jannowitzbrücke",
+                    "location": {
+                        "longitude": 13.4186,
+                        "latitude": 52.5153
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Kottbusser Tor"
+                    "name": "Kottbusser Tor",
+                    "location": {
+                        "longitude": 13.418,
+                        "latitude": 52.4992
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -585,27 +991,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Alexanderplatz"
+                    "name": "Alexanderplatz",
+                    "location": {
+                        "longitude": 13.4028,
+                        "latitude": 52.5266
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Jannowitzbrücke"
+                    "name": "Jannowitzbrücke",
+                    "location": {
+                        "longitude": 13.4186,
+                        "latitude": 52.5153
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Kottbusser Tor"
+                    "name": "Kottbusser Tor",
+                    "location": {
+                        "longitude": 13.418,
+                        "latitude": 52.4992
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hermannstraße"
+                    "name": "Hermannstraße",
+                    "location": {
+                        "longitude": 13.4246,
+                        "latitude": 52.4866
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -623,21 +1057,42 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Jannowitzbrücke"
+                    "name": "Jannowitzbrücke",
+                    "location": {
+                        "longitude": 13.4186,
+                        "latitude": 52.5153
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Kottbusser Tor"
+                    "name": "Kottbusser Tor",
+                    "location": {
+                        "longitude": 13.418,
+                        "latitude": 52.4992
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hermannstraße"
+                    "name": "Hermannstraße",
+                    "location": {
+                        "longitude": 13.4246,
+                        "latitude": 52.4866
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             }
         ]
     },
@@ -655,15 +1110,29 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Kottbusser Tor"
+                    "name": "Kottbusser Tor",
+                    "location": {
+                        "longitude": 13.418,
+                        "latitude": 52.4992
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hermannstraße"
+                    "name": "Hermannstraße",
+                    "location": {
+                        "longitude": 13.4246,
+                        "latitude": 52.4866
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             }
         ]
     },
@@ -681,27 +1150,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Gesundbrunnen"
+                    "name": "Gesundbrunnen",
+                    "location": {
+                        "longitude": 13.3888,
+                        "latitude": 52.5486
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Nordbahnhof"
+                    "name": "Nordbahnhof",
+                    "location": {
+                        "longitude": 13.3888,
+                        "latitude": 52.5317
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hauptbahnhof"
+                    "name": "Hauptbahnhof",
+                    "location": {
+                        "longitude": 13.3694,
+                        "latitude": 52.5251
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Wannsee"
+                    "name": "Wannsee",
+                    "location": {
+                        "longitude": 13.332,
+                        "latitude": 52.5072
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -719,27 +1216,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Nordbahnhof"
+                    "name": "Nordbahnhof",
+                    "location": {
+                        "longitude": 13.3888,
+                        "latitude": 52.5317
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hauptbahnhof"
+                    "name": "Hauptbahnhof",
+                    "location": {
+                        "longitude": 13.3694,
+                        "latitude": 52.5251
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Wannsee"
+                    "name": "Wannsee",
+                    "location": {
+                        "longitude": 13.332,
+                        "latitude": 52.5072
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Potsdam"
+                    "name": "Potsdam",
+                    "location": {
+                        "longitude": 13.1795,
+                        "latitude": 52.421
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -757,21 +1282,42 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Hauptbahnhof"
+                    "name": "Hauptbahnhof",
+                    "location": {
+                        "longitude": 13.3694,
+                        "latitude": 52.5251
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Wannsee"
+                    "name": "Wannsee",
+                    "location": {
+                        "longitude": 13.332,
+                        "latitude": 52.5072
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Potsdam"
+                    "name": "Potsdam",
+                    "location": {
+                        "longitude": 13.1795,
+                        "latitude": 52.421
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             }
         ]
     },
@@ -789,15 +1335,29 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Wannsee"
+                    "name": "Wannsee",
+                    "location": {
+                        "longitude": 13.332,
+                        "latitude": 52.5072
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Potsdam"
+                    "name": "Potsdam",
+                    "location": {
+                        "longitude": 13.1795,
+                        "latitude": 52.421
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             }
         ]
     },
@@ -815,27 +1375,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Westkreuz"
+                    "name": "Westkreuz",
+                    "location": {
+                        "longitude": 13.332,
+                        "latitude": 52.5072
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hauptbahnhof"
+                    "name": "Hauptbahnhof",
+                    "location": {
+                        "longitude": 13.3694,
+                        "latitude": 52.5251
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Ostbahnhof"
+                    "name": "Ostbahnhof",
+                    "location": {
+                        "longitude": 13.4317,
+                        "latitude": 52.51
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Ostkreuz"
+                    "name": "Ostkreuz",
+                    "location": {
+                        "longitude": 13.4697,
+                        "latitude": 52.502
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -853,27 +1441,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Hauptbahnhof"
+                    "name": "Hauptbahnhof",
+                    "location": {
+                        "longitude": 13.3694,
+                        "latitude": 52.5251
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Ostbahnhof"
+                    "name": "Ostbahnhof",
+                    "location": {
+                        "longitude": 13.4317,
+                        "latitude": 52.51
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Ostkreuz"
+                    "name": "Ostkreuz",
+                    "location": {
+                        "longitude": 13.4697,
+                        "latitude": 52.502
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Erkner"
+                    "name": "Erkner",
+                    "location": {
+                        "longitude": 13.752,
+                        "latitude": 52.42
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -891,21 +1507,42 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Ostbahnhof"
+                    "name": "Ostbahnhof",
+                    "location": {
+                        "longitude": 13.4317,
+                        "latitude": 52.51
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Ostkreuz"
+                    "name": "Ostkreuz",
+                    "location": {
+                        "longitude": 13.4697,
+                        "latitude": 52.502
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Erkner"
+                    "name": "Erkner",
+                    "location": {
+                        "longitude": 13.752,
+                        "latitude": 52.42
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             }
         ]
     },
@@ -923,15 +1560,29 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Ostkreuz"
+                    "name": "Ostkreuz",
+                    "location": {
+                        "longitude": 13.4697,
+                        "latitude": 52.502
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Erkner"
+                    "name": "Erkner",
+                    "location": {
+                        "longitude": 13.752,
+                        "latitude": 52.42
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             }
         ]
     },
@@ -949,27 +1600,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Potsdam Hbf"
+                    "name": "Potsdam Hbf",
+                    "location": {
+                        "longitude": 13.066,
+                        "latitude": 52.391
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Westkreuz"
+                    "name": "Westkreuz",
+                    "location": {
+                        "longitude": 13.332,
+                        "latitude": 52.5072
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hauptbahnhof"
+                    "name": "Hauptbahnhof",
+                    "location": {
+                        "longitude": 13.3694,
+                        "latitude": 52.5251
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Alexanderplatz"
+                    "name": "Alexanderplatz",
+                    "location": {
+                        "longitude": 13.4132,
+                        "latitude": 52.5219
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -987,27 +1666,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Westkreuz"
+                    "name": "Westkreuz",
+                    "location": {
+                        "longitude": 13.332,
+                        "latitude": 52.5072
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hauptbahnhof"
+                    "name": "Hauptbahnhof",
+                    "location": {
+                        "longitude": 13.3694,
+                        "latitude": 52.5251
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Alexanderplatz"
+                    "name": "Alexanderplatz",
+                    "location": {
+                        "longitude": 13.4132,
+                        "latitude": 52.5219
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Ahrensfelde"
+                    "name": "Ahrensfelde",
+                    "location": {
+                        "longitude": 13.565,
+                        "latitude": 52.571
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -1025,21 +1732,42 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Hauptbahnhof"
+                    "name": "Hauptbahnhof",
+                    "location": {
+                        "longitude": 13.3694,
+                        "latitude": 52.5251
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Alexanderplatz"
+                    "name": "Alexanderplatz",
+                    "location": {
+                        "longitude": 13.4132,
+                        "latitude": 52.5219
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Ahrensfelde"
+                    "name": "Ahrensfelde",
+                    "location": {
+                        "longitude": 13.565,
+                        "latitude": 52.571
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             }
         ]
     },
@@ -1057,15 +1785,29 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Alexanderplatz"
+                    "name": "Alexanderplatz",
+                    "location": {
+                        "longitude": 13.4132,
+                        "latitude": 52.5219
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Ahrensfelde"
+                    "name": "Ahrensfelde",
+                    "location": {
+                        "longitude": 13.565,
+                        "latitude": 52.571
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             }
         ]
     },
@@ -1083,27 +1825,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Potsdam Hbf"
+                    "name": "Potsdam Hbf",
+                    "location": {
+                        "longitude": 13.066,
+                        "latitude": 52.391
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Westkreuz"
+                    "name": "Westkreuz",
+                    "location": {
+                        "longitude": 13.332,
+                        "latitude": 52.5072
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hauptbahnhof"
+                    "name": "Hauptbahnhof",
+                    "location": {
+                        "longitude": 13.3694,
+                        "latitude": 52.5251
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Alexanderplatz"
+                    "name": "Alexanderplatz",
+                    "location": {
+                        "longitude": 13.4132,
+                        "latitude": 52.5219
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -1121,27 +1891,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Ostkreuz"
+                    "name": "Ostkreuz",
+                    "location": {
+                        "longitude": 13.4357,
+                        "latitude": 52.5103
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Treptower Park"
+                    "name": "Treptower Park",
+                    "location": {
+                        "longitude": 13.4745,
+                        "latitude": 52.502
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Greifswalder Straße"
+                    "name": "Greifswalder Straße",
+                    "location": {
+                        "longitude": 13.4697,
+                        "latitude": 52.5497
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Wedding"
+                    "name": "Wedding",
+                    "location": {
+                        "longitude": 13.3889,
+                        "latitude": 52.5486
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -1159,27 +1957,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Treptower Park"
+                    "name": "Treptower Park",
+                    "location": {
+                        "longitude": 13.4745,
+                        "latitude": 52.502
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Greifswalder Straße"
+                    "name": "Greifswalder Straße",
+                    "location": {
+                        "longitude": 13.4697,
+                        "latitude": 52.5497
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Wedding"
+                    "name": "Wedding",
+                    "location": {
+                        "longitude": 13.3889,
+                        "latitude": 52.5486
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Westkreuz"
+                    "name": "Westkreuz",
+                    "location": {
+                        "longitude": 13.332,
+                        "latitude": 52.5072
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -1197,27 +2023,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Greifswalder Straße"
+                    "name": "Greifswalder Straße",
+                    "location": {
+                        "longitude": 13.4697,
+                        "latitude": 52.5497
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Wedding"
+                    "name": "Wedding",
+                    "location": {
+                        "longitude": 13.3889,
+                        "latitude": 52.5486
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Westkreuz"
+                    "name": "Westkreuz",
+                    "location": {
+                        "longitude": 13.332,
+                        "latitude": 52.5072
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Ostkreuz"
+                    "name": "Ostkreuz",
+                    "location": {
+                        "longitude": 13.4357,
+                        "latitude": 52.5103
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -1235,21 +2089,42 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Wedding"
+                    "name": "Wedding",
+                    "location": {
+                        "longitude": 13.3889,
+                        "latitude": 52.5486
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Westkreuz"
+                    "name": "Westkreuz",
+                    "location": {
+                        "longitude": 13.332,
+                        "latitude": 52.5072
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Ostkreuz"
+                    "name": "Ostkreuz",
+                    "location": {
+                        "longitude": 13.4357,
+                        "latitude": 52.5103
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             }
         ]
     },
@@ -1267,15 +2142,29 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Westkreuz"
+                    "name": "Westkreuz",
+                    "location": {
+                        "longitude": 13.332,
+                        "latitude": 52.5072
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Ostkreuz"
+                    "name": "Ostkreuz",
+                    "location": {
+                        "longitude": 13.4357,
+                        "latitude": 52.5103
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             }
         ]
     },
@@ -1293,27 +2182,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Ostkreuz"
+                    "name": "Ostkreuz",
+                    "location": {
+                        "longitude": 13.4357,
+                        "latitude": 52.5103
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Treptower Park"
+                    "name": "Treptower Park",
+                    "location": {
+                        "longitude": 13.4745,
+                        "latitude": 52.502
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Greifswalder Straße"
+                    "name": "Greifswalder Straße",
+                    "location": {
+                        "longitude": 13.4697,
+                        "latitude": 52.5497
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Wedding"
+                    "name": "Wedding",
+                    "location": {
+                        "longitude": 13.3889,
+                        "latitude": 52.5486
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -1331,27 +2248,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Westkreuz"
+                    "name": "Westkreuz",
+                    "location": {
+                        "longitude": 13.332,
+                        "latitude": 52.5072
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Wedding"
+                    "name": "Wedding",
+                    "location": {
+                        "longitude": 13.3889,
+                        "latitude": 52.5486
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Greifswalder Straße"
+                    "name": "Greifswalder Straße",
+                    "location": {
+                        "longitude": 13.4697,
+                        "latitude": 52.5497
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Treptower Park"
+                    "name": "Treptower Park",
+                    "location": {
+                        "longitude": 13.4745,
+                        "latitude": 52.502
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -1369,27 +2314,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Wedding"
+                    "name": "Wedding",
+                    "location": {
+                        "longitude": 13.3889,
+                        "latitude": 52.5486
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Greifswalder Straße"
+                    "name": "Greifswalder Straße",
+                    "location": {
+                        "longitude": 13.4697,
+                        "latitude": 52.5497
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Treptower Park"
+                    "name": "Treptower Park",
+                    "location": {
+                        "longitude": 13.4745,
+                        "latitude": 52.502
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Ostkreuz"
+                    "name": "Ostkreuz",
+                    "location": {
+                        "longitude": 13.4357,
+                        "latitude": 52.5103
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -1407,27 +2380,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Greifswalder Straße"
+                    "name": "Greifswalder Straße",
+                    "location": {
+                        "longitude": 13.4697,
+                        "latitude": 52.5497
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Treptower Park"
+                    "name": "Treptower Park",
+                    "location": {
+                        "longitude": 13.4745,
+                        "latitude": 52.502
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Ostkreuz"
+                    "name": "Ostkreuz",
+                    "location": {
+                        "longitude": 13.4357,
+                        "latitude": 52.5103
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Westkreuz"
+                    "name": "Westkreuz",
+                    "location": {
+                        "longitude": 13.332,
+                        "latitude": 52.5072
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -1445,21 +2446,42 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Treptower Park"
+                    "name": "Treptower Park",
+                    "location": {
+                        "longitude": 13.4745,
+                        "latitude": 52.502
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Ostkreuz"
+                    "name": "Ostkreuz",
+                    "location": {
+                        "longitude": 13.4357,
+                        "latitude": 52.5103
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Westkreuz"
+                    "name": "Westkreuz",
+                    "location": {
+                        "longitude": 13.332,
+                        "latitude": 52.5072
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             }
         ]
     },
@@ -1477,15 +2499,29 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Ostkreuz"
+                    "name": "Ostkreuz",
+                    "location": {
+                        "longitude": 13.4357,
+                        "latitude": 52.5103
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Westkreuz"
+                    "name": "Westkreuz",
+                    "location": {
+                        "longitude": 13.332,
+                        "latitude": 52.5072
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             }
         ]
     },
@@ -1503,27 +2539,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Westkreuz"
+                    "name": "Westkreuz",
+                    "location": {
+                        "longitude": 13.332,
+                        "latitude": 52.5072
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Wedding"
+                    "name": "Wedding",
+                    "location": {
+                        "longitude": 13.3889,
+                        "latitude": 52.5486
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Greifswalder Straße"
+                    "name": "Greifswalder Straße",
+                    "location": {
+                        "longitude": 13.4697,
+                        "latitude": 52.5497
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Treptower Park"
+                    "name": "Treptower Park",
+                    "location": {
+                        "longitude": 13.4745,
+                        "latitude": 52.502
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -1541,27 +2605,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Hohenschönhausen"
+                    "name": "Hohenschönhausen",
+                    "location": {
+                        "longitude": 13.52,
+                        "latitude": 52.565
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Antonplatz"
+                    "name": "Antonplatz",
+                    "location": {
+                        "longitude": 13.47,
+                        "latitude": 52.545
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Greifswalder Straße"
+                    "name": "Greifswalder Straße",
+                    "location": {
+                        "longitude": 13.43,
+                        "latitude": 52.535
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hackescher Markt"
+                    "name": "Hackescher Markt",
+                    "location": {
+                        "longitude": 13.402,
+                        "latitude": 52.524
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -1579,21 +2671,42 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Antonplatz"
+                    "name": "Antonplatz",
+                    "location": {
+                        "longitude": 13.47,
+                        "latitude": 52.545
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Greifswalder Straße"
+                    "name": "Greifswalder Straße",
+                    "location": {
+                        "longitude": 13.43,
+                        "latitude": 52.535
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hackescher Markt"
+                    "name": "Hackescher Markt",
+                    "location": {
+                        "longitude": 13.402,
+                        "latitude": 52.524
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             }
         ]
     },
@@ -1611,15 +2724,29 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Greifswalder Straße"
+                    "name": "Greifswalder Straße",
+                    "location": {
+                        "longitude": 13.43,
+                        "latitude": 52.535
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hackescher Markt"
+                    "name": "Hackescher Markt",
+                    "location": {
+                        "longitude": 13.402,
+                        "latitude": 52.524
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             }
         ]
     },
@@ -1637,27 +2764,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Hohenschönhausen"
+                    "name": "Hohenschönhausen",
+                    "location": {
+                        "longitude": 13.52,
+                        "latitude": 52.565
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Antonplatz"
+                    "name": "Antonplatz",
+                    "location": {
+                        "longitude": 13.47,
+                        "latitude": 52.545
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Greifswalder Straße"
+                    "name": "Greifswalder Straße",
+                    "location": {
+                        "longitude": 13.43,
+                        "latitude": 52.535
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hackescher Markt"
+                    "name": "Hackescher Markt",
+                    "location": {
+                        "longitude": 13.402,
+                        "latitude": 52.524
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -1675,27 +2830,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Hauptbahnhof"
+                    "name": "Hauptbahnhof",
+                    "location": {
+                        "longitude": 13.3694,
+                        "latitude": 52.5251
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Nordbahnhof"
+                    "name": "Nordbahnhof",
+                    "location": {
+                        "longitude": 13.3888,
+                        "latitude": 52.5317
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Naturkundemuseum"
+                    "name": "Naturkundemuseum",
+                    "location": {
+                        "longitude": 13.3972,
+                        "latitude": 52.5321
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Eberswalder Straße"
+                    "name": "Eberswalder Straße",
+                    "location": {
+                        "longitude": 13.4126,
+                        "latitude": 52.5411
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -1713,27 +2896,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Nordbahnhof"
+                    "name": "Nordbahnhof",
+                    "location": {
+                        "longitude": 13.3888,
+                        "latitude": 52.5317
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Naturkundemuseum"
+                    "name": "Naturkundemuseum",
+                    "location": {
+                        "longitude": 13.3972,
+                        "latitude": 52.5321
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Eberswalder Straße"
+                    "name": "Eberswalder Straße",
+                    "location": {
+                        "longitude": 13.4126,
+                        "latitude": 52.5411
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Warschauer Straße"
+                    "name": "Warschauer Straße",
+                    "location": {
+                        "longitude": 13.4523,
+                        "latitude": 52.505
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -1751,21 +2962,42 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Naturkundemuseum"
+                    "name": "Naturkundemuseum",
+                    "location": {
+                        "longitude": 13.3972,
+                        "latitude": 52.5321
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Eberswalder Straße"
+                    "name": "Eberswalder Straße",
+                    "location": {
+                        "longitude": 13.4126,
+                        "latitude": 52.5411
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Warschauer Straße"
+                    "name": "Warschauer Straße",
+                    "location": {
+                        "longitude": 13.4523,
+                        "latitude": 52.505
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             }
         ]
     },
@@ -1783,15 +3015,29 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Eberswalder Straße"
+                    "name": "Eberswalder Straße",
+                    "location": {
+                        "longitude": 13.4126,
+                        "latitude": 52.5411
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Warschauer Straße"
+                    "name": "Warschauer Straße",
+                    "location": {
+                        "longitude": 13.4523,
+                        "latitude": 52.505
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             }
         ]
     },
@@ -1809,27 +3055,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Hauptbahnhof"
+                    "name": "Hauptbahnhof",
+                    "location": {
+                        "longitude": 13.3694,
+                        "latitude": 52.5251
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Nordbahnhof"
+                    "name": "Nordbahnhof",
+                    "location": {
+                        "longitude": 13.3888,
+                        "latitude": 52.5317
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Naturkundemuseum"
+                    "name": "Naturkundemuseum",
+                    "location": {
+                        "longitude": 13.3972,
+                        "latitude": 52.5321
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Eberswalder Straße"
+                    "name": "Eberswalder Straße",
+                    "location": {
+                        "longitude": 13.4126,
+                        "latitude": 52.5411
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -1847,27 +3121,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Zoo"
+                    "name": "Zoo",
+                    "location": {
+                        "longitude": 13.3501,
+                        "latitude": 52.5065
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Reichstag"
+                    "name": "Reichstag",
+                    "location": {
+                        "longitude": 13.3762,
+                        "latitude": 52.5186
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Unter den Linden"
+                    "name": "Unter den Linden",
+                    "location": {
+                        "longitude": 13.3889,
+                        "latitude": 52.517
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Alexanderplatz"
+                    "name": "Alexanderplatz",
+                    "location": {
+                        "longitude": 13.4132,
+                        "latitude": 52.5219
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -1885,21 +3187,42 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Reichstag"
+                    "name": "Reichstag",
+                    "location": {
+                        "longitude": 13.3762,
+                        "latitude": 52.5186
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Unter den Linden"
+                    "name": "Unter den Linden",
+                    "location": {
+                        "longitude": 13.3889,
+                        "latitude": 52.517
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Alexanderplatz"
+                    "name": "Alexanderplatz",
+                    "location": {
+                        "longitude": 13.4132,
+                        "latitude": 52.5219
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             }
         ]
     },
@@ -1917,15 +3240,29 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Unter den Linden"
+                    "name": "Unter den Linden",
+                    "location": {
+                        "longitude": 13.3889,
+                        "latitude": 52.517
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Alexanderplatz"
+                    "name": "Alexanderplatz",
+                    "location": {
+                        "longitude": 13.4132,
+                        "latitude": 52.5219
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             }
         ]
     },
@@ -1943,27 +3280,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Zoo"
+                    "name": "Zoo",
+                    "location": {
+                        "longitude": 13.3501,
+                        "latitude": 52.5065
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Reichstag"
+                    "name": "Reichstag",
+                    "location": {
+                        "longitude": 13.3762,
+                        "latitude": 52.5186
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Unter den Linden"
+                    "name": "Unter den Linden",
+                    "location": {
+                        "longitude": 13.3889,
+                        "latitude": 52.517
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Alexanderplatz"
+                    "name": "Alexanderplatz",
+                    "location": {
+                        "longitude": 13.4132,
+                        "latitude": 52.5219
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -1981,27 +3346,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Zoo"
+                    "name": "Zoo",
+                    "location": {
+                        "longitude": 13.3501,
+                        "latitude": 52.5065
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Potsdamer Platz"
+                    "name": "Potsdamer Platz",
+                    "location": {
+                        "longitude": 13.376,
+                        "latitude": 52.5096
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Alexanderplatz"
+                    "name": "Alexanderplatz",
+                    "location": {
+                        "longitude": 13.4132,
+                        "latitude": 52.5219
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Michelangelostraße"
+                    "name": "Michelangelostraße",
+                    "location": {
+                        "longitude": 13.45,
+                        "latitude": 52.535
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -2019,21 +3412,42 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Potsdamer Platz"
+                    "name": "Potsdamer Platz",
+                    "location": {
+                        "longitude": 13.376,
+                        "latitude": 52.5096
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Alexanderplatz"
+                    "name": "Alexanderplatz",
+                    "location": {
+                        "longitude": 13.4132,
+                        "latitude": 52.5219
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Michelangelostraße"
+                    "name": "Michelangelostraße",
+                    "location": {
+                        "longitude": 13.45,
+                        "latitude": 52.535
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             }
         ]
     },
@@ -2051,15 +3465,29 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Alexanderplatz"
+                    "name": "Alexanderplatz",
+                    "location": {
+                        "longitude": 13.4132,
+                        "latitude": 52.5219
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Michelangelostraße"
+                    "name": "Michelangelostraße",
+                    "location": {
+                        "longitude": 13.45,
+                        "latitude": 52.535
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             }
         ]
     },
@@ -2077,27 +3505,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Zoo"
+                    "name": "Zoo",
+                    "location": {
+                        "longitude": 13.3501,
+                        "latitude": 52.5065
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Potsdamer Platz"
+                    "name": "Potsdamer Platz",
+                    "location": {
+                        "longitude": 13.376,
+                        "latitude": 52.5096
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Alexanderplatz"
+                    "name": "Alexanderplatz",
+                    "location": {
+                        "longitude": 13.4132,
+                        "latitude": 52.5219
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Michelangelostraße"
+                    "name": "Michelangelostraße",
+                    "location": {
+                        "longitude": 13.45,
+                        "latitude": 52.535
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -2115,27 +3571,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Hauptbahnhof"
+                    "name": "Hauptbahnhof",
+                    "location": {
+                        "longitude": 13.3694,
+                        "latitude": 52.5251
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Potsdamer Platz"
+                    "name": "Potsdamer Platz",
+                    "location": {
+                        "longitude": 13.3903,
+                        "latitude": 52.5124
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hermannplatz"
+                    "name": "Hermannplatz",
+                    "location": {
+                        "longitude": 13.418,
+                        "latitude": 52.4992
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Sonnenallee"
+                    "name": "Sonnenallee",
+                    "location": {
+                        "longitude": 13.451,
+                        "latitude": 52.471
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -2153,21 +3637,42 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Potsdamer Platz"
+                    "name": "Potsdamer Platz",
+                    "location": {
+                        "longitude": 13.3903,
+                        "latitude": 52.5124
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hermannplatz"
+                    "name": "Hermannplatz",
+                    "location": {
+                        "longitude": 13.418,
+                        "latitude": 52.4992
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Sonnenallee"
+                    "name": "Sonnenallee",
+                    "location": {
+                        "longitude": 13.451,
+                        "latitude": 52.471
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             }
         ]
     },
@@ -2185,15 +3690,29 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Hermannplatz"
+                    "name": "Hermannplatz",
+                    "location": {
+                        "longitude": 13.418,
+                        "latitude": 52.4992
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Sonnenallee"
+                    "name": "Sonnenallee",
+                    "location": {
+                        "longitude": 13.451,
+                        "latitude": 52.471
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             }
         ]
     },
@@ -2211,27 +3730,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Hauptbahnhof"
+                    "name": "Hauptbahnhof",
+                    "location": {
+                        "longitude": 13.3694,
+                        "latitude": 52.5251
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Potsdamer Platz"
+                    "name": "Potsdamer Platz",
+                    "location": {
+                        "longitude": 13.3903,
+                        "latitude": 52.5124
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hermannplatz"
+                    "name": "Hermannplatz",
+                    "location": {
+                        "longitude": 13.418,
+                        "latitude": 52.4992
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Sonnenallee"
+                    "name": "Sonnenallee",
+                    "location": {
+                        "longitude": 13.451,
+                        "latitude": 52.471
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -2249,27 +3796,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Potsdam Hbf"
+                    "name": "Potsdam Hbf",
+                    "location": {
+                        "longitude": 13.066,
+                        "latitude": 52.391
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Wannsee"
+                    "name": "Wannsee",
+                    "location": {
+                        "longitude": 13.332,
+                        "latitude": 52.5072
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hauptbahnhof"
+                    "name": "Hauptbahnhof",
+                    "location": {
+                        "longitude": 13.3694,
+                        "latitude": 52.5251
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Friedrichstraße"
+                    "name": "Friedrichstraße",
+                    "location": {
+                        "longitude": 13.3869,
+                        "latitude": 52.52
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -2287,27 +3862,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Wannsee"
+                    "name": "Wannsee",
+                    "location": {
+                        "longitude": 13.332,
+                        "latitude": 52.5072
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hauptbahnhof"
+                    "name": "Hauptbahnhof",
+                    "location": {
+                        "longitude": 13.3694,
+                        "latitude": 52.5251
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Friedrichstraße"
+                    "name": "Friedrichstraße",
+                    "location": {
+                        "longitude": 13.3869,
+                        "latitude": 52.52
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Ostbahnhof"
+                    "name": "Ostbahnhof",
+                    "location": {
+                        "longitude": 13.4317,
+                        "latitude": 52.51
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -2325,21 +3928,42 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Hauptbahnhof"
+                    "name": "Hauptbahnhof",
+                    "location": {
+                        "longitude": 13.3694,
+                        "latitude": 52.5251
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Friedrichstraße"
+                    "name": "Friedrichstraße",
+                    "location": {
+                        "longitude": 13.3869,
+                        "latitude": 52.52
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Ostbahnhof"
+                    "name": "Ostbahnhof",
+                    "location": {
+                        "longitude": 13.4317,
+                        "latitude": 52.51
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             }
         ]
     },
@@ -2357,27 +3981,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Ostbahnhof"
+                    "name": "Ostbahnhof",
+                    "location": {
+                        "longitude": 13.4317,
+                        "latitude": 52.51
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Friedrichstraße"
+                    "name": "Friedrichstraße",
+                    "location": {
+                        "longitude": 13.3869,
+                        "latitude": 52.52
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hauptbahnhof"
+                    "name": "Hauptbahnhof",
+                    "location": {
+                        "longitude": 13.3694,
+                        "latitude": 52.5251
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Wannsee"
+                    "name": "Wannsee",
+                    "location": {
+                        "longitude": 13.332,
+                        "latitude": 52.5072
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -2395,27 +4047,55 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Friedrichstraße"
+                    "name": "Friedrichstraße",
+                    "location": {
+                        "longitude": 13.3869,
+                        "latitude": 52.52
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Hauptbahnhof"
+                    "name": "Hauptbahnhof",
+                    "location": {
+                        "longitude": 13.3694,
+                        "latitude": 52.5251
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Wannsee"
+                    "name": "Wannsee",
+                    "location": {
+                        "longitude": 13.332,
+                        "latitude": 52.5072
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Potsdam Hbf"
+                    "name": "Potsdam Hbf",
+                    "location": {
+                        "longitude": 13.066,
+                        "latitude": 52.391
+                    }
                 },
-                "arrival": "2026-06-28T20:08:52.967Z"
+                "arrival": "2026-06-28T20:52:00.049Z",
+                "departure": "2026-06-28T20:52:00.049Z",
+                "plannedArrival": "2026-06-28T20:52:00.049Z",
+                "plannedDeparture": "2026-06-28T20:52:00.049Z"
             }
         ]
     },
@@ -2433,21 +4113,42 @@
         "nextStopovers": [
             {
                 "stop": {
-                    "name": "Hauptbahnhof"
+                    "name": "Hauptbahnhof",
+                    "location": {
+                        "longitude": 13.3694,
+                        "latitude": 52.5251
+                    }
                 },
-                "arrival": "2026-06-28T19:56:52.967Z"
+                "arrival": "2026-06-28T20:40:00.049Z",
+                "departure": "2026-06-28T20:40:00.049Z",
+                "plannedArrival": "2026-06-28T20:40:00.049Z",
+                "plannedDeparture": "2026-06-28T20:40:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Wannsee"
+                    "name": "Wannsee",
+                    "location": {
+                        "longitude": 13.332,
+                        "latitude": 52.5072
+                    }
                 },
-                "arrival": "2026-06-28T20:00:52.967Z"
+                "arrival": "2026-06-28T20:44:00.049Z",
+                "departure": "2026-06-28T20:44:00.049Z",
+                "plannedArrival": "2026-06-28T20:44:00.049Z",
+                "plannedDeparture": "2026-06-28T20:44:00.049Z"
             },
             {
                 "stop": {
-                    "name": "Potsdam Hbf"
+                    "name": "Potsdam Hbf",
+                    "location": {
+                        "longitude": 13.066,
+                        "latitude": 52.391
+                    }
                 },
-                "arrival": "2026-06-28T20:04:52.967Z"
+                "arrival": "2026-06-28T20:48:00.049Z",
+                "departure": "2026-06-28T20:48:00.049Z",
+                "plannedArrival": "2026-06-28T20:48:00.049Z",
+                "plannedDeparture": "2026-06-28T20:48:00.049Z"
             }
         ]
     }
