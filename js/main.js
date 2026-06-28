@@ -1,22 +1,74 @@
 import { loadStationsFromApi } from "./api.js";
 import { map, updateVisibleMarkers, stopPopupRefresh } from "./map.js";
 import { setupSearch } from "./search.js";
-import { updateVehicles } from "./vehicles.js";
+import { updateVehicles } from "./vehicles/vehicleController.js";
 import { setupFilters } from "./filters.js";
 import { setupSidebar } from "./sidebar.js";
+import { vehicleState } from "./vehicles/vehicleState.js";
 
 let stations = [];
 
-setupSidebar();
+function isBerlinAreaStation(station) {
+    const [lat, lng] = station.coordinates;
 
-setupFilters(() => {
-    stopPopupRefresh();
-    updateVisibleMarkers(stations);
-    updateVehicles(true);
-});
+    return lat >= 52.33 && lat <= 52.70 &&
+           lng >= 13.05 && lng <= 13.80;
+}
 
-function getProductsFromStop(stop) {
-    return stop.products || {};
+function normalizeStop(stop) {
+    return {
+        id: stop.id,
+        name: stop.name,
+        coordinates: [
+            stop.location.latitude,
+            stop.location.longitude
+        ],
+        products: stop.products || {}
+    };
+}
+
+function createEmptyProducts() {
+    return {
+        subway: false,
+        suburban: false,
+        tram: false,
+        bus: false,
+        ferry: false,
+        express: false,
+        regional: false
+    };
+}
+
+function mergeProducts(targetProducts, sourceProducts) {
+    Object.keys(targetProducts).forEach(product => {
+        targetProducts[product] =
+            targetProducts[product] || sourceProducts[product] === true;
+    });
+}
+
+function groupStationsByName(rawStations) {
+    const groupedStations = {};
+
+    rawStations.forEach(station => {
+        if (!groupedStations[station.name]) {
+            groupedStations[station.name] = {
+                name: station.name,
+                coordinates: station.coordinates,
+                products: createEmptyProducts(),
+                stops: []
+            };
+        }
+
+        groupedStations[station.name].stops.push({
+            id: station.id,
+            coordinates: station.coordinates,
+            products: station.products
+        });
+
+        mergeProducts(groupedStations[station.name].products, station.products);
+    });
+
+    return Object.values(groupedStations);
 }
 
 async function loadStations() {
@@ -24,74 +76,10 @@ async function loadStations() {
         const data = await loadStationsFromApi();
 
         const rawStations = data
-            .map(stop => {
-                return {
-                    id: stop.id,
-                    name: stop.name,
-                    coordinates: [
-                        stop.location.latitude,
-                        stop.location.longitude
-                    ],
-                    products: getProductsFromStop(stop)
-                };
-            })
-            .filter(station => {
-                const lat = station.coordinates[0];
-                const lng = station.coordinates[1];
+            .map(normalizeStop)
+            .filter(isBerlinAreaStation);
 
-                return lat >= 52.33 && lat <= 52.70 &&
-                       lng >= 13.05 && lng <= 13.80;
-            });
-
-        const groupedStations = {};
-
-        rawStations.forEach(station => {
-            if (!groupedStations[station.name]) {
-                groupedStations[station.name] = {
-                    name: station.name,
-                    coordinates: station.coordinates,
-                    products: {
-                        subway: false,
-                        suburban: false,
-                        tram: false,
-                        bus: false,
-                        ferry: false,
-                        express: false,
-                        regional: false
-                    },
-                    stops: []
-                };
-            }
-
-            groupedStations[station.name].stops.push({
-                id: station.id,
-                coordinates: station.coordinates,
-                products: station.products
-            });
-
-            groupedStations[station.name].products.subway =
-                groupedStations[station.name].products.subway || station.products.subway === true;
-
-            groupedStations[station.name].products.suburban =
-                groupedStations[station.name].products.suburban || station.products.suburban === true;
-
-            groupedStations[station.name].products.tram =
-                groupedStations[station.name].products.tram || station.products.tram === true;
-
-            groupedStations[station.name].products.bus =
-                groupedStations[station.name].products.bus || station.products.bus === true;
-
-            groupedStations[station.name].products.ferry =
-                groupedStations[station.name].products.ferry || station.products.ferry === true;
-
-            groupedStations[station.name].products.express =
-                groupedStations[station.name].products.express || station.products.express === true;
-
-            groupedStations[station.name].products.regional =
-                groupedStations[station.name].products.regional || station.products.regional === true;
-        });
-
-        stations = Object.values(groupedStations);
+        stations = groupStationsByName(rawStations);
 
         updateVisibleMarkers(stations);
         setupSearch(stations);
@@ -100,15 +88,36 @@ async function loadStations() {
     }
 }
 
-loadStations();
+function setupUi() {
+    setupSidebar();
 
-map.on("moveend", () => {
-    updateVisibleMarkers(stations);
+    setupFilters(() => {
+        stopPopupRefresh();
+        updateVisibleMarkers(stations);
+        updateVehicles(true);
+    });
+}
+
+function setupMapEvents() {
+    map.on("moveend", () => {
+        updateVisibleMarkers(stations);
+        updateVehicles(true);
+    });
+}
+
+function setupVehicleRefresh() {
     updateVehicles(true);
-});
 
-updateVehicles(true);
+    setInterval(() => {
+        updateVehicles();
+    }, vehicleState.refreshInterval);
+}
 
-setInterval(() => {
-    updateVehicles();
-}, 30000);
+function initApp() {
+    setupUi();
+    setupMapEvents();
+    setupVehicleRefresh();
+    loadStations();
+}
+
+initApp();

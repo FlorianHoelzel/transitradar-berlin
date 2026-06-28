@@ -1,6 +1,6 @@
 import { getTripDetails } from "./api.js";
 import { map } from "./map.js";
-import { getLineColor } from "./vehicleUtils.js";
+import { getLineColor } from "./vehicles/vehicleUtils.js";
 import { createLineBadge } from "./badges.js";
 
 let activeRouteLayer = null;

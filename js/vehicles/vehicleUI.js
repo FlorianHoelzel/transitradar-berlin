@@ -1,6 +1,7 @@
-import { createLineBadge } from "./badges.js";
-import { activeTripDetails } from "./routeLayer.js";
-import { vehicleMarkers, vehicleState } from "./vehicleState.js";
+import { createLineBadge } from "../badges.js";
+import { activeTripDetails } from "../routeLayer.js";
+import { vehicleState } from "./vehicleState.js";
+import { vehicleMarkers } from "./vehicleStore.js";
 import { cleanStopName, getLineColor } from "./vehicleUtils.js";
 
 function getStopName(stopover) {
@@ -251,7 +252,9 @@ export function updateVehicleMarkerStyles() {
     Object.values(vehicleMarkers).forEach(marker => {
         const movement = marker.transitMovement;
 
-        if (!movement) return;
+        if (!movement) {
+            return;
+        }
 
         marker.setIcon(createVehicleIcon(movement));
         marker.setPopupContent(createVehiclePopup(movement));

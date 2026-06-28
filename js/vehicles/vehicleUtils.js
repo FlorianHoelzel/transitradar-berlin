@@ -1,10 +1,5 @@
-import { map } from "./map.js";
-import { getBadgeStyle } from "./lineColors.js";
-import { activeFilters } from "./filters.js";
-
-export function getRadarBounds() {
-    return map.getBounds();
-}
+import { getBadgeStyle } from "../lineColors.js";
+import { activeFilters } from "../filters.js";
 
 export function getVehicleType(movement) {
     const lineName = movement.line?.name || "";
@@ -40,8 +35,7 @@ export function getVehicleType(movement) {
     return "surface";
 }
 
-export function shouldShowVehicle(movement) {
-    const zoom = map.getZoom();
+export function shouldShowVehicle(movement, zoom) {
     const vehicleType = getVehicleType(movement);
 
     if (!activeFilters.vehicles[vehicleType]) {
