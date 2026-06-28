@@ -91,10 +91,12 @@ async function loadStationsFromFallbackData() {
 
 export async function loadStations() {
     if (DEV_CONFIG.useMockData) {
+        console.log("Developer Mode: loading stations from local data.");
         return await loadStationsFromFallbackData();
     }
 
     try {
+        console.log("Loading stations from API.");
         return await loadStationsFromRemoteApi();
     } catch (apiError) {
         console.warn("Failed to load stations from API. Trying local fallback:", apiError);

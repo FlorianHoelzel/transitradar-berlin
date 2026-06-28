@@ -14,10 +14,12 @@ async function loadTripFromFallbackData(tripId) {
 
 export async function loadTripDetails(tripId, lineName) {
     if (DEV_CONFIG.useMockData) {
+        console.log("Developer Mode: loading trip from local data.");
         return await loadTripFromFallbackData(tripId);
     }
 
     try {
+        console.log("Loading trip from API.");
         return await loadTripFromRemoteApi(tripId, lineName);
     } catch (apiError) {
         console.warn("Failed to load trip from API. Trying local fallback:", apiError);

@@ -12,10 +12,12 @@ async function loadVehicleMovementsFromFallbackData() {
 
 export async function loadVehicleMovements(bounds, zoom) {
     if (DEV_CONFIG.useMockData) {
+        console.log("Developer Mode: loading vehicles from local data.");
         return await loadVehicleMovementsFromFallbackData();
     }
 
     try {
+        console.log("Loading vehicles from API.");
         return await loadVehicleMovementsFromRemoteApi(bounds, zoom);
     } catch (apiError) {
         console.warn("Failed to load vehicles from API. Trying local fallback:", apiError);

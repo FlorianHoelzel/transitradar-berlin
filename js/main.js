@@ -13,8 +13,6 @@ import { setupSidebar } from "./ui/sidebar.js";
 import { vehicleState } from "./vehicles/vehicleState.js";
 import { initializeDeveloperMode } from "./dev/developerMode.js";
 
-initializeDeveloperMode();
-
 async function setupStations() {
     try {
         const stations = await loadStations();
@@ -23,7 +21,7 @@ async function setupStations() {
         updateVisibleMarkers(getStations());
         setupSearch(getStations());
     } catch (error) {
-        console.error("Fehler beim Laden der Haltestellen:", error);
+        console.error("Failed to load stations:", error);
     }
 }
 
@@ -53,6 +51,8 @@ function setupVehicleRefresh() {
 }
 
 function initApp() {
+    initializeDeveloperMode();
+
     setupUi();
     createApiStatusIndicator();
     setupMapEvents();
