@@ -412,3 +412,40 @@
     background: rgba(250, 204, 21, 0.2);
     transform: scale(1.05);
 }
+
+.station-departures-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.station-departures-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.station-departures {
+    max-height: 430px;
+    overflow-y: auto;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.station-departures::-webkit-scrollbar {
+    display: none;
+}
+
+.station-departures.has-fade {
+    mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black calc(100% - 44px),
+        transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black calc(100% - 44px),
+        transparent 100%
+    );
+}
