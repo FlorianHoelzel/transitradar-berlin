@@ -1,5 +1,5 @@
-import { createLineBadge } from "../badges.js";
-import { activeTripDetails } from "../routeLayer.js";
+import { createLineBadge } from "../lines/badges.js";
+import { activeTripDetails } from "../map/routeLayer.js";
 import { vehicleState } from "./vehicleState.js";
 import { vehicleMarkers } from "./vehicleStore.js";
 import { cleanStopName, getLineColor } from "./vehicleUtils.js";

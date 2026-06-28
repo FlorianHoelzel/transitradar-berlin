@@ -1,7 +1,7 @@
-import { getTripDetails } from "./api/transportRestApi.js";
-import { map } from "./map/map.js";
-import { getLineColor } from "./vehicles/vehicleUtils.js";
-import { createLineBadge } from "./badges.js";
+import { getTripDetails } from "../api/transportRestApi.js";
+import { map } from "./map.js";
+import { getLineColor } from "../vehicles/vehicleUtils.js";
+import { createLineBadge } from "../lines/badges.js";
 
 let activeRouteLayer = null;
 let activeGlowLayer = null;

@@ -1,4 +1,4 @@
-import { createLineBadge } from "../badges.js";
+import { createLineBadge } from "../lines/badges.js";
 
 function createSkeletonHtml() {
     return `

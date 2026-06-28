@@ -1,4 +1,4 @@
-import { showRouteForTrip, clearRouteLayer } from "../routeLayer.js";
+import { showRouteForTrip, clearRouteLayer } from "../map/routeLayer.js";
 import { map } from "../map/map.js";
 
 import { vehicleState } from "./vehicleState.js";

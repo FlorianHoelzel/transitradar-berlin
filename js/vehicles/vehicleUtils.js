@@ -1,4 +1,4 @@
-import { getBadgeStyle } from "../lineColors.js";
+import { getBadgeStyle } from "../lines/lineColors.js";
 import { activeFilters } from "../ui/filters.js";
 
 export function getVehicleType(movement) {

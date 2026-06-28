@@ -5,7 +5,9 @@ function getStopName(stopover) {
 }
 
 function formatTime(value) {
-    if (!value) return "-";
+    if (!value) {
+        return "-";
+    }
 
     return new Date(value).toLocaleTimeString("de-DE", {
         hour: "2-digit",
@@ -15,7 +17,9 @@ function formatTime(value) {
 }
 
 function getMinutesDiff(value) {
-    if (!value) return "-";
+    if (!value) {
+        return "-";
+    }
 
     const diffMs = new Date(value) - new Date();
     return Math.round(diffMs / 1000 / 60);
