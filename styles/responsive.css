@@ -1,0 +1,16 @@
+/* Mobile */
+
+@media (max-width: 600px) {
+    .search-box {
+        width: calc(100vw - 24px);
+    }
+
+    .filter-control {
+        right: 12px;
+        bottom: 18px;
+    }
+
+    .filter-panel {
+        width: 250px;
+    }
+}

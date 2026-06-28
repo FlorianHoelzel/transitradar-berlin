@@ -1,0 +1,103 @@
+/* Selected vehicle line */
+
+.vehicle-marker.vehicle-selected {
+    z-index: 9999;
+}
+
+.vehicle-marker.vehicle-selected .vehicle-badge {
+    transform: scale(0.9);
+    filter:
+        drop-shadow(0 0 8px rgba(255, 255, 255, 0.65))
+        drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6));
+}
+
+.vehicle-marker.vehicle-dimmed {
+    opacity: 0.22;
+}
+
+.vehicle-marker.vehicle-dimmed .vehicle-badge {
+    transform: scale(0.62);
+    filter: grayscale(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
+}
+
+.selected-line-control {
+    position: fixed;
+    left: 50%;
+    bottom: 28px;
+    transform: translateX(-50%);
+
+    z-index: 16000;
+
+    display: none;
+    align-items: center;
+    gap: 12px;
+
+    padding: 10px 12px 10px 16px;
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.2),
+            rgba(255, 255, 255, 0.05)
+        ),
+        var(--glass-bg-strong);
+    color: var(--text-main);
+    backdrop-filter: var(--glass-blur-soft);
+    -webkit-backdrop-filter: var(--glass-blur-soft);
+
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+}
+
+.selected-line-control.visible {
+    display: flex;
+}
+
+.selected-line-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.selected-line-label span {
+    font-size: 13px;
+    font-weight: 900;
+    color: var(--text-faded);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.selected-line-clear {
+    height: 34px;
+    padding: 0 14px;
+
+    border: none;
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--text-main);
+
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.selected-line-clear:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.clickable-departure {
+    transition:
+        background .18s ease,
+        transform .18s ease;
+}
+
+.clickable-departure:hover {
+    background: rgba(255,255,255,.08);
+    transform: translateX(4px);
+}
+
+.route-preview-control {
+    bottom: 28px;
+}

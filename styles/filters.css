@@ -1,0 +1,108 @@
+/* Layer settings */
+
+.filter-control {
+    position: fixed;
+    right: 22px;
+    bottom: 28px;
+    z-index: 15000;
+}
+
+.filter-toggle {
+    height: 48px;
+    padding: 0 18px;
+    border: 1px solid var(--glass-border);
+    border-radius: 999px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.18),
+            rgba(255, 255, 255, 0.04)
+        ),
+        var(--glass-bg);
+    color: var(--text-main);
+    backdrop-filter: var(--glass-blur-soft);
+    -webkit-backdrop-filter: var(--glass-blur-soft);
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+}
+
+.filter-toggle:hover {
+    background: rgba(30, 41, 59, 0.96);
+}
+
+.filter-panel {
+    position: absolute;
+    right: 0;
+    bottom: 62px;
+    width: 260px;
+    padding: 12px;
+    border-radius: 22px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.16),
+            rgba(255, 255, 255, 0.04)
+        ),
+        var(--glass-bg-strong);
+    color: var(--text-main);
+    backdrop-filter: var(--glass-blur-soft);
+    -webkit-backdrop-filter: var(--glass-blur-soft);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-glass-strong);
+    display: none;
+}
+
+.filter-panel.open {
+    display: block;
+}
+
+.filter-section {
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.filter-section:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.filter-panel-title {
+    padding: 8px 10px 12px;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-faded);
+}
+
+.filter-option {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 6px;
+    border: none;
+    border-radius: 14px;
+    background: transparent;
+    color: var(--text-muted);
+    text-align: left;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.filter-option:last-child {
+    margin-bottom: 0;
+}
+
+.filter-option:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-main);
+}
+
+.filter-option.active {
+    background: #ffffff;
+    color: #020617;
+}
