@@ -2,7 +2,7 @@ import { showRouteForTrip } from "../routeLayer.js";
 import { getDepartures } from "../api/transportRestApi.js";
 import { createPopupContent, createDeparturesHtml } from "./stationPopup.js";
 import { activeFilters } from "../ui/filters.js";
-import { map } from "../map.js";
+import { map } from "../map/map.js";
 
 let popupRefreshInterval = null;
 

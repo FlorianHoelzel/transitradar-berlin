@@ -1,5 +1,5 @@
 import { showRouteForTrip, clearRouteLayer } from "../routeLayer.js";
-import { map } from "../map.js";
+import { map } from "../map/map.js";
 
 import { vehicleState } from "./vehicleState.js";
 import { loadVehicleMovements } from "./vehicleService.js";

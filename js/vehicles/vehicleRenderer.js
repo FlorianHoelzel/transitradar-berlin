@@ -1,4 +1,4 @@
-import { map } from "../map.js";
+import { map } from "../map/map.js";
 import { vehicleMarkers } from "./vehicleStore.js";
 import { shouldShowVehicle, animateMarker } from "./vehicleUtils.js";
 import {

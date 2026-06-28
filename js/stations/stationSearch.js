@@ -1,4 +1,4 @@
-import { map } from "../map.js";
+import { map } from "../map/map.js";
 import { markers, updateVisibleMarkers } from "./stationMarkers.js";
 
 export function setupSearch(stations) {

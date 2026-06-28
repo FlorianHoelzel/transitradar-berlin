@@ -1,7 +1,7 @@
 import { createApiStatusIndicator } from "./ui/apiStatusIndicator.js";
 import { loadStations } from "./stations/stationService.js";
 import { setStations, getStations } from "./stations/stationStore.js";
-import { map } from "./map.js";
+import { map } from "./map/map.js";
 import {
     updateVisibleMarkers,
     stopPopupRefresh

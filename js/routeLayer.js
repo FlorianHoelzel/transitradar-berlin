@@ -1,5 +1,5 @@
 import { getTripDetails } from "./api/transportRestApi.js";
-import { map } from "./map.js";
+import { map } from "./map/map.js";
 import { getLineColor } from "./vehicles/vehicleUtils.js";
 import { createLineBadge } from "./badges.js";
 
