@@ -1,3 +1,4 @@
+import { createApiStatusIndicator } from "./ui/apiStatusIndicator.js";
 import { loadStationsFromApi } from "./api/transportRestApi.js";
 import { map, updateVisibleMarkers, stopPopupRefresh } from "./map.js";
 import { setupSearch } from "./search.js";
@@ -115,6 +116,7 @@ function setupVehicleRefresh() {
 
 function initApp() {
     setupUi();
+    createApiStatusIndicator();
     setupMapEvents();
     setupVehicleRefresh();
     loadStations();

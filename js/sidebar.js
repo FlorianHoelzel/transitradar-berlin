@@ -1,5 +1,3 @@
-import { createApiStatusElement, startApiStatusWatcher } from "./api/apiStatus.js";
-
 export function setupSidebar() {
     const sidebarToggle = document.createElement("button");
     sidebarToggle.id = "sidebarToggle";
@@ -50,15 +48,6 @@ export function setupSidebar() {
 
                 <span class="sidebar-item-emoji">ℹ️</span>
                 <span>About</span>
-
-            </button>
-
-            <div class="sidebar-footer-divider"></div>
-
-            <div
-                id="sidebarStatusContainer"
-                class="sidebar-status-container">
-            </div>
 
         </div>
     `;
@@ -136,10 +125,6 @@ export function setupSidebar() {
     const sidebarClose = document.getElementById("sidebarClose");
     const aboutButton = document.getElementById("aboutButton");
     const aboutClose = document.getElementById("aboutClose");
-    const sidebarStatusContainer = document.getElementById("sidebarStatusContainer");
-
-    sidebarStatusContainer.append(createApiStatusElement());
-    startApiStatusWatcher();
 
     function openSidebar() {
         sidebar.classList.add("open");

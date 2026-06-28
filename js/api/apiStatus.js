@@ -6,34 +6,12 @@ const API_TEST_URLS = [
 let apiStatus = "checking";
 let lastCheckedAt = null;
 
-function getStatusText() {
-    if (apiStatus === "online") return "API Online";
-    if (apiStatus === "offline") return "API unavailable";
-    return "Checking API...";
+export function getApiStatus() {
+    return apiStatus;
 }
 
-function getStatusClass() {
-    return `api-status ${apiStatus}`;
-}
-
-function updateApiStatusUI() {
-    const statusElement = document.getElementById("apiStatus");
-
-    if (!statusElement) {
-        return;
-    }
-
-    statusElement.className = getStatusClass();
-
-    statusElement.innerHTML = `
-        <span class="api-status-dot"></span>
-        <div>
-            <div class="api-status-label">${getStatusText()}</div>
-            <div class="api-status-time">
-                ${lastCheckedAt ? `Last checked ${lastCheckedAt}` : "Waiting for response"}
-            </div>
-        </div>
-    `;
+export function getLastCheckedAt() {
+    return lastCheckedAt;
 }
 
 async function fetchWithTimeout(url, timeout = 6000) {
@@ -56,25 +34,12 @@ async function fetchWithTimeout(url, timeout = 6000) {
     }
 }
 
-export function createApiStatusElement() {
-    const element = document.createElement("div");
-    element.id = "apiStatus";
-    element.className = getStatusClass();
-
-    element.innerHTML = `
-        <span class="api-status-dot"></span>
-        <div>
-            <div class="api-status-label">${getStatusText()}</div>
-            <div class="api-status-time">Waiting for response</div>
-        </div>
-    `;
-
-    return element;
-}
-
-export async function checkApiStatus() {
+export async function checkApiStatus(onStatusChange) {
     apiStatus = "checking";
-    updateApiStatusUI();
+
+    if (onStatusChange) {
+        onStatusChange(apiStatus);
+    }
 
     const results = await Promise.all(
         API_TEST_URLS.map(url => fetchWithTimeout(url))
@@ -89,13 +54,15 @@ export async function checkApiStatus() {
         minute: "2-digit"
     });
 
-    updateApiStatusUI();
+    if (onStatusChange) {
+        onStatusChange(apiStatus);
+    }
 }
 
-export function startApiStatusWatcher() {
-    checkApiStatus();
+export function startApiStatusWatcher(onStatusChange) {
+    checkApiStatus(onStatusChange);
 
     setInterval(() => {
-        checkApiStatus();
+        checkApiStatus(onStatusChange);
     }, 60000);
 }
