@@ -1,46 +1,80 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>TransitRadar Berlin</title>
 
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styles/fonts.css">
+    <link rel="stylesheet" href="./styles/base.css">
+    <link rel="stylesheet" href="./styles/search.css">
+    <link rel="stylesheet" href="./styles/filters.css">
+    <link rel="stylesheet" href="./styles/stations.css">
+    <link rel="stylesheet" href="./styles/vehicles.css">
+    <link rel="stylesheet" href="./styles/routes.css">
+    <link rel="stylesheet" href="./styles/sidebar.css">
+    <link rel="stylesheet" href="./styles/about.css">
+    <link rel="stylesheet" href="./styles/api-status.css">
+    <link rel="stylesheet" href="./styles/responsive.css">
 
     <link
         rel="stylesheet"
         href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     >
 </head>
+
 <body>
 
     <div class="search-box">
         <input
-            type="text"
             id="searchInput"
+            type="text"
             placeholder="Search station..."
         >
+
         <div id="searchResults"></div>
     </div>
 
     <div class="filter-control">
-        <button id="filterToggle" class="filter-toggle">
+        <button
+            id="filterToggle"
+            class="filter-toggle"
+        >
             ⚙ Filters
         </button>
 
-        <div id="filterPanel" class="filter-panel">
+        <div
+            id="filterPanel"
+            class="filter-panel"
+        >
             <div class="filter-section">
                 <div class="filter-panel-title">Stations</div>
 
-                <button class="filter-option active" data-filter-group="stations" data-filter="suburban">
+                <button
+                    class="filter-option active"
+                    data-filter-group="stations"
+                    data-filter="suburban"
+                >
                     S-Bahn
                 </button>
 
-                <button class="filter-option active" data-filter-group="stations" data-filter="subway">
+                <button
+                    class="filter-option active"
+                    data-filter-group="stations"
+                    data-filter="subway"
+                >
                     U-Bahn
                 </button>
 
-                <button class="filter-option active" data-filter-group="stations" data-filter="surface">
+                <button
+                    class="filter-option active"
+                    data-filter-group="stations"
+                    data-filter="surface"
+                >
                     Bus / Tram
                 </button>
             </div>
@@ -48,23 +82,43 @@
             <div class="filter-section">
                 <div class="filter-panel-title">Live Vehicles</div>
 
-                <button class="filter-option active" data-filter-group="vehicles" data-filter="suburban">
+                <button
+                    class="filter-option active"
+                    data-filter-group="vehicles"
+                    data-filter="suburban"
+                >
                     S-Bahn
                 </button>
 
-                <button class="filter-option active" data-filter-group="vehicles" data-filter="subway">
+                <button
+                    class="filter-option active"
+                    data-filter-group="vehicles"
+                    data-filter="subway"
+                >
                     U-Bahn
                 </button>
 
-                <button class="filter-option active" data-filter-group="vehicles" data-filter="surface">
+                <button
+                    class="filter-option active"
+                    data-filter-group="vehicles"
+                    data-filter="surface"
+                >
                     Bus / Tram
                 </button>
 
-                <button class="filter-option active" data-filter-group="vehicles" data-filter="regional">
+                <button
+                    class="filter-option active"
+                    data-filter-group="vehicles"
+                    data-filter="regional"
+                >
                     RE / RB / RJ / FEX
                 </button>
 
-                <button class="filter-option active" data-filter-group="vehicles" data-filter="longDistance">
+                <button
+                    class="filter-option active"
+                    data-filter-group="vehicles"
+                    data-filter="longDistance"
+                >
                     ICE / IC / EC
                 </button>
             </div>

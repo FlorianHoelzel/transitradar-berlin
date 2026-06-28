@@ -32,16 +32,52 @@
     --shadow-glass-strong: 0 30px 90px rgba(0, 0, 0, 0.55);
 }
 
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
     background: var(--page-bg);
+
+    font-family: "Geist", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: -0.015em;
+
+    color: var(--text-main);
+
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+
+    font-family: "Geist", sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
 }
 
 #map {
     height: 100vh;
 }
-
 
 /* Liquid glass utilities */
 
