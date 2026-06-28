@@ -1,1 +1,194 @@
-[]
+[
+    {
+        "tripId": "mock-u2-001",
+        "direction": "Pankow",
+        "line": {
+            "name": "U2",
+            "product": "subway"
+        },
+        "location": {
+            "latitude": 52.5163,
+            "longitude": 13.3777
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Potsdamer Platz"
+                },
+                "arrival": "2026-06-28T21:45:00+02:00"
+            },
+            {
+                "stop": {
+                    "name": "Stadtmitte"
+                },
+                "arrival": "2026-06-28T21:48:00+02:00"
+            },
+            {
+                "stop": {
+                    "name": "Alexanderplatz"
+                },
+                "arrival": "2026-06-28T21:53:00+02:00"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-u8-001",
+        "direction": "Hermannstraße",
+        "line": {
+            "name": "U8",
+            "product": "subway"
+        },
+        "location": {
+            "latitude": 52.5266,
+            "longitude": 13.4028
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Alexanderplatz"
+                },
+                "arrival": "2026-06-28T21:44:00+02:00"
+            },
+            {
+                "stop": {
+                    "name": "Jannowitzbrücke"
+                },
+                "arrival": "2026-06-28T21:47:00+02:00"
+            },
+            {
+                "stop": {
+                    "name": "Kottbusser Tor"
+                },
+                "arrival": "2026-06-28T21:52:00+02:00"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-s41-001",
+        "direction": "Ringbahn clockwise",
+        "line": {
+            "name": "S41",
+            "product": "suburban"
+        },
+        "location": {
+            "latitude": 52.5103,
+            "longitude": 13.4357
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Ostkreuz"
+                },
+                "arrival": "2026-06-28T21:46:00+02:00"
+            },
+            {
+                "stop": {
+                    "name": "Frankfurter Allee"
+                },
+                "arrival": "2026-06-28T21:49:00+02:00"
+            },
+            {
+                "stop": {
+                    "name": "Greifswalder Straße"
+                },
+                "arrival": "2026-06-28T21:55:00+02:00"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-m10-001",
+        "direction": "Warschauer Straße",
+        "line": {
+            "name": "M10",
+            "product": "tram"
+        },
+        "location": {
+            "latitude": 52.5321,
+            "longitude": 13.3972
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Nordbahnhof"
+                },
+                "arrival": "2026-06-28T21:43:00+02:00"
+            },
+            {
+                "stop": {
+                    "name": "Eberswalder Straße"
+                },
+                "arrival": "2026-06-28T21:49:00+02:00"
+            },
+            {
+                "stop": {
+                    "name": "Warschauer Straße"
+                },
+                "arrival": "2026-06-28T22:02:00+02:00"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-bus-100-001",
+        "direction": "Alexanderplatz",
+        "line": {
+            "name": "100",
+            "product": "bus"
+        },
+        "location": {
+            "latitude": 52.5186,
+            "longitude": 13.3762
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Reichstag/Bundestag"
+                },
+                "arrival": "2026-06-28T21:42:00+02:00"
+            },
+            {
+                "stop": {
+                    "name": "Unter den Linden"
+                },
+                "arrival": "2026-06-28T21:47:00+02:00"
+            },
+            {
+                "stop": {
+                    "name": "Alexanderplatz"
+                },
+                "arrival": "2026-06-28T21:56:00+02:00"
+            }
+        ]
+    },
+    {
+        "tripId": "mock-re1-001",
+        "direction": "Frankfurt (Oder)",
+        "line": {
+            "name": "RE1",
+            "product": "regional"
+        },
+        "location": {
+            "latitude": 52.5251,
+            "longitude": 13.3694
+        },
+        "nextStopovers": [
+            {
+                "stop": {
+                    "name": "Berlin Hauptbahnhof"
+                },
+                "arrival": "2026-06-28T21:40:00+02:00"
+            },
+            {
+                "stop": {
+                    "name": "Berlin Friedrichstraße"
+                },
+                "arrival": "2026-06-28T21:43:00+02:00"
+            },
+            {
+                "stop": {
+                    "name": "Berlin Ostbahnhof"
+                },
+                "arrival": "2026-06-28T21:51:00+02:00"
+            }
+        ]
+    }
+]

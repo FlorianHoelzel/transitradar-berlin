@@ -1,1 +1,155 @@
-{}
+{
+    "mock-u2-001": {
+        "id": "mock-u2-001",
+        "direction": "Pankow",
+        "line": {
+            "name": "U2",
+            "product": "subway"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [13.3760, 52.5096],
+                            [13.3777, 52.5163],
+                            [13.3903, 52.5124],
+                            [13.4132, 52.5219],
+                            [13.4127, 52.5321]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-u8-001": {
+        "id": "mock-u8-001",
+        "direction": "Hermannstraße",
+        "line": {
+            "name": "U8",
+            "product": "subway"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [13.4028, 52.5266],
+                            [13.4186, 52.5153],
+                            [13.4180, 52.4992],
+                            [13.4246, 52.4866]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-s41-001": {
+        "id": "mock-s41-001",
+        "direction": "Ringbahn clockwise",
+        "line": {
+            "name": "S41",
+            "product": "suburban"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [13.4357, 52.5103],
+                            [13.4745, 52.5020],
+                            [13.4697, 52.5497],
+                            [13.3889, 52.5486],
+                            [13.4357, 52.5103]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-m10-001": {
+        "id": "mock-m10-001",
+        "direction": "Warschauer Straße",
+        "line": {
+            "name": "M10",
+            "product": "tram"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [13.3694, 52.5251],
+                            [13.3888, 52.5317],
+                            [13.3972, 52.5321],
+                            [13.4126, 52.5411],
+                            [13.4523, 52.5050]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-bus-100-001": {
+        "id": "mock-bus-100-001",
+        "direction": "Alexanderplatz",
+        "line": {
+            "name": "100",
+            "product": "bus"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [13.3501, 52.5065],
+                            [13.3762, 52.5186],
+                            [13.3889, 52.5170],
+                            [13.4132, 52.5219]
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "mock-re1-001": {
+        "id": "mock-re1-001",
+        "direction": "Frankfurt (Oder)",
+        "line": {
+            "name": "RE1",
+            "product": "regional"
+        },
+        "polyline": {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [13.3320, 52.5072],
+                            [13.3694, 52.5251],
+                            [13.3869, 52.5200],
+                            [13.4317, 52.5100]
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}
