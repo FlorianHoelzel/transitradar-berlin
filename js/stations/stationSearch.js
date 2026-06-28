@@ -1,4 +1,5 @@
-import { map, markers, updateVisibleMarkers } from "./map.js";
+import { map } from "../map.js";
+import { markers, updateVisibleMarkers } from "./stationMarkers.js";
 
 export function setupSearch(stations) {
     const searchInput = document.getElementById("searchInput");
@@ -9,11 +10,13 @@ export function setupSearch(stations) {
 
         searchResults.innerHTML = "";
 
-        if (searchText.length < 2) return;
+        if (searchText.length < 2) {
+            return;
+        }
 
-        const matchingStations = stations.filter(station =>
-            station.name.toLowerCase().includes(searchText)
-        );
+        const matchingStations = stations.filter(station => {
+            return station.name.toLowerCase().includes(searchText);
+        });
 
         matchingStations.slice(0, 10).forEach(station => {
             const resultItem = document.createElement("div");

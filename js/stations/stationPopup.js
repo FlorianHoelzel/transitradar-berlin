@@ -1,4 +1,4 @@
-import { createLineBadge } from "./badges.js";
+import { createLineBadge } from "../badges.js";
 
 function createSkeletonHtml() {
     return `
@@ -23,7 +23,9 @@ function createSkeletonHtml() {
 }
 
 function formatTime(dateString) {
-    if (!dateString) return "?";
+    if (!dateString) {
+        return "?";
+    }
 
     return new Date(dateString).toLocaleTimeString("de-DE", {
         hour: "2-digit",
