@@ -92,3 +92,9 @@
     opacity: 1;
     transform: translateY(0);
 }
+
+.api-status-indicator.mock .api-status-dot {
+    background: #38bdf8;
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.16),
+                0 0 18px rgba(56, 189, 248, 0.65);
+}

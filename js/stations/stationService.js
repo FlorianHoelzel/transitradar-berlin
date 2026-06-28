@@ -1,6 +1,6 @@
 import { loadStationsFromApi } from "../api/transportRestApi.js";
 import { loadStationsFromLocalData } from "./localStationRepository.js";
-import { BERLIN_BOUNDS } from "../config.js";
+import { BERLIN_BOUNDS, DEV_CONFIG } from "../config.js";
 
 function isBerlinAreaStation(station) {
     const [lat, lng] = station.coordinates;
@@ -90,6 +90,10 @@ async function loadStationsFromFallbackData() {
 }
 
 export async function loadStations() {
+    if (DEV_CONFIG.useMockData) {
+        return await loadStationsFromFallbackData();
+    }
+
     try {
         return await loadStationsFromRemoteApi();
     } catch (apiError) {

@@ -13,6 +13,10 @@ function getTooltipText(status) {
         return "API currently unavailable.";
     }
 
+    if (status === "mock") {
+        return "Developer mode: using local mock data.";
+    }
+
     return "Checking API status...";
 }
 

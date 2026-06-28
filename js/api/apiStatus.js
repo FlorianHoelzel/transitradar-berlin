@@ -1,4 +1,4 @@
-import { API_STATUS_CONFIG } from "../config.js";
+import { API_STATUS_CONFIG, DEV_CONFIG } from "../config.js";
 
 let apiStatus = "checking";
 let lastCheckedAt = null;
@@ -32,6 +32,20 @@ async function fetchWithTimeout(url, timeout = API_STATUS_CONFIG.timeout) {
 }
 
 export async function checkApiStatus(onStatusChange) {
+    if (DEV_CONFIG.useMockData) {
+        apiStatus = "mock";
+        lastCheckedAt = new Date().toLocaleTimeString("en-GB", {
+            hour: "2-digit",
+            minute: "2-digit"
+        });
+
+        if (onStatusChange) {
+            onStatusChange(apiStatus);
+        }
+
+        return;
+    }
+
     apiStatus = "checking";
 
     if (onStatusChange) {
@@ -58,6 +72,10 @@ export async function checkApiStatus(onStatusChange) {
 
 export function startApiStatusWatcher(onStatusChange) {
     checkApiStatus(onStatusChange);
+
+    if (DEV_CONFIG.useMockData) {
+        return;
+    }
 
     setInterval(() => {
         checkApiStatus(onStatusChange);

@@ -11,6 +11,9 @@ import { updateVehicles } from "./vehicles/vehicleController.js";
 import { setupFilters } from "./ui/filters.js";
 import { setupSidebar } from "./ui/sidebar.js";
 import { vehicleState } from "./vehicles/vehicleState.js";
+import { initializeDeveloperMode } from "./dev/developerMode.js";
+
+initializeDeveloperMode();
 
 async function setupStations() {
     try {

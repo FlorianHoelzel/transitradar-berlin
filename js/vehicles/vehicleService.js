@@ -1,5 +1,6 @@
 import { getVehicleMovements } from "../api/transportRestApi.js";
 import { loadVehiclesFromLocalData } from "./localVehicleRepository.js";
+import { DEV_CONFIG } from "../config.js";
 
 async function loadVehicleMovementsFromRemoteApi(bounds, zoom) {
     return await getVehicleMovements(bounds, zoom);
@@ -10,6 +11,10 @@ async function loadVehicleMovementsFromFallbackData() {
 }
 
 export async function loadVehicleMovements(bounds, zoom) {
+    if (DEV_CONFIG.useMockData) {
+        return await loadVehicleMovementsFromFallbackData();
+    }
+
     try {
         return await loadVehicleMovementsFromRemoteApi(bounds, zoom);
     } catch (apiError) {

@@ -1,5 +1,6 @@
 import { getTripDetails } from "../api/transportRestApi.js";
 import { loadTripsFromLocalData } from "./localRouteRepository.js";
+import { DEV_CONFIG } from "../config.js";
 
 async function loadTripFromRemoteApi(tripId, lineName) {
     return await getTripDetails(tripId, lineName);
@@ -12,6 +13,10 @@ async function loadTripFromFallbackData(tripId) {
 }
 
 export async function loadTripDetails(tripId, lineName) {
+    if (DEV_CONFIG.useMockData) {
+        return await loadTripFromFallbackData(tripId);
+    }
+
     try {
         return await loadTripFromRemoteApi(tripId, lineName);
     } catch (apiError) {

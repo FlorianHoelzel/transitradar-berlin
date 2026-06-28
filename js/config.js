@@ -3,6 +3,10 @@ export const API_BASE_URLS = {
     vbb: "https://v6.vbb.transport.rest"
 };
 
+export const DEV_CONFIG = {
+    useMockData: false
+};
+
 export const HTTP_CONFIG = {
     timeout: 10000
 };
