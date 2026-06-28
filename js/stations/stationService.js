@@ -1,4 +1,5 @@
 import { loadStationsFromApi } from "../api/transportRestApi.js";
+import { loadStationsFromLocalData } from "./localStationRepository.js";
 import { BERLIN_BOUNDS } from "../config.js";
 
 function isBerlinAreaStation(station) {
@@ -82,11 +83,23 @@ async function loadStationsFromRemoteApi() {
     return prepareStations(data);
 }
 
+async function loadStationsFromFallbackData() {
+    const data = await loadStationsFromLocalData();
+
+    return prepareStations(data);
+}
+
 export async function loadStations() {
     try {
         return await loadStationsFromRemoteApi();
-    } catch (error) {
-        console.error("Failed to load stations from API:", error);
-        return [];
+    } catch (apiError) {
+        console.warn("Failed to load stations from API. Trying local fallback:", apiError);
+
+        try {
+            return await loadStationsFromFallbackData();
+        } catch (fallbackError) {
+            console.error("Failed to load stations from local fallback:", fallbackError);
+            return [];
+        }
     }
 }

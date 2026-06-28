@@ -1,5 +1,25 @@
 import { getVehicleMovements } from "../api/transportRestApi.js";
+import { loadVehiclesFromLocalData } from "./localVehicleRepository.js";
+
+async function loadVehicleMovementsFromRemoteApi(bounds, zoom) {
+    return await getVehicleMovements(bounds, zoom);
+}
+
+async function loadVehicleMovementsFromFallbackData() {
+    return await loadVehiclesFromLocalData();
+}
 
 export async function loadVehicleMovements(bounds, zoom) {
-    return await getVehicleMovements(bounds, zoom);
+    try {
+        return await loadVehicleMovementsFromRemoteApi(bounds, zoom);
+    } catch (apiError) {
+        console.warn("Failed to load vehicles from API. Trying local fallback:", apiError);
+
+        try {
+            return await loadVehicleMovementsFromFallbackData();
+        } catch (fallbackError) {
+            console.error("Failed to load vehicles from local fallback:", fallbackError);
+            return [];
+        }
+    }
 }

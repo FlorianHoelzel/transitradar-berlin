@@ -1,4 +1,4 @@
-import { getTripDetails } from "../api/transportRestApi.js";
+import { loadTripDetails } from "./routeService.js";
 import { map } from "./map.js";
 import { getLineColor } from "../vehicles/vehicleUtils.js";
 import { createLineBadge } from "../lines/badges.js";
@@ -114,7 +114,13 @@ export async function showRouteForTrip(tripId, lineName, options = {}) {
     const showControl = options.showControl ?? false;
 
     try {
-        const data = await getTripDetails(tripId, lineName);
+        const data = await loadTripDetails(tripId, lineName);
+
+        if (!data) {
+            console.warn("No trip data available.");
+            return;
+        }
+
         activeTripDetails = data;
 
         const polyline = data.trip?.polyline || data.polyline;
@@ -151,7 +157,6 @@ export async function showRouteForTrip(tripId, lineName, options = {}) {
         if (showControl) {
             showRoutePreviewControl(lineName);
         }
-
     } catch (error) {
         console.error("Route could not be displayed:", error);
     }
