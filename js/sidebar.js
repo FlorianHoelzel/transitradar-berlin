@@ -1,4 +1,4 @@
-import { createApiStatusElement, startApiStatusWatcher } from "./apiStatus.js";
+import { createApiStatusElement, startApiStatusWatcher } from "./api/apiStatus.js";
 
 export function setupSidebar() {
     const sidebarToggle = document.createElement("button");

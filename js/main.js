@@ -1,4 +1,4 @@
-import { loadStationsFromApi } from "./api.js";
+import { loadStationsFromApi } from "./api/transportRestApi.js";
 import { map, updateVisibleMarkers, stopPopupRefresh } from "./map.js";
 import { setupSearch } from "./search.js";
 import { updateVehicles } from "./vehicles/vehicleController.js";

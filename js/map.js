@@ -1,6 +1,6 @@
 import { clearRouteLayer } from "./routeLayer.js";
 import { showRouteForTrip } from "./routeLayer.js";
-import { getDepartures } from "./api.js";
+import { getDepartures } from "./api/transportRestApi.js";
 import { createPopupContent, createDeparturesHtml } from "./popup.js";
 import { activeFilters } from "./filters.js";
 
