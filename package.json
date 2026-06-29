@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "vbb-lines-at": "^5.19.0",
     "vbb-stations": "^8.31.0"
   }
 }

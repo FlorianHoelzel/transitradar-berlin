@@ -1,12 +1,83 @@
 import { createLineBadge } from "../lines/badges.js";
 import { isFavoriteStation } from "../favorites/favoriteService.js";
 
+const MAX_VISIBLE_LINES = 8;
+
+const LINE_PRIORITY = [
+    /^U\d+/,
+    /^S\d+/,
+    /^RE\d+/,
+    /^RB\d+/,
+    /^FEX$/,
+    /^M\d+/,
+    /^N\d+/,
+    /^\d+/
+];
+
 function createSkeletonHtml() {
     return `
         <div class="popup-skeleton-card"></div>
         <div class="popup-skeleton-card"></div>
         <div class="popup-skeleton-card"></div>
     `;
+}
+
+function getLinePriority(lineName) {
+    const index = LINE_PRIORITY.findIndex(pattern => pattern.test(lineName));
+
+    return index === -1 ? 999 : index;
+}
+
+function sortStationLines(lines) {
+    return [...new Set(lines)]
+        .filter(Boolean)
+        .sort((a, b) => {
+            const priorityDiff = getLinePriority(a) - getLinePriority(b);
+
+            if (priorityDiff !== 0) {
+                return priorityDiff;
+            }
+
+            return a.localeCompare(b, "de-DE", { numeric: true });
+        });
+}
+
+function getStationLinesHtml(station) {
+    const lines = sortStationLines(station.lines || []);
+
+    if (lines.length === 0) {
+        return `<span class="station-line-placeholder">No line data</span>`;
+    }
+
+    const hiddenCount = Math.max(0, lines.length - MAX_VISIBLE_LINES);
+
+    const lineBadges = lines.map((line, index) => {
+        const hiddenClass = index >= MAX_VISIBLE_LINES
+            ? " station-line-hidden"
+            : "";
+
+        return `
+            <span class="station-line-item${hiddenClass}">
+                ${createLineBadge(line)}
+            </span>
+        `;
+    }).join("");
+
+    const toggleButton = hiddenCount > 0
+        ? `
+            <button
+                class="station-lines-toggle"
+                type="button"
+                data-expanded="false"
+                data-hidden-count="${hiddenCount}"
+                title="Show all lines"
+            >
+                +${hiddenCount}
+            </button>
+        `
+        : "";
+
+    return lineBadges + toggleButton;
 }
 
 function formatTime(dateString) {
@@ -70,30 +141,6 @@ function createTimeHtml(departure) {
     `;
 }
 
-function getStationSubtitle(station) {
-    const products = station.products || {};
-
-    const activeProducts = Object.entries(products)
-        .filter(([, isActive]) => isActive)
-        .map(([product]) => product);
-
-    if (activeProducts.length === 0) {
-        return "Live departures";
-    }
-
-    return activeProducts
-        .map(product => {
-            if (product === "subway") return "Subway";
-            if (product === "suburban") return "S-Bahn";
-            if (product === "tram") return "Tram";
-            if (product === "bus") return "Bus";
-            if (product === "regional") return "Regional";
-
-            return product;
-        })
-        .join(" • ");
-}
-
 export function createPopupContent(station, content = createSkeletonHtml()) {
     const isFavorite = isFavoriteStation(station);
     const favoriteIcon = isFavorite ? "★" : "☆";
@@ -104,7 +151,9 @@ export function createPopupContent(station, content = createSkeletonHtml()) {
             <div class="station-popup-header">
                 <div class="station-popup-title-group">
                     <div class="station-title">${station.name}</div>
-                    <div class="station-subtitle">${getStationSubtitle(station)}</div>
+                    <div class="station-lines">
+                        ${getStationLinesHtml(station)}
+                    </div>
                 </div>
 
                 <button

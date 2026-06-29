@@ -12,6 +12,12 @@ function isBerlinAreaStation(station) {
     );
 }
 
+function sortLines(lines) {
+    return [...new Set(lines)]
+        .filter(Boolean)
+        .sort((a, b) => a.localeCompare(b, "de-DE", { numeric: true }));
+}
+
 function normalizeStop(stop) {
     return {
         id: stop.id,
@@ -20,7 +26,8 @@ function normalizeStop(stop) {
             stop.location.latitude,
             stop.location.longitude
         ],
-        products: stop.products || {}
+        products: stop.products || {},
+        lines: stop.lines || []
     };
 }
 
@@ -52,6 +59,7 @@ function groupStationsByName(rawStations) {
                 name: station.name,
                 coordinates: station.coordinates,
                 products: createEmptyProducts(),
+                lines: [],
                 stops: []
             };
         }
@@ -59,13 +67,21 @@ function groupStationsByName(rawStations) {
         groupedStations[station.name].stops.push({
             id: station.id,
             coordinates: station.coordinates,
-            products: station.products
+            products: station.products,
+            lines: station.lines
         });
+
+        groupedStations[station.name].lines.push(...station.lines);
 
         mergeProducts(groupedStations[station.name].products, station.products);
     });
 
-    return Object.values(groupedStations);
+    return Object.values(groupedStations).map(station => {
+        return {
+            ...station,
+            lines: sortLines(station.lines)
+        };
+    });
 }
 
 function prepareStations(rawStops) {

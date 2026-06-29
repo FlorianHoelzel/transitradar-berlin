@@ -142,15 +142,79 @@
     text-overflow: ellipsis;
 }
 
-.station-subtitle {
-    margin-top: 7px;
+/* Station lines */
 
+.station-lines {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+
+    margin-top: 12px;
+    max-width: 310px;
+}
+
+.station-line-item {
+    display: inline-flex;
+}
+
+.station-line-hidden {
+    display: none;
+}
+
+.station-lines.expanded .station-line-hidden {
+    display: inline-flex;
+}
+
+.station-lines .line-badge {
+    min-width: auto;
+    height: 26px;
+    padding: 0 9px;
+
+    font-size: 12px;
+    font-weight: 850;
+}
+
+.station-lines-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 26px;
+    min-width: 38px;
+    padding: 0 10px;
+
+    border: none;
+    border-radius: 999px;
+
+    color: rgba(255, 255, 255, 0.96);
+    background: rgba(255, 255, 255, 0.16);
+
+    font-family: "Geist", system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 850;
+    line-height: 1;
+
+    cursor: pointer;
+    transition:
+        background 0.18s ease,
+        transform 0.18s ease;
+}
+
+.station-lines-toggle:hover {
+    background: rgba(255, 255, 255, 0.24);
+    transform: translateY(-1px);
+}
+
+.station-line-placeholder {
     color: rgba(255, 255, 255, 0.48);
 
     font-size: 13px;
     font-weight: 650;
     letter-spacing: 0.01em;
 }
+
+/* Favorite button */
 
 .station-favorite-button {
     flex: 0 0 auto;
@@ -186,8 +250,6 @@
     background: rgba(250, 204, 21, 0.16);
     transform: scale(1.04);
 }
-
-/* Departures */
 
 /* Departures */
 
@@ -420,12 +482,20 @@
         font-size: 23px;
     }
 
-    .popup-departure-surface {
+    .station-lines {
+        max-width: 285px;
+        gap: 6px;
+    }
+
+    .station-lines .line-badge,
+    .station-lines-toggle {
+        height: 25px;
+        font-size: 12px;
+    }
+
+    .popup-departure-card {
         grid-template-columns: 50px minmax(0, 1fr) 88px;
         gap: 10px;
-
-        min-height: 76px;
-        padding: 12px 20px;
     }
 
     .popup-departure-direction {

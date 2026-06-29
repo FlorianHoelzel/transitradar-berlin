@@ -2,6 +2,7 @@ const fs = require("fs/promises");
 const path = require("path");
 
 const stations = require("vbb-stations");
+const linesAt = require("vbb-lines-at");
 
 const DATA_DIR = path.join(__dirname, "..", "data");
 const OUTPUT_FILE = path.join(DATA_DIR, "stations.json");
@@ -33,7 +34,28 @@ function isInsideBerlinBounds(station) {
     );
 }
 
+function sortLines(lines) {
+    return [...new Set(lines)]
+        .filter(Boolean)
+        .sort((a, b) => a.localeCompare(b, "de-DE", { numeric: true }));
+}
+
+function createProductsFromLines(lines) {
+    return {
+        subway: lines.some(line => line.product === "subway"),
+        suburban: lines.some(line => line.product === "suburban"),
+        tram: lines.some(line => line.product === "tram"),
+        bus: lines.some(line => line.product === "bus"),
+        ferry: lines.some(line => line.product === "ferry"),
+        express: lines.some(line => line.product === "express"),
+        regional: lines.some(line => line.product === "regional")
+    };
+}
+
 function normalizeStation(station) {
+    const stationLines = linesAt[station.id] || [];
+    const lineNames = sortLines(stationLines.map(line => line.name));
+
     return {
         id: station.id,
         name: station.name,
@@ -41,7 +63,11 @@ function normalizeStation(station) {
             latitude: station.location.latitude,
             longitude: station.location.longitude
         },
-        products: station.products || {}
+        products: {
+            ...(station.products || {}),
+            ...createProductsFromLines(stationLines)
+        },
+        lines: lineNames
     };
 }
 

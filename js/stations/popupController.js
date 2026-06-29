@@ -38,6 +38,24 @@ function setupFade(popupElement) {
     };
 }
 
+function setupStationLinesToggle(popupElement) {
+    const linesContainer = popupElement?.querySelector(".station-lines");
+    const toggleButton = popupElement?.querySelector(".station-lines-toggle");
+
+    if (!linesContainer || !toggleButton) {
+        return;
+    }
+
+    toggleButton.onclick = event => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        linesContainer.classList.add("expanded");
+
+        toggleButton.remove();
+    };
+}
+
 function setupDepartureRouteClicks(popupElement) {
     const departureRows = popupElement?.querySelectorAll(".clickable-departure");
 
@@ -102,6 +120,13 @@ function setupFavoriteButton(popupElement, station) {
     onFavoritesChanged(favoriteChangeHandler);
 }
 
+function setupPopupInteractions(popupElement, station) {
+    setupFavoriteButton(popupElement, station);
+    setupStationLinesToggle(popupElement);
+    setupDepartureRouteClicks(popupElement);
+    setupFade(popupElement);
+}
+
 export function stopPopupRefresh() {
     if (popupRefreshInterval) {
         clearInterval(popupRefreshInterval);
@@ -148,7 +173,7 @@ export async function handleStationPopupOpen(marker, station) {
 
     setTimeout(() => {
         const popupElement = marker.getPopup()?.getElement();
-        setupFavoriteButton(popupElement, station);
+        setupPopupInteractions(popupElement, station);
     }, 0);
 
     await refreshPopupDepartures(marker, station);
