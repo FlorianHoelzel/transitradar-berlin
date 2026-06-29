@@ -3,23 +3,9 @@ import { isFavoriteStation } from "../favorites/favoriteService.js";
 
 function createSkeletonHtml() {
     return `
-        <div class="skeleton-row">
-            <div class="skeleton-badge"></div>
-            <div class="skeleton-time"></div>
-            <div class="skeleton-direction"></div>
-        </div>
-
-        <div class="skeleton-row">
-            <div class="skeleton-badge"></div>
-            <div class="skeleton-time"></div>
-            <div class="skeleton-direction"></div>
-        </div>
-
-        <div class="skeleton-row">
-            <div class="skeleton-badge"></div>
-            <div class="skeleton-time"></div>
-            <div class="skeleton-direction"></div>
-        </div>
+        <div class="popup-skeleton-card"></div>
+        <div class="popup-skeleton-card"></div>
+        <div class="popup-skeleton-card"></div>
     `;
 }
 
@@ -34,56 +20,101 @@ function formatTime(dateString) {
     });
 }
 
+function getRelativeTimeText(dateString) {
+    if (!dateString) {
+        return "";
+    }
+
+    const minutes = Math.round(
+        (new Date(dateString).getTime() - Date.now()) / 60000
+    );
+
+    if (minutes <= 0) {
+        return "departing now";
+    }
+
+    if (minutes === 1) {
+        return "in 1 min";
+    }
+
+    return `in ${minutes} min`;
+}
+
 function createTimeHtml(departure) {
     const plannedTime = formatTime(departure.plannedWhen);
     const realtime = formatTime(departure.when || departure.plannedWhen);
     const delay = departure.delay ?? 0;
 
-    if (delay > 0) {
-        const delayMinutes = Math.round(delay / 60);
-        const delayClass = delay >= 300 ? "delay-large" : "delay-small";
-
+    if (delay <= 0) {
         return `
-            <div class="departure-time-wrapper">
-                <div class="departure-times">
-                    <span class="planned-time">${plannedTime}</span>
-                    <span class="realtime">${realtime}</span>
-                </div>
-
-                <div class="delay ${delayClass}">
-                    +${delayMinutes}
-                </div>
+            <div class="popup-departure-time-block">
+                <span class="popup-realtime">${realtime}</span>
             </div>
         `;
     }
 
+    const delayMinutes = Math.round(delay / 60);
+    const delayClass = delay >= 300 ? "delay-large" : "delay-small";
+
     return `
-        <div class="departure-time-wrapper">
-            <div class="departure-times">
-                <span class="realtime">${realtime}</span>
+        <div class="popup-departure-time-block">
+            <div class="popup-departure-times">
+                <span class="popup-planned-time">${plannedTime}</span>
+                <span class="popup-realtime">${realtime}</span>
             </div>
+
+            <span class="popup-delay ${delayClass}">
+                +${delayMinutes}
+            </span>
         </div>
     `;
 }
 
+function getStationSubtitle(station) {
+    const products = station.products || {};
+
+    const activeProducts = Object.entries(products)
+        .filter(([, isActive]) => isActive)
+        .map(([product]) => product);
+
+    if (activeProducts.length === 0) {
+        return "Live departures";
+    }
+
+    return activeProducts
+        .map(product => {
+            if (product === "subway") return "Subway";
+            if (product === "suburban") return "S-Bahn";
+            if (product === "tram") return "Tram";
+            if (product === "bus") return "Bus";
+            if (product === "regional") return "Regional";
+
+            return product;
+        })
+        .join(" • ");
+}
+
 export function createPopupContent(station, content = createSkeletonHtml()) {
-    const favoriteIcon = isFavoriteStation(station) ? "★" : "☆";
+    const isFavorite = isFavoriteStation(station);
+    const favoriteIcon = isFavorite ? "★" : "☆";
+    const favoriteClass = isFavorite ? "active" : "";
 
     return `
-        <div class="station-popup">
+        <div class="station-popup station-popup-v2">
             <div class="station-popup-header">
-                <div class="station-title">${station.name}</div>
+                <div class="station-popup-title-group">
+                    <div class="station-title">${station.name}</div>
+                    <div class="station-subtitle">${getStationSubtitle(station)}</div>
+                </div>
 
                 <button
-                    class="station-favorite-button"
+                    class="station-favorite-button ${favoriteClass}"
                     type="button"
                     title="Toggle favorite"
                 >
                     ${favoriteIcon}
                 </button>
             </div>
-
-            <div class="station-divider"></div>
 
             <div class="departures-wrapper station-departures-wrapper">
                 <div class="departures station-departures">
@@ -102,23 +133,35 @@ export function createDeparturesHtml(departures) {
     return departures.map(departure => {
         const lineName = departure.line?.name || "";
         const tripId = departure.tripId || "";
-        const line = createLineBadge(lineName);
         const direction = departure.direction || "Unknown direction";
-        const timeHtml = createTimeHtml(departure);
+        const relativeTime = getRelativeTimeText(
+            departure.when || departure.plannedWhen
+        );
 
         return `
             <div
-                class="departure-row clickable-departure"
+                class="popup-departure-card clickable-departure"
                 data-trip-id="${tripId}"
                 data-line-name="${lineName}"
             >
-                <div class="departure-top">
-                    ${line}
-                    ${timeHtml}
-                </div>
+                <div class="popup-departure-surface">
+                    <div class="popup-departure-left">
+                        ${createLineBadge(lineName)}
+                    </div>
 
-                <div class="departure-direction">
-                    ${direction}
+                    <div class="popup-departure-center">
+                        <div class="popup-departure-direction">
+                            ${direction}
+                        </div>
+
+                        <div class="popup-departure-relative">
+                            ${relativeTime}
+                        </div>
+                    </div>
+
+                    <div class="popup-departure-right">
+                        ${createTimeHtml(departure)}
+                    </div>
                 </div>
             </div>
         `;

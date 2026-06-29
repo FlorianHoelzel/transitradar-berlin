@@ -62,7 +62,10 @@ function setupDepartureRouteClicks(popupElement) {
 }
 
 function updateFavoriteButtonState(favoriteButton, station) {
-    favoriteButton.textContent = isFavoriteStation(station) ? "★" : "☆";
+    const isFavorite = isFavoriteStation(station);
+
+    favoriteButton.textContent = isFavorite ? "★" : "☆";
+    favoriteButton.classList.toggle("active", isFavorite);
 }
 
 function removeFavoriteChangeHandler() {
@@ -77,8 +80,6 @@ function removeFavoriteChangeHandler() {
 function setupFavoriteButton(popupElement, station) {
     const favoriteButton = popupElement?.querySelector(".station-favorite-button");
 
-    console.log("Favorite button:", favoriteButton, station);
-
     if (!favoriteButton) {
         return;
     }
@@ -89,8 +90,6 @@ function setupFavoriteButton(popupElement, station) {
     favoriteButton.onclick = event => {
         event.preventDefault();
         event.stopPropagation();
-
-        console.log("Favorite clicked:", station);
 
         toggleFavorite(station);
         updateFavoriteButtonState(favoriteButton, station);
