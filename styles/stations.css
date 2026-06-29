@@ -256,7 +256,6 @@
 .station-departures-wrapper {
     position: relative;
     overflow: hidden;
-    padding: 0 16px 14px;
 }
 
 .station-departures {
@@ -298,7 +297,8 @@
     gap: 12px;
 
     min-height: 76px;
-    padding: 12px;
+    padding: 0 16px;
+    margin: 0 16px;
 
     border-radius: 18px;
 
