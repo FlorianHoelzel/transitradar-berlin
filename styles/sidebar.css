@@ -377,95 +377,12 @@
     font-size: 13px;
 }
 
-.nearby-card {
-    width: 100%;
-    min-width: 0;
-    padding: 12px;
-
-    display: flex;
+.nearby-card-header {
     align-items: flex-start;
-    justify-content: space-between;
-    gap: 12px;
-
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 18px;
-
-    background: rgba(255, 255, 255, 0.07);
-    color: white;
-
-    text-align: left;
-    cursor: pointer;
-
-    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-}
-
-.nearby-card:hover {
-    border-color: rgba(255, 255, 255, 0.18);
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-1px);
-}
-
-.nearby-card-main {
-    min-width: 0;
-
-    display: grid;
-    gap: 8px;
-}
-
-.nearby-station-name {
-    min-width: 0;
-    overflow: hidden;
-
-    font-weight: 850;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.nearby-lines {
-    min-width: 0;
-
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 5px;
-    overflow: visible;
-}
-
-.nearby-lines .line-badge {
-    flex-shrink: 0;
-}
-
-.nearby-line-placeholder {
-    flex-shrink: 0;
-
-    color: rgba(255, 255, 255, 0.55);
-    font-size: 11px;
-    font-weight: 800;
-}
-
-.nearby-more-lines {
-    height: 26px;
-    min-width: 38px;
-    padding: 0 10px;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-
-    border-radius: 999px;
-
-    color: rgba(255, 255, 255, 0.96);
-    background: rgba(255, 255, 255, 0.16);
-
-    font-size: 12px;
-    font-weight: 850;
-    line-height: 1;
 }
 
 .nearby-distance {
     flex-shrink: 0;
-    margin-top: 1px;
 
     padding: 6px 8px;
 

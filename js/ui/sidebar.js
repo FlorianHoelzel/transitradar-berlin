@@ -5,46 +5,13 @@ import {
 } from "../favorites/favoriteController.js";
 import { map } from "../map/map.js";
 import { createLineBadge } from "../lines/badges.js";
+import { loadDeparturesForStation } from "../stations/departureService.js";
 import { getStations } from "../stations/stationStore.js";
 import { markers, updateVisibleMarkers } from "../stations/stationMarkers.js";
 
 const NEARBY_STATION_LIMIT = 8;
-const NEARBY_LINE_LIMIT = 5;
-
-const NEARBY_LINE_PRIORITY = [
-    /^S\d+/,
-    /^U\d+/,
-    /^RE\d+/,
-    /^RB\d+/,
-    /^FEX$/,
-    /^M\d+/,
-    /^X\d+/,
-    /^N\d+/,
-    /^\d+/
-];
-
-function getNearbyLinePriority(lineName) {
-    const index = NEARBY_LINE_PRIORITY.findIndex(pattern => {
-        return pattern.test(lineName);
-    });
-
-    return index === -1 ? 999 : index;
-}
-
-function sortNearbyLines(lines) {
-    return [...new Set(lines)]
-        .filter(Boolean)
-        .sort((a, b) => {
-            const priorityDiff =
-                getNearbyLinePriority(a) - getNearbyLinePriority(b);
-
-            if (priorityDiff !== 0) {
-                return priorityDiff;
-            }
-
-            return a.localeCompare(b, "de-DE", { numeric: true });
-        });
-}
+const NEARBY_DEPARTURE_LIMIT = 5;
+const NEARBY_REFRESH_INTERVAL = 15000;
 
 function calculateDistanceMeters(origin, destination) {
     const earthRadiusMeters = 6371000;
@@ -71,6 +38,25 @@ function formatDistance(distanceMeters) {
     }
 
     return `${(distanceMeters / 1000).toFixed(1)} km`;
+}
+
+function formatTime(dateString) {
+    if (!dateString) {
+        return "?";
+    }
+
+    return new Date(dateString).toLocaleTimeString("de-DE", {
+        hour: "2-digit",
+        minute: "2-digit"
+    });
+}
+
+function getDelayText(departure) {
+    if (!departure.delay || departure.delay <= 0) {
+        return "";
+    }
+
+    return `+${Math.round(departure.delay / 60)}`;
 }
 
 function getNearbyStations(userPosition) {
@@ -106,43 +92,52 @@ function openStationOnMap(station) {
     });
 }
 
-function createNearbyStationCard(station, distance) {
-    const card = document.createElement("button");
-    const sortedLines = sortNearbyLines(station.lines || []);
-    const visibleLines = sortedLines.slice(0, NEARBY_LINE_LIMIT);
-    const hiddenLineCount = Math.max(
-        0,
-        sortedLines.length - visibleLines.length
-    );
+function createNearbyDepartureHtml(departure) {
+    const lineName = departure.line?.name || "";
+    const direction = departure.direction || "Unknown direction";
+    const time = formatTime(departure.when || departure.plannedWhen);
+    const delayText = getDelayText(departure);
 
-    card.className = "nearby-card";
-    card.type = "button";
-    card.title = `Open ${station.name}`;
+    return `
+        <div class="favorite-departure">
+            <div class="favorite-departure-main">
+                <div class="favorite-departure-line">
+                    ${createLineBadge(lineName)}
+                    <span class="favorite-departure-direction">${direction}</span>
+                </div>
 
-    card.innerHTML = `
-        <span class="nearby-card-main">
-            <span class="nearby-station-name">${station.name}</span>
-            <span class="nearby-lines">
-                ${
-                    visibleLines.length > 0
-                        ? visibleLines.map(createLineBadge).join("")
-                        : "<span class=\"nearby-line-placeholder\">No lines</span>"
-                }
-                ${
-                    hiddenLineCount > 0
-                        ? `<span class="nearby-more-lines">+${hiddenLineCount}</span>`
-                        : ""
-                }
-            </span>
-        </span>
-        <span class="nearby-distance">${formatDistance(distance)}</span>
+                <div class="favorite-departure-time-group">
+                    <span class="favorite-departure-time">${time}</span>
+                    ${delayText ? `<span class="favorite-departure-delay">${delayText}</span>` : ""}
+                </div>
+            </div>
+        </div>
     `;
+}
 
-    card.addEventListener("click", () => {
-        openStationOnMap(station);
-    });
+function createNearbyStationHtml(station, distance, departures = [], index) {
+    const departuresHtml = departures.length > 0
+        ? departures
+            .slice(0, NEARBY_DEPARTURE_LIMIT)
+            .map(createNearbyDepartureHtml)
+            .join("")
+        : `<div class="favorite-empty">No departures found.</div>`;
 
-    return card;
+    return `
+        <article class="favorite-card nearby-card" data-nearby-index="${index}">
+            <div class="favorite-card-header nearby-card-header">
+                <button class="favorite-open nearby-open" type="button" title="Open station">
+                    <span class="favorite-station-name">${station.name}</span>
+                </button>
+
+                <span class="nearby-distance">${formatDistance(distance)}</span>
+            </div>
+
+            <div class="favorite-departures">
+                ${departuresHtml}
+            </div>
+        </article>
+    `;
 }
 
 export function setupSidebar() {
@@ -300,6 +295,8 @@ export function setupSidebar() {
     const aboutClose = document.getElementById("aboutClose");
 
     let lastUserPosition = null;
+    let nearbyRefreshInterval = null;
+    let nearbyRenderId = 0;
 
     function setNearbyMessage(message) {
         nearbyList.innerHTML = `
@@ -309,24 +306,88 @@ export function setupSidebar() {
         `;
     }
 
-    function renderNearbyStations() {
+    function setupNearbyActions(nearbyStations) {
+        const nearbyCards = nearbyList.querySelectorAll(".nearby-card");
+
+        nearbyCards.forEach(card => {
+            const nearbyStation = nearbyStations[Number(card.dataset.nearbyIndex)];
+
+            if (!nearbyStation) {
+                return;
+            }
+
+            card.querySelector(".nearby-open")?.addEventListener("click", event => {
+                event.preventDefault();
+                event.stopPropagation();
+
+                openStationOnMap(nearbyStation.station);
+            });
+        });
+    }
+
+    async function renderNearbyStation({ station, distance }, index) {
+        try {
+            const departures = await loadDeparturesForStation(station);
+
+            return createNearbyStationHtml(station, distance, departures, index);
+        } catch (error) {
+            console.error(`Failed to load departures for ${station.name}:`, error);
+            return createNearbyStationHtml(station, distance, [], index);
+        }
+    }
+
+    async function renderNearbyStations() {
         if (!lastUserPosition) {
             setNearbyMessage("Use the location button to show nearby stations.");
             return;
         }
 
-        const nearbyStations = getNearbyStations(lastUserPosition);
+        if (getStations().length === 0) {
+            setNearbyMessage("Loading nearby stations...");
+            return;
+        }
 
-        nearbyList.innerHTML = "";
+        const renderId = ++nearbyRenderId;
+        const nearbyStations = getNearbyStations(lastUserPosition);
 
         if (nearbyStations.length === 0) {
             setNearbyMessage("No nearby stations found.");
             return;
         }
 
-        nearbyStations.forEach(({ station, distance }) => {
-            nearbyList.appendChild(createNearbyStationCard(station, distance));
-        });
+        if (nearbyList.querySelectorAll(".nearby-card").length === 0) {
+            setNearbyMessage("Loading nearby departures...");
+        }
+
+        const nearbyCards = await Promise.all(
+            nearbyStations.map(renderNearbyStation)
+        );
+
+        if (renderId !== nearbyRenderId) {
+            return;
+        }
+
+        nearbyList.innerHTML = nearbyCards.join("");
+        setupNearbyActions(nearbyStations);
+    }
+
+    function startNearbyRefresh() {
+        if (nearbyRefreshInterval) {
+            return;
+        }
+
+        nearbyRefreshInterval = setInterval(() => {
+            renderNearbyStations();
+        }, NEARBY_REFRESH_INTERVAL);
+    }
+
+    function stopNearbyRefresh() {
+        if (!nearbyRefreshInterval) {
+            return;
+        }
+
+        clearInterval(nearbyRefreshInterval);
+        nearbyRefreshInterval = null;
     }
 
     function updateFavoritesFade() {
@@ -362,10 +423,13 @@ export function setupSidebar() {
 
         if (isOpen) {
             renderNearbyStations();
+            startNearbyRefresh();
 
             if (!lastUserPosition) {
                 document.getElementById("locationButton")?.click();
             }
+        } else {
+            stopNearbyRefresh();
         }
     }
 
@@ -413,7 +477,10 @@ export function setupSidebar() {
         const { latitude, longitude } = event.detail;
 
         lastUserPosition = [latitude, longitude];
-        renderNearbyStations();
+
+        if (nearbyPanel.classList.contains("open")) {
+            renderNearbyStations();
+        }
     });
 
     window.addEventListener("userLocationError", () => {
