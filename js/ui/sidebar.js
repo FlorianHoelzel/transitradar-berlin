@@ -31,35 +31,53 @@ export function setupSidebar() {
             </button>
         </div>
 
-        <nav class="sidebar-nav">
-            <button id="favoritesButton" class="sidebar-item" type="button">
-                <span class="sidebar-item-emoji">⭐</span>
-                <span>Favorites</span>
-            </button>
+        <div id="sidebarContent" class="sidebar-content">
+            <nav class="sidebar-nav">
+                <button id="nearbyButton" class="sidebar-item" type="button">
+                    <span class="sidebar-item-emoji">📍</span>
+                    <span>Nearby Stations</span>
+                    <span id="nearbyChevron" class="sidebar-chevron">⌄</span>
+                </button>
 
-            <button class="sidebar-item" type="button">
+                <section id="nearbyPanel" class="nearby-panel">
+                    <div class="nearby-panel-header">
+                        <h3>Nearby Stations</h3>
+                        <span>Stations close to your location</span>
+                    </div>
+
+                    <div id="nearbyList" class="nearby-list">
+                        <div class="nearby-empty">
+                            Tap the location button to show nearby stations.
+                        </div>
+                    </div>
+                </section>
+
+                <button id="favoritesButton" class="sidebar-item" type="button">
+                    <span class="sidebar-item-emoji">⭐</span>
+                    <span>Favorites</span>
+                    <span id="favoritesChevron" class="sidebar-chevron">⌄</span>
+                </button>
+
+                <section id="favoritesPanel" class="favorites-panel">
+                    <div class="favorites-panel-header">
+                        <h3>Favorites</h3>
+                        <span>Live departures</span>
+                    </div>
+
+                    <div id="favoritesListWrapper" class="favorites-list-wrapper">
+                        <div id="favoritesList" class="favorites-list"></div>
+                    </div>
+                </section>
+            </nav>
+        </div>
+
+        <div class="sidebar-footer">
+            <button id="settingsButton" class="sidebar-item sidebar-settings" type="button">
                 <span class="sidebar-item-emoji">⚙️</span>
                 <span>Settings</span>
             </button>
-        </nav>
 
-        <section id="favoritesPanel" class="favorites-panel">
-            <div class="favorites-panel-header">
-                <h3>Favorites</h3>
-                <span>Live departures</span>
-            </div>
-
-            <div id="favoritesListWrapper" class="favorites-list-wrapper">
-                <div id="favoritesList" class="favorites-list"></div>
-            </div>
-        </section>
-
-        <div class="sidebar-footer">
-            <button
-                id="aboutButton"
-                class="sidebar-item sidebar-about"
-                type="button"
-            >
+            <button id="aboutButton" class="sidebar-item sidebar-about" type="button">
                 <span class="sidebar-item-emoji">ℹ️</span>
                 <span>About</span>
             </button>
@@ -97,24 +115,19 @@ export function setupSidebar() {
 
                 <div class="about-card warning">
                     <h3>⚠️ Important disclaimer</h3>
-
                     <p>All information is provided without guarantee.</p>
-
                     <p>
                         Live vehicle positions are estimates based on publicly available API data and may be delayed,
                         temporarily unavailable or inaccurate due to API limitations.
                     </p>
-
                     <p>
                         Departures, delays, destinations, routes and stop information may change at any time and should
                         not be considered legally binding.
                     </p>
-
                     <p>
                         TransitRadar Berlin is an independent project and is
                         <strong>not affiliated with BVG, VBB or Deutsche Bahn.</strong>
                     </p>
-
                     <p>
                         For official and up-to-date travel information, always use official sources such as
                         <strong>bvg.de</strong>,
@@ -126,18 +139,21 @@ export function setupSidebar() {
         </section>
     `;
 
-    document.body.append(
-        sidebarToggle,
-        sidebarOverlay,
-        sidebar,
-        aboutOverlay
-    );
+    document.body.append(sidebarToggle, sidebarOverlay, sidebar, aboutOverlay);
 
     const sidebarClose = document.getElementById("sidebarClose");
+
+    const nearbyButton = document.getElementById("nearbyButton");
+    const nearbyPanel = document.getElementById("nearbyPanel");
+    const nearbyChevron = document.getElementById("nearbyChevron");
+
     const favoritesButton = document.getElementById("favoritesButton");
     const favoritesPanel = document.getElementById("favoritesPanel");
+    const favoritesChevron = document.getElementById("favoritesChevron");
+
     const favoritesList = document.getElementById("favoritesList");
     const favoritesListWrapper = document.getElementById("favoritesListWrapper");
+
     const aboutButton = document.getElementById("aboutButton");
     const aboutClose = document.getElementById("aboutClose");
 
@@ -148,7 +164,8 @@ export function setupSidebar() {
 
         const canScroll = favoritesList.scrollHeight > favoritesList.clientHeight;
         const atBottom =
-            favoritesList.scrollTop + favoritesList.clientHeight >= favoritesList.scrollHeight - 2;
+            favoritesList.scrollTop + favoritesList.clientHeight >=
+            favoritesList.scrollHeight - 2;
 
         favoritesList.classList.toggle("has-fade", canScroll && !atBottom);
     }
@@ -163,24 +180,31 @@ export function setupSidebar() {
         sidebar.classList.remove("open");
         sidebarOverlay.classList.remove("open");
         sidebarToggle.classList.remove("hidden");
-
-        closeFavorites();
     }
 
-    async function openFavorites() {
-        favoritesPanel.classList.add("open");
+    function toggleNearby() {
+        const isOpen = nearbyPanel.classList.toggle("open");
+
+        nearbyButton.classList.toggle("active", isOpen);
+        nearbyChevron.classList.toggle("open", isOpen);
+    }
+
+    async function toggleFavorites() {
+        const isOpen = favoritesPanel.classList.toggle("open");
+
+        favoritesButton.classList.toggle("active", isOpen);
+        favoritesChevron.classList.toggle("open", isOpen);
+
+        if (!isOpen) {
+            stopFavoritesRefresh();
+            return;
+        }
 
         await renderFavorites();
         updateFavoritesFade();
-
         startFavoritesRefresh();
 
         setTimeout(updateFavoritesFade, 50);
-    }
-
-    function closeFavorites() {
-        favoritesPanel.classList.remove("open");
-        stopFavoritesRefresh();
     }
 
     function openAbout() {
@@ -195,9 +219,11 @@ export function setupSidebar() {
     sidebarClose.addEventListener("click", closeSidebar);
     sidebarOverlay.addEventListener("click", closeSidebar);
 
-    favoritesButton.addEventListener("click", openFavorites);
+    nearbyButton.addEventListener("click", toggleNearby);
+    favoritesButton.addEventListener("click", toggleFavorites);
 
     favoritesList?.addEventListener("scroll", updateFavoritesFade);
+
     window.addEventListener("favoritesChanged", () => {
         setTimeout(updateFavoritesFade, 50);
     });
