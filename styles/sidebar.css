@@ -277,17 +277,17 @@
     position: absolute;
     left: -18px;
     right: -18px;
-    top: -64px;
+    top: -34px;
 
-    height: 64px;
+    height: 34px;
 
     pointer-events: none;
 
     background: linear-gradient(
         to bottom,
         rgba(31, 37, 52, 0),
-        rgba(31, 37, 52, 0.62),
-        rgba(31, 37, 52, 1)
+        rgba(31, 37, 52, 0.32),
+        rgba(31, 37, 52, 0.92)
     );
 }
 
