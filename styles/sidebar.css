@@ -169,7 +169,7 @@
     overflow-x: hidden;
     overflow-y: auto;
 
-    padding-bottom: 0;
+    padding-bottom: 18px;
 
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -282,6 +282,7 @@
     height: 34px;
 
     pointer-events: none;
+    opacity: 0;
 
     background: linear-gradient(
         to bottom,
@@ -289,6 +290,12 @@
         rgba(31, 37, 52, 0.32),
         rgba(31, 37, 52, 0.92)
     );
+
+    transition: opacity 0.18s ease;
+}
+
+.sidebar.has-footer-fade .sidebar-footer::before {
+    opacity: 1;
 }
 
 .sidebar-footer::after {

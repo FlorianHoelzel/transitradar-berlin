@@ -278,6 +278,7 @@ export function setupSidebar() {
     document.body.append(sidebarToggle, sidebarOverlay, sidebar, aboutOverlay);
 
     const sidebarClose = document.getElementById("sidebarClose");
+    const sidebarContent = document.getElementById("sidebarContent");
 
     const nearbyButton = document.getElementById("nearbyButton");
     const nearbyPanel = document.getElementById("nearbyPanel");
@@ -297,6 +298,15 @@ export function setupSidebar() {
     let lastUserPosition = null;
     let nearbyRefreshInterval = null;
     let nearbyRenderId = 0;
+
+    function updateFooterFade() {
+        const canScroll = sidebarContent.scrollHeight > sidebarContent.clientHeight;
+        const atBottom =
+            sidebarContent.scrollTop + sidebarContent.clientHeight >=
+            sidebarContent.scrollHeight - 2;
+
+        sidebar.classList.toggle("has-footer-fade", canScroll && !atBottom);
+    }
 
     function setNearbyMessage(message) {
         nearbyList.innerHTML = `
@@ -373,6 +383,7 @@ export function setupSidebar() {
 
         nearbyList.innerHTML = nearbyCards.join("");
         setupNearbyActions(nearbyStations);
+        requestAnimationFrame(updateFooterFade);
     }
 
     function startNearbyRefresh() {
@@ -411,12 +422,14 @@ export function setupSidebar() {
         sidebar.classList.add("open");
         sidebarOverlay.classList.add("open");
         sidebarToggle.classList.add("hidden");
+        requestAnimationFrame(updateFooterFade);
     }
 
     function closeSidebar() {
         sidebar.classList.remove("open");
         sidebarOverlay.classList.remove("open");
         sidebarToggle.classList.remove("hidden");
+        sidebar.classList.remove("has-footer-fade");
     }
 
     function toggleNearby() {
@@ -428,6 +441,7 @@ export function setupSidebar() {
         if (isOpen) {
             renderNearbyStations();
             startNearbyRefresh();
+            sidebar.classList.add("has-footer-fade");
 
             if (!lastUserPosition) {
                 document.getElementById("locationButton")?.click();
@@ -435,6 +449,8 @@ export function setupSidebar() {
         } else {
             stopNearbyRefresh();
         }
+
+        requestAnimationFrame(updateFooterFade);
     }
 
     async function toggleFavorites() {
@@ -446,14 +462,17 @@ export function setupSidebar() {
         if (!isOpen) {
             favoritesList.classList.remove("has-fade");
             stopFavoritesRefresh();
+            requestAnimationFrame(updateFooterFade);
             return;
         }
 
         await renderFavorites();
         updateFavoritesFade();
         startFavoritesRefresh();
+        sidebar.classList.add("has-footer-fade");
 
         setTimeout(updateFavoritesFade, 50);
+        setTimeout(updateFooterFade, 50);
     }
 
     function openAbout() {
@@ -472,9 +491,11 @@ export function setupSidebar() {
     favoritesButton.addEventListener("click", toggleFavorites);
 
     favoritesList?.addEventListener("scroll", updateFavoritesFade);
+    sidebarContent.addEventListener("scroll", updateFooterFade);
 
     window.addEventListener("favoritesChanged", () => {
         setTimeout(updateFavoritesFade, 50);
+        setTimeout(updateFooterFade, 50);
     });
 
     window.addEventListener("userLocationUpdated", event => {
