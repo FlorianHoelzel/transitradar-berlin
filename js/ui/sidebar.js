@@ -3,6 +3,147 @@ import {
     stopFavoritesRefresh,
     renderFavorites
 } from "../favorites/favoriteController.js";
+import { map } from "../map/map.js";
+import { createLineBadge } from "../lines/badges.js";
+import { getStations } from "../stations/stationStore.js";
+import { markers, updateVisibleMarkers } from "../stations/stationMarkers.js";
+
+const NEARBY_STATION_LIMIT = 8;
+const NEARBY_LINE_LIMIT = 5;
+
+const NEARBY_LINE_PRIORITY = [
+    /^S\d+/,
+    /^U\d+/,
+    /^RE\d+/,
+    /^RB\d+/,
+    /^FEX$/,
+    /^M\d+/,
+    /^X\d+/,
+    /^N\d+/,
+    /^\d+/
+];
+
+function getNearbyLinePriority(lineName) {
+    const index = NEARBY_LINE_PRIORITY.findIndex(pattern => {
+        return pattern.test(lineName);
+    });
+
+    return index === -1 ? 999 : index;
+}
+
+function sortNearbyLines(lines) {
+    return [...new Set(lines)]
+        .filter(Boolean)
+        .sort((a, b) => {
+            const priorityDiff =
+                getNearbyLinePriority(a) - getNearbyLinePriority(b);
+
+            if (priorityDiff !== 0) {
+                return priorityDiff;
+            }
+
+            return a.localeCompare(b, "de-DE", { numeric: true });
+        });
+}
+
+function calculateDistanceMeters(origin, destination) {
+    const earthRadiusMeters = 6371000;
+    const toRadians = value => value * Math.PI / 180;
+
+    const [originLat, originLng] = origin;
+    const [destinationLat, destinationLng] = destination;
+
+    const latDistance = toRadians(destinationLat - originLat);
+    const lngDistance = toRadians(destinationLng - originLng);
+
+    const a =
+        Math.sin(latDistance / 2) ** 2 +
+        Math.cos(toRadians(originLat)) *
+            Math.cos(toRadians(destinationLat)) *
+            Math.sin(lngDistance / 2) ** 2;
+
+    return earthRadiusMeters * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+function formatDistance(distanceMeters) {
+    if (distanceMeters < 1000) {
+        return `${Math.round(distanceMeters / 10) * 10} m`;
+    }
+
+    return `${(distanceMeters / 1000).toFixed(1)} km`;
+}
+
+function getNearbyStations(userPosition) {
+    return getStations()
+        .filter(station => Array.isArray(station.coordinates))
+        .map(station => ({
+            station,
+            distance: calculateDistanceMeters(userPosition, station.coordinates)
+        }))
+        .sort((a, b) => a.distance - b.distance)
+        .slice(0, NEARBY_STATION_LIMIT);
+}
+
+function openStationOnMap(station) {
+    if (!station?.coordinates) {
+        return;
+    }
+
+    map.flyTo(station.coordinates, 16, {
+        duration: 0.3
+    });
+
+    map.once("moveend", () => {
+        updateVisibleMarkers(getStations());
+
+        setTimeout(() => {
+            const marker = markers[station.name];
+
+            if (marker) {
+                marker.openPopup();
+            }
+        }, 100);
+    });
+}
+
+function createNearbyStationCard(station, distance) {
+    const card = document.createElement("button");
+    const sortedLines = sortNearbyLines(station.lines || []);
+    const visibleLines = sortedLines.slice(0, NEARBY_LINE_LIMIT);
+    const hiddenLineCount = Math.max(
+        0,
+        sortedLines.length - visibleLines.length
+    );
+
+    card.className = "nearby-card";
+    card.type = "button";
+    card.title = `Open ${station.name}`;
+
+    card.innerHTML = `
+        <span class="nearby-card-main">
+            <span class="nearby-station-name">${station.name}</span>
+            <span class="nearby-lines">
+                ${
+                    visibleLines.length > 0
+                        ? visibleLines.map(createLineBadge).join("")
+                        : "<span class=\"nearby-line-placeholder\">No lines</span>"
+                }
+                ${
+                    hiddenLineCount > 0
+                        ? `<span class="nearby-more-lines">+${hiddenLineCount}</span>`
+                        : ""
+                }
+            </span>
+        </span>
+        <span class="nearby-distance">${formatDistance(distance)}</span>
+    `;
+
+    card.addEventListener("click", () => {
+        openStationOnMap(station);
+    });
+
+    return card;
+}
 
 export function setupSidebar() {
     const sidebarToggle = document.createElement("button");
@@ -146,6 +287,7 @@ export function setupSidebar() {
     const nearbyButton = document.getElementById("nearbyButton");
     const nearbyPanel = document.getElementById("nearbyPanel");
     const nearbyChevron = document.getElementById("nearbyChevron");
+    const nearbyList = document.getElementById("nearbyList");
 
     const favoritesButton = document.getElementById("favoritesButton");
     const favoritesPanel = document.getElementById("favoritesPanel");
@@ -156,6 +298,36 @@ export function setupSidebar() {
 
     const aboutButton = document.getElementById("aboutButton");
     const aboutClose = document.getElementById("aboutClose");
+
+    let lastUserPosition = null;
+
+    function setNearbyMessage(message) {
+        nearbyList.innerHTML = `
+            <div class="nearby-empty">
+                ${message}
+            </div>
+        `;
+    }
+
+    function renderNearbyStations() {
+        if (!lastUserPosition) {
+            setNearbyMessage("Use the location button to show nearby stations.");
+            return;
+        }
+
+        const nearbyStations = getNearbyStations(lastUserPosition);
+
+        nearbyList.innerHTML = "";
+
+        if (nearbyStations.length === 0) {
+            setNearbyMessage("No nearby stations found.");
+            return;
+        }
+
+        nearbyStations.forEach(({ station, distance }) => {
+            nearbyList.appendChild(createNearbyStationCard(station, distance));
+        });
+    }
 
     function updateFavoritesFade() {
         if (!favoritesList || !favoritesListWrapper) {
@@ -187,6 +359,14 @@ export function setupSidebar() {
 
         nearbyButton.classList.toggle("active", isOpen);
         nearbyChevron.classList.toggle("open", isOpen);
+
+        if (isOpen) {
+            renderNearbyStations();
+
+            if (!lastUserPosition) {
+                document.getElementById("locationButton")?.click();
+            }
+        }
     }
 
     async function toggleFavorites() {
@@ -227,6 +407,25 @@ export function setupSidebar() {
 
     window.addEventListener("favoritesChanged", () => {
         setTimeout(updateFavoritesFade, 50);
+    });
+
+    window.addEventListener("userLocationUpdated", event => {
+        const { latitude, longitude } = event.detail;
+
+        lastUserPosition = [latitude, longitude];
+        renderNearbyStations();
+    });
+
+    window.addEventListener("userLocationError", () => {
+        if (nearbyPanel.classList.contains("open")) {
+            setNearbyMessage("Could not access your location.");
+        }
+    });
+
+    window.addEventListener("stationsUpdated", () => {
+        if (nearbyPanel.classList.contains("open")) {
+            renderNearbyStations();
+        }
     });
 
     aboutButton.addEventListener("click", openAbout);

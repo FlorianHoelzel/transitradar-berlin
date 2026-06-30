@@ -4,6 +4,8 @@ export const stationStore = {
 
 export function setStations(stations) {
     stationStore.stations = stations;
+
+    window.dispatchEvent(new CustomEvent("stationsUpdated"));
 }
 
 export function getStations() {

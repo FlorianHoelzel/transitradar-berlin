@@ -40,11 +40,21 @@ function showUserLocation(latitude, longitude, accuracy) {
         easeLinearity: 0.25
     });
 
+    window.dispatchEvent(new CustomEvent("userLocationUpdated", {
+        detail: {
+            latitude,
+            longitude,
+            accuracy
+        }
+    }));
+
     console.log(`Location accuracy: ${Math.round(accuracy)}m`);
 }
 
 function handleLocationError(error, button) {
     console.warn("Geolocation failed:", error);
+
+    window.dispatchEvent(new CustomEvent("userLocationError"));
 
     setButtonState(button, "error");
 
