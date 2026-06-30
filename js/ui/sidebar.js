@@ -316,6 +316,10 @@ export function setupSidebar() {
                 return;
             }
 
+            card.addEventListener("click", () => {
+                openStationOnMap(nearbyStation.station);
+            });
+
             card.querySelector(".nearby-open")?.addEventListener("click", event => {
                 event.preventDefault();
                 event.stopPropagation();

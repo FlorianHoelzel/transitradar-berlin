@@ -437,6 +437,22 @@
     border-radius: 18px;
 
     background: rgba(255, 255, 255, 0.07);
+    cursor: pointer;
+    outline: 1px solid transparent;
+    outline-offset: -1px;
+
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        outline-color 0.18s ease,
+        transform 0.18s ease;
+}
+
+.favorite-card:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.1);
+    outline-color: rgba(255, 255, 255, 0.11);
+    transform: translateX(4px);
 }
 
 .favorite-card-header,

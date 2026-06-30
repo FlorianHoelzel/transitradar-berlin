@@ -75,6 +75,10 @@ function setupFavoriteActions() {
         const openButton = card.querySelector(".favorite-open");
         const removeButton = card.querySelector(".favorite-remove");
 
+        card.addEventListener("click", () => {
+            openStationOnMap(findFullStation(favorite));
+        });
+
         openButton?.addEventListener("click", event => {
             event.preventDefault();
             event.stopPropagation();
