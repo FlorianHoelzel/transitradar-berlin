@@ -1,0 +1,14 @@
+services:
+  vbb-rest:
+    image: 'ghcr.io/derhuerst/vbb-rest:v6_e2e8e2b_2025-10-21T23.03.51Z'
+    environment:
+      HOSTNAME: localhost
+      PORT: 3000
+      REDIS_URL: 'redis://redis:6379/1'
+      SERVICE_FQDN_VBBAPI_3000: vbb-api.florian.gallery
+    depends_on:
+      - redis
+    restart: unless-stopped
+  redis:
+    image: 'redis:7-alpine'
+    restart: unless-stopped
