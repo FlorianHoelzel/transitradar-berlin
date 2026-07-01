@@ -1,49 +1,26 @@
 # TransitRadar
 
-TransitRadar is a browser-based public transport radar for exploring live transit data on an interactive map. It uses Leaflet for mapping and the VBB Transport REST API for stations, departures, trip details, routes, and vehicle movements.
+TransitRadar is a web app for watching public transport move in real time. It shows nearby stations, live departures, vehicles, and route previews on an interactive map.
 
-The project is currently a frontend-only learning and portfolio project. It runs directly in the browser, keeps user data locally, and focuses on making live public transport data easier to search, filter, inspect, and follow.
+The app currently starts with the VBB network. More cities and transport regions are planned, with the goal of making TransitRadar useful beyond one default area.
 
-## Current Status
+This is still a personal learning and portfolio project, but the core experience is already usable: open the map, search for a station, check upcoming departures, follow vehicles, and save the stations you care about.
 
-TransitRadar already includes the main building blocks of a real-time transit map:
+## What You Can Do
 
-- Interactive Leaflet map with a dark CARTO basemap
-- Station loading from the VBB API
-- Station markers that appear based on map position and zoom level
-- Station grouping and popup rendering
-- Station search with autocomplete-style results
-- Live departures for selected stations
-- Departure delay display and realtime highlighting
-- Automatic departure refresh while a station popup is open
-- Clickable departures that can open a route preview
-- Live vehicle positions from the VBB radar endpoint
-- Smooth vehicle marker updates and movement animation
-- Vehicle popups with line, direction, and stop information
-- Trip route previews loaded from trip details
-- Colored route rendering with a highlighted route layer
-- One-click route preview removal
-- Filters for station and vehicle categories
-- Line badges and line color helpers
-- API status indicator with periodic health checks
-- User location button using browser geolocation
-- Nearby station panel based on the user's current position
-- Favorite stations stored in local storage
-- Favorite station panel with live departure previews
-- Sidebar with nearby stations, favorites, and project information
-- Responsive styling for smaller screens
+- Search for stations and jump to them on the map
+- See live departures, delays, and destinations
+- Open station popups with automatically refreshed departure data
+- View live vehicle positions on the map
+- Filter stations and vehicles by transport type
+- Preview the route of a selected trip
+- Save favorite stations for quicker access
+- Use your current location to find nearby stations
+- Check whether the live data source is currently reachable
 
-## Transport Modes
+TransitRadar currently supports S-Bahn, U-Bahn, bus, tram, regional rail, and long-distance rail categories where the data is available.
 
-The UI currently distinguishes these transport categories:
-
-- S-Bahn
-- U-Bahn
-- Bus and tram
-- Regional rail, including RE, RB, RJ, and FEX-style services
-- Long-distance rail, including ICE, IC, and EC-style services
-
-## Data Source
+## Data
 
 TransitRadar uses the VBB Transport REST API:
 
@@ -51,26 +28,69 @@ TransitRadar uses the VBB Transport REST API:
 https://v6.vbb.transport.rest
 ```
 
-The app currently calls these kinds of endpoints:
+The app uses this data for stations, departures, vehicle positions, trip details, and route shapes.
 
-- `stations` for station data
-- `stops/{id}/departures` for station departures
-- `radar` for live vehicle movements
-- `trips/{id}` for trip details, stopovers, and route polylines
+Live public transport data is not always perfect. Vehicles can be delayed, positions can be estimated, and some information may be missing or temporarily unavailable. TransitRadar is an independent project and is not affiliated with VBB, Deutsche Bahn, or any transport operator.
 
-Live transit data can be incomplete, delayed, temporarily unavailable, or different from official operator apps. TransitRadar is an independent project and is not affiliated with VBB, Deutsche Bahn, or any other transport operator.
+## Current State
+
+The project is frontend-only and runs in the browser. Favorites are saved locally on the user's device, and there is no account system or backend yet.
+
+The main app already includes:
+
+- A dark interactive map
+- Live station and departure views
+- Live vehicle markers
+- Route previews
+- Favorites
+- Nearby stations
+- A sidebar for quick access
+- Basic mobile-friendly styling
+
+Some parts are still experimental and will continue to change as the project grows.
+
+## Planned Next Steps
+
+The next focus is making the app easier to use, more reliable, and less tied to one region.
+
+- Add support for more cities and transport networks
+- Make the default region configurable
+- Improve the mobile layout
+- Make errors and loading states clearer
+- Improve accessibility and keyboard navigation
+- Show more useful trip details, such as stop sequences and platforms where available
+- Add disruption and service notice information
+- Add route history or recently viewed trips
+- Improve favorite and nearby station views
+- Explore PWA support for an app-like experience
 
 ## Technology
 
-- HTML5
-- CSS3
-- JavaScript with ES modules
-- Leaflet.js
+TransitRadar is built with:
+
+- HTML
+- CSS
+- JavaScript modules
+- Leaflet
 - VBB Transport REST API
-- Browser geolocation API
+- Browser geolocation
 - Browser local storage
 
-No build step is required at the moment.
+There is currently no build step.
+
+## Running Locally
+
+Serve the project with a small local web server:
+
+```bash
+python -m http.server 8000
+```
+
+Then open:
+
+```text
+http://localhost:8000
+```
 
 ## Project Structure
 
@@ -80,7 +100,6 @@ No build step is required at the moment.
 |-- style.css
 |-- readme.md
 |-- assets/
-|   `-- fonts/
 |-- js/
 |   |-- api/
 |   |-- favorites/
@@ -93,80 +112,9 @@ No build step is required at the moment.
 `-- tools/
 ```
 
-## Running Locally
+## Why This Project Exists
 
-Because the project uses ES modules, it should be served through a local web server instead of being opened directly from the file system.
-
-One simple option:
-
-```bash
-python -m http.server 8000
-```
-
-Then open:
-
-```text
-http://localhost:8000
-```
-
-## What Still Needs Work
-
-The app is functional, but still a prototype. Important next steps include:
-
-- Remove remaining hard-coded regional assumptions from configuration and helper code
-- Make the map region configurable
-- Improve mobile layout and touch ergonomics
-- Add stronger loading, empty, and error states
-- Improve accessibility for controls, popups, and keyboard navigation
-- Add better route history and recently viewed trips
-- Add optional arrival or departure notifications
-- Add disruption, warning, and remark handling
-- Improve vehicle heading and movement direction display
-- Add platform and accessibility information where the API provides it
-- Add user settings for refresh intervals and enabled transport modes
-- Add automated tests for API normalization and UI state helpers
-- Add a backend or proxy only if rate limiting, caching, or API protection becomes necessary
-- Clean up old experimental landing page assets if they are no longer needed
-
-## Roadmap
-
-### Short Term
-
-- Rename remaining UI copy to the neutral TransitRadar brand
-- Review all VBB API calls and normalize fallback behavior
-- Improve the sidebar panels for favorites and nearby stations
-- Polish responsive CSS for phones and tablets
-- Add clearer API error messages in the UI
-
-### Medium Term
-
-- Introduce a region configuration system
-- Support multiple map presets
-- Add route history and saved trips
-- Improve route previews with stop sequence details
-- Add disruption and remark rendering
-- Add basic automated tests
-
-### Long Term
-
-- Make TransitRadar usable beyond the current default map area
-- Add user-configurable data layers
-- Add installable PWA behavior
-- Add offline-friendly cached station metadata
-- Explore server-side caching if API limits or performance require it
-
-## Learning Goals
-
-This project is also a practical learning project for:
-
-- Modern JavaScript modules
-- Working with REST APIs
-- Async data loading with `fetch`
-- Interactive maps
-- Realtime data visualization
-- State management without a framework
-- UI architecture in plain JavaScript
-- Responsive frontend design
+TransitRadar is a way to practice building a real, data-driven frontend without hiding the complexity behind a framework. It combines maps, live API data, UI state, browser features, and responsive design in one project.
 
 ## License
 
