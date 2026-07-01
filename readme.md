@@ -1,3 +1,8 @@
+![Status](https://img.shields.io/badge/status-active-success)
+![Cities](https://img.shields.io/badge/planned_cities-9-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES2024-yellow)
+
 # 🚆 TransitRadar
 
 **A modern public transport experience.**
@@ -24,8 +29,7 @@ The project is built with scalability in mind. While the current focus is on Ber
 
 - Search for stations
 - Nearby stations
-- Station popups
-- Favorite stations *(coming soon)*
+- Favorite stations
 
 ## ⏱️ Live Departures
 
@@ -51,9 +55,7 @@ The project is built with scalability in mind. While the current focus is on Ber
 
 ## ⚙️ Planned
 
-- Favorite stations
 - Favorite lines
-- Locate Me
 - Offline cache
 - Multiple cities
 - Improved settings
@@ -95,13 +97,15 @@ TransitRadar aims to use official public transport APIs whenever possible.
 
 Examples include:
 
-- VBB
-- HVV Geofox
-- RMV
-- VRS
-- VRR
-- GVH
-- and more...
+- **VBB** – HAFAS REST API
+- **HVV** – Geofox GTI API
+- **RMV** – HAFAS REST API
+- **VRS** – TRIAS + GTFS-Realtime
+- **VRR** – GTFS-Realtime + Open Data
+- **GVH** – TRIAS / Connect API
+- **VVS** – TRIAS + GTFS-Realtime (MobiData BW)
+- **VBN** – GTFS + GTFS-Realtime
+- **MVV** – TRIAS *(when publicly available)*
 
 ---
 
