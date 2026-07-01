@@ -2,16 +2,6 @@ export const API_BASE_URLS = {
     vbb: "https://v6.vbb.transport.rest"
 };
 
-export const FALLBACK_API_BASE_URLS = {
-    vbb: [
-        "https://vbb-api.florian.gallery/"
-    ]
-};
-
-export const DEV_CONFIG = {
-    useMockData: false
-};
-
 export const HTTP_CONFIG = {
     timeout: 10000
 };
@@ -22,9 +12,6 @@ export const API_STATUS_CONFIG = {
     primaryTestUrls: [
         `${API_BASE_URLS.vbb}/stations?limit=1`,
         `${API_BASE_URLS.vbb}/radar?north=52.55&south=52.50&east=13.45&west=13.35&results=1&frames=1`
-    ],
-    fallbackTestUrls: [
-        ...FALLBACK_API_BASE_URLS.vbb.map(baseUrl => `${baseUrl}/stops?results=1`)
     ]
 };
 

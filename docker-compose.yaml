@@ -5,30 +5,8 @@ services:
     command: sh -c "npm ci && npm run backend"
     environment:
       PORT: 3000
-      PGHOST: postgres
-      PGPORT: 5432
-      PGDATABASE: ${POSTGRES_DB:-transitradar}
-      PGUSER: ${POSTGRES_USER:-transitradar}
-      PGPASSWORD: ${POSTGRES_PASSWORD:-transitradar}
-      SERVICE_FQDN_VBBAPI_3000: vbb-api.florian.gallery
     ports:
       - '${BACKEND_PORT:-3000}:3000'
     volumes:
       - ./:/app
-    depends_on:
-      - postgres
     restart: unless-stopped
-  postgres:
-    image: 'postgis/postgis:17-3.6-alpine'
-    environment:
-      POSTGRES_DB: ${POSTGRES_DB:-transitradar}
-      POSTGRES_USER: ${POSTGRES_USER:-transitradar}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-transitradar}
-    ports:
-      - '${POSTGRES_PORT:-5432}:5432'
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    restart: unless-stopped
-
-volumes:
-  postgres_data:

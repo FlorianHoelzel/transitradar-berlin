@@ -1,15 +1,12 @@
 import {
     API_BASE_URLS,
-    FALLBACK_API_BASE_URLS,
     STATION_CONFIG,
     DEPARTURE_CONFIG,
     VEHICLE_CONFIG
 } from "../config.js";
-import { getApiStatus, setApiStatus } from "./apiStatus.js";
 import { fetchJson } from "./httpClient.js";
 
 const VBB_API_BASE = API_BASE_URLS.vbb;
-const VBB_FALLBACK_API_BASES = FALLBACK_API_BASE_URLS.vbb;
 
 function createUrl(baseUrl, pathAndQuery) {
     const resolvedBaseUrl = baseUrl.startsWith("//") && window.location.protocol === "file:"
@@ -17,69 +14,6 @@ function createUrl(baseUrl, pathAndQuery) {
         : baseUrl;
 
     return `${resolvedBaseUrl.replace(/\/$/, "")}${pathAndQuery}`;
-}
-
-async function fetchJsonFromUrls(urls, errorMessage, timeout) {
-    let lastError = null;
-
-    for (const url of urls) {
-        try {
-            return await fetchJson(url, errorMessage, timeout);
-        } catch (error) {
-            lastError = error;
-            console.warn(`Request failed, trying next source: ${url}`, error);
-        }
-    }
-
-    throw lastError ?? new Error(errorMessage);
-}
-
-async function fetchJsonPrimaryThenFallback(
-    primaryUrl,
-    fallbackUrls,
-    errorMessage,
-    timeout
-) {
-    if (getApiStatus() === "fallback" || getApiStatus() === "offline") {
-        return {
-            data: await fetchJsonFromUrls(fallbackUrls, errorMessage, timeout),
-            source: "fallback"
-        };
-    }
-
-    try {
-        const data = await fetchJson(primaryUrl, errorMessage, timeout);
-
-        if (getApiStatus() === "fallback") {
-            setApiStatus("online");
-        }
-
-        return {
-            data,
-            source: "primary"
-        };
-    } catch (primaryError) {
-        console.warn(`Primary API failed, trying fallback: ${primaryUrl}`, primaryError);
-
-        const data = await fetchJsonFromUrls(fallbackUrls, errorMessage, timeout);
-        setApiStatus("fallback");
-
-        return {
-            data,
-            source: "fallback"
-        };
-    }
-}
-
-async function fetchJsonWithFallback(primaryUrl, fallbackUrls, errorMessage, timeout) {
-    const result = await fetchJsonPrimaryThenFallback(
-        primaryUrl,
-        fallbackUrls,
-        errorMessage,
-        timeout
-    );
-
-    return result.data;
 }
 
 function getCleanStopId(stopId) {
@@ -178,18 +112,6 @@ function prepareDepartureResults(departures) {
         .sort((a, b) => new Date(a.when) - new Date(b.when));
 }
 
-function normalizeScheduledDeparture(departure) {
-    const plannedWhen = departure.plannedWhen || departure.when;
-
-    return {
-        ...departure,
-        when: plannedWhen,
-        plannedWhen,
-        delay: 0,
-        dataSource: "fallback"
-    };
-}
-
 function normalizeLiveDeparture(departure) {
     return {
         ...departure,
@@ -205,25 +127,15 @@ async function fetchDeparturesForStop(stopId, results, duration) {
         `&duration=${duration}`;
 
     const primaryUrl = createUrl(VBB_API_BASE, pathAndQuery);
-    const fallbackUrls = VBB_FALLBACK_API_BASES.map(baseUrl => {
-        return createUrl(baseUrl, pathAndQuery);
-    });
 
-    const result = await fetchJsonPrimaryThenFallback(
+    const data = await fetchJson(
         primaryUrl,
-        fallbackUrls,
         "Failed to load departures.",
         DEPARTURE_CONFIG.requestTimeout
     );
-
-    const data = result.data;
     const departures = Array.isArray(data)
         ? data
         : data.departures ?? [];
-
-    if (result.source === "fallback") {
-        return departures.map(normalizeScheduledDeparture);
-    }
 
     return departures.map(normalizeLiveDeparture);
 }
@@ -267,9 +179,8 @@ async function fetchDeparturesForStation(
 export async function loadStationsFromApi() {
     const pathAndQuery = `/stations?limit=${STATION_CONFIG.apiResultsLimit}`;
 
-    return await fetchJsonWithFallback(
+    return await fetchJson(
         createUrl(VBB_API_BASE, pathAndQuery),
-        VBB_FALLBACK_API_BASES.map(baseUrl => createUrl(baseUrl, pathAndQuery)),
         "Failed to load stations."
     );
 }
@@ -314,9 +225,8 @@ export async function getTripDetails(tripId, lineName) {
         `&stopovers=true` +
         `&remarks=false`;
 
-    return await fetchJsonWithFallback(
+    return await fetchJson(
         createUrl(VBB_API_BASE, pathAndQuery),
-        VBB_FALLBACK_API_BASES.map(baseUrl => createUrl(baseUrl, pathAndQuery)),
         "Failed to load trip route."
     );
 }

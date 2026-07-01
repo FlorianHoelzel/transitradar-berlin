@@ -32,12 +32,6 @@
                 0 0 18px rgba(239, 68, 68, 0.65);
 }
 
-.api-status-indicator.fallback .api-status-dot {
-    background: #f97316;
-    box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.16),
-                0 0 18px rgba(249, 115, 22, 0.65);
-}
-
 .api-status-indicator.checking .api-status-dot {
     background: #f59e0b;
     box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.16),
@@ -99,8 +93,3 @@
     transform: translateY(0);
 }
 
-.api-status-indicator.mock .api-status-dot {
-    background: #38bdf8;
-    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.16),
-                0 0 18px rgba(56, 189, 248, 0.65);
-}

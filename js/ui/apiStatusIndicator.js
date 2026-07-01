@@ -13,14 +13,6 @@ function getTooltipText(status) {
         return "API currently unavailable.";
     }
 
-    if (status === "fallback") {
-        return "Primary API unavailable. Using fallback data.";
-    }
-
-    if (status === "mock") {
-        return "Developer mode: using local mock data.";
-    }
-
     return "Checking API status...";
 }
 

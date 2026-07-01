@@ -5,9 +5,6 @@
     "start": "node backend/server.js"
   },
   "dependencies": {
-    "express": "^4.19.2",
-    "pg": "^8.12.0",
-    "vbb-lines-at": "^5.19.0",
-    "vbb-stations": "^8.31.0"
+    "express": "^4.19.2"
   }
 }

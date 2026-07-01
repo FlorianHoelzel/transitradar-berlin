@@ -1,4 +1,4 @@
-import { loadStationsFromLocalData } from "./localStationRepository.js";
+import { loadStationsFromApi } from "../api/transportRestApi.js";
 import { BERLIN_BOUNDS } from "../config.js";
 
 function isBerlinAreaStation(station) {
@@ -94,12 +94,12 @@ function prepareStations(rawStops) {
 
 export async function loadStations() {
     try {
-        console.log("Loading stations from local cache.");
-        const data = await loadStationsFromLocalData();
+        console.log("Loading stations from VBB API.");
+        const data = await loadStationsFromApi();
 
         return prepareStations(data);
     } catch (error) {
-        console.error("Failed to load stations from local cache:", error);
+        console.error("Failed to load stations from VBB API:", error);
         return [];
     }
 }
