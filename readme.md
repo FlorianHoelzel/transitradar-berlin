@@ -1,121 +1,129 @@
-# TransitRadar
+# 🚆 TransitRadar
 
-TransitRadar is a web app for watching public transport move in real time. It shows nearby stations, live departures, vehicles, and route previews on an interactive map.
+**A modern public transport experience.**
 
-The app currently starts with the VBB network. More cities and transport regions are planned, with the goal of making TransitRadar useful beyond one default area.
+TransitRadar is a fast, modern and interactive web application for exploring public transport in real time. It combines live departures, vehicle positions, route information and an intuitive map interface into one clean experience.
 
-This is still a personal learning and portfolio project, but the core experience is already usable: open the map, search for a station, check upcoming departures, follow vehicles, and save the stations you care about.
+The project is built with scalability in mind. While the current focus is on Berlin, TransitRadar is designed to support multiple cities through official public transport APIs.
 
-## What You Can Do
+> ⚠️ TransitRadar is currently under active development.
 
-- Search for stations and jump to them on the map
-- See live departures, delays, and destinations
-- Open station popups with automatically refreshed departure data
-- View live vehicle positions on the map
-- Filter stations and vehicles by transport type
-- Preview the route of a selected trip
-- Save favorite stations for quicker access
-- Use your current location to find nearby stations
-- Check whether the live data source is currently reachable
+---
 
-TransitRadar currently supports S-Bahn, U-Bahn, bus, tram, regional rail, and long-distance rail categories where the data is available.
+# ✨ Features
 
-## Data
+## 🗺️ Interactive Map
 
-TransitRadar uses the VBB Transport REST API:
+- Interactive map powered by Leaflet
+- Live vehicle positions
+- Smooth vehicle animations
+- Zoom-dependent station rendering
+- Station clustering & performance optimizations
 
-```text
-https://v6.vbb.transport.rest
-```
+## 🚉 Stations
 
-The app uses this data for stations, departures, vehicle positions, trip details, and route shapes.
-
-Live public transport data is not always perfect. Vehicles can be delayed, positions can be estimated, and some information may be missing or temporarily unavailable. TransitRadar is an independent project and is not affiliated with VBB, Deutsche Bahn, or any transport operator.
-
-## Current State
-
-The project is frontend-only and runs in the browser. Favorites are saved locally on the user's device, and there is no account system or backend yet.
-
-The main app already includes:
-
-- A dark interactive map
-- Live station and departure views
-- Live vehicle markers
-- Route previews
-- Favorites
+- Search for stations
 - Nearby stations
-- A sidebar for quick access
-- Basic mobile-friendly styling
+- Station popups
+- Favorite stations *(coming soon)*
 
-Some parts are still experimental and will continue to change as the project grows.
+## ⏱️ Live Departures
 
-## Planned Next Steps
+- Real-time departures
+- Delay information
+- Platform information
+- Countdown timers
+- Automatic refresh
 
-The next focus is making the app easier to use, more reliable, and less tied to one region.
+## 🚆 Routes
 
-- Add support for more cities and transport networks
-- Make the default region configurable
-- Improve the mobile layout
-- Make errors and loading states clearer
-- Improve accessibility and keyboard navigation
-- Show more useful trip details, such as stop sequences and platforms where available
-- Add disruption and service notice information
-- Add route history or recently viewed trips
-- Improve favorite and nearby station views
-- Explore PWA support for an app-like experience
+- Route visualization
+- Next stopovers
+- Line information
+- Vehicle tracking
 
-## Technology
+## 🎨 Modern UI
 
-TransitRadar is built with:
+- Responsive layout
+- Dark mode
+- Glassmorphism-inspired design
+- Fast and lightweight
+
+## ⚙️ Planned
+
+- Favorite stations
+- Favorite lines
+- Locate Me
+- Offline cache
+- Multiple cities
+- Improved settings
+- Better route visualization
+- More personalization
+
+---
+
+# 🏙️ Planned Cities
+
+TransitRadar is designed around a modular adapter architecture.
+
+Adding a new city should only require implementing a new API adapter while the rest of the application remains unchanged.
+
+| Region | Status |
+|---------|--------|
+| 🇩🇪 Berlin (VBB) | 🚧 In Development |
+| 🚇 Hamburg (HVV) | 📅 Planned |
+| 🚈 Frankfurt (RMV) | 📅 Planned |
+| 🚋 Cologne (VRS) | 📅 Planned |
+| 🚉 Rhine-Ruhr (VRR) | 📅 Planned |
+| 🚊 Hanover (GVH) | 📅 Planned |
+| 🚇 Stuttgart (VVS) | 📅 Planned |
+| 🚍 Bremen (VBN) | 📅 Planned |
+| 🚇 Munich (MVV) | ⏳ Planned (API availability pending) |
+
+---
+
+# 🛠️ Tech Stack
 
 - HTML
 - CSS
-- JavaScript modules
-- Leaflet
-- VBB Transport REST API
-- Browser geolocation
-- Browser local storage
+- JavaScript (ES Modules)
+- Leaflet.js
 
-There is currently no build step.
+### APIs
 
-## Running Locally
+TransitRadar aims to use official public transport APIs whenever possible.
 
-Serve the project with a small local web server:
+Examples include:
 
-```bash
-python -m http.server 8000
-```
+- VBB
+- HVV Geofox
+- RMV
+- VRS
+- VRR
+- GVH
+- and more...
 
-Then open:
+---
 
-```text
-http://localhost:8000
-```
 
-## Project Structure
+# ⚠️ Disclaimer
 
-```text
-.
-|-- index.html
-|-- style.css
-|-- readme.md
-|-- assets/
-|-- js/
-|   |-- api/
-|   |-- favorites/
-|   |-- lines/
-|   |-- map/
-|   |-- stations/
-|   |-- ui/
-|   `-- vehicles/
-|-- styles/
-`-- tools/
-```
+TransitRadar is an independent project and is **not affiliated with or endorsed by any public transport operator or transport association**.
 
-## Why This Project Exists
+While every effort is made to provide accurate information, real-time data may occasionally be delayed, unavailable or inaccurate due to API limitations or outages.
 
-TransitRadar is a way to practice building a real, data-driven frontend without hiding the complexity behind a framework. It combines maps, live API data, UI state, browser features, and responsive design in one project.
+For official travel information, please refer to the respective transport operator or transport association.
 
-## License
+---
 
-This project is intended for educational and portfolio use.
+# ❤️ Contributing
+
+Contributions, ideas and feedback are always welcome.
+
+Feel free to open an issue or submit a pull request.
+
+---
+
+# 📄 License
+
+This project is licensed under the MIT License.
