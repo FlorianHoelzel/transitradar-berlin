@@ -3,6 +3,15 @@ export const API_BASE_URLS = {
     vbb: "https://v6.vbb.transport.rest"
 };
 
+export const FALLBACK_API_BASE_URLS = {
+    bvg: [
+        "https://vbb-api.florian.gallery/"
+    ],
+    vbb: [
+        "https://vbb-api.florian.gallery/"
+    ]
+};
+
 export const DEV_CONFIG = {
     useMockData: false
 };
@@ -12,11 +21,14 @@ export const HTTP_CONFIG = {
 };
 
 export const API_STATUS_CONFIG = {
-    timeout: 6000,
+    timeout: 2500,
     refreshInterval: 60000,
-    testUrls: [
+    primaryTestUrls: [
         `${API_BASE_URLS.bvg}/stops?results=1`,
         `${API_BASE_URLS.vbb}/radar?north=52.55&south=52.50&east=13.45&west=13.35&results=1&frames=1`
+    ],
+    fallbackTestUrls: [
+        ...FALLBACK_API_BASE_URLS.bvg.map(baseUrl => `${baseUrl}/stops?results=1`)
     ]
 };
 
@@ -48,15 +60,19 @@ export const SEARCH_CONFIG = {
 export const DEPARTURE_CONFIG = {
     requestResults: 20,
     requestDuration: 60,
+    requestTimeout: 3000,
+    firstRenderTimeout: 700,
     displayLimit: 12,
     fallbackResults: 8,
     fallbackDuration: 30,
+    staleGraceMs: 60000,
     popupRefreshInterval: 15000
 };
 
 export const VEHICLE_CONFIG = {
     refreshInterval: 30000,
     minimumUpdateInterval: 15000,
+    requestTimeout: 2500,
     zoomThreshold: 14,
     animationDuration: 16000,
     radarResultLimits: {

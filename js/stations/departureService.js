@@ -1,5 +1,5 @@
 import { getDepartures } from "../api/transportRestApi.js";
-import { DEV_CONFIG } from "../config.js";
+import { DEPARTURE_CONFIG, DEV_CONFIG } from "../config.js";
 import { loadDeparturesFromLocalData } from "./localDepartureRepository.js";
 
 function getStationStopIds(station) {
@@ -21,7 +21,31 @@ function getLocalDeparturesForStation(departuresByStationId, station) {
 
     return stopIds
         .flatMap(stopId => departuresByStationId[stopId] ?? [])
+        .map(normalizeScheduledDeparture)
+        .filter(isCurrentDeparture)
         .sort((a, b) => new Date(a.when) - new Date(b.when));
+}
+
+function isCurrentDeparture(departure) {
+    const departureTime = new Date(departure.when || departure.plannedWhen).getTime();
+
+    if (!Number.isFinite(departureTime)) {
+        return false;
+    }
+
+    return departureTime >= Date.now() - DEPARTURE_CONFIG.staleGraceMs;
+}
+
+function normalizeScheduledDeparture(departure) {
+    const plannedWhen = departure.plannedWhen || departure.when;
+
+    return {
+        ...departure,
+        when: plannedWhen,
+        plannedWhen,
+        delay: 0,
+        dataSource: "fallback"
+    };
 }
 
 async function loadDeparturesFromFallbackData(station) {

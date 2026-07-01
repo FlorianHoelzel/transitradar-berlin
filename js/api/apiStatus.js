@@ -11,6 +11,14 @@ export function getLastCheckedAt() {
     return lastCheckedAt;
 }
 
+export function setApiStatus(status) {
+    apiStatus = status;
+    lastCheckedAt = new Date().toLocaleTimeString("en-GB", {
+        hour: "2-digit",
+        minute: "2-digit"
+    });
+}
+
 async function fetchWithTimeout(url, timeout = API_STATUS_CONFIG.timeout) {
     const controller = new AbortController();
 
@@ -52,13 +60,23 @@ export async function checkApiStatus(onStatusChange) {
         onStatusChange(apiStatus);
     }
 
-    const results = await Promise.all(
-        API_STATUS_CONFIG.testUrls.map(url => fetchWithTimeout(url))
+    const primaryResults = await Promise.all(
+        API_STATUS_CONFIG.primaryTestUrls.map(url => fetchWithTimeout(url))
     );
 
-    const hasWorkingApi = results.some(result => result === true);
+    const hasWorkingApi = primaryResults.every(result => result === true);
 
-    apiStatus = hasWorkingApi ? "online" : "offline";
+    if (hasWorkingApi) {
+        apiStatus = "online";
+    } else {
+        const fallbackResults = await Promise.all(
+            API_STATUS_CONFIG.fallbackTestUrls.map(url => fetchWithTimeout(url))
+        );
+
+        apiStatus = fallbackResults.some(result => result === true)
+            ? "fallback"
+            : "offline";
+    }
 
     lastCheckedAt = new Date().toLocaleTimeString("en-GB", {
         hour: "2-digit",

@@ -154,6 +154,16 @@
     max-width: 310px;
 }
 
+.station-fallback-notice {
+    margin-top: 10px;
+
+    color: #fdba74;
+
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
 .station-line-item {
     display: inline-flex;
 }

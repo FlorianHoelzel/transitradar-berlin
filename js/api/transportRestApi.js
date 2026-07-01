@@ -1,13 +1,87 @@
 import {
     API_BASE_URLS,
+    FALLBACK_API_BASE_URLS,
     STATION_CONFIG,
     DEPARTURE_CONFIG,
     VEHICLE_CONFIG
 } from "../config.js";
+import { getApiStatus, setApiStatus } from "./apiStatus.js";
 import { fetchJson } from "./httpClient.js";
 
 const BVG_API_BASE = API_BASE_URLS.bvg;
 const VBB_API_BASE = API_BASE_URLS.vbb;
+const BVG_FALLBACK_API_BASES = FALLBACK_API_BASE_URLS.bvg;
+
+function createUrl(baseUrl, pathAndQuery) {
+    const resolvedBaseUrl = baseUrl.startsWith("//") && window.location.protocol === "file:"
+        ? `https:${baseUrl}`
+        : baseUrl;
+
+    return `${resolvedBaseUrl.replace(/\/$/, "")}${pathAndQuery}`;
+}
+
+async function fetchJsonFromUrls(urls, errorMessage, timeout) {
+    let lastError = null;
+
+    for (const url of urls) {
+        try {
+            return await fetchJson(url, errorMessage, timeout);
+        } catch (error) {
+            lastError = error;
+            console.warn(`Request failed, trying next source: ${url}`, error);
+        }
+    }
+
+    throw lastError ?? new Error(errorMessage);
+}
+
+async function fetchJsonPrimaryThenFallback(
+    primaryUrl,
+    fallbackUrls,
+    errorMessage,
+    timeout
+) {
+    if (getApiStatus() === "fallback" || getApiStatus() === "offline") {
+        return {
+            data: await fetchJsonFromUrls(fallbackUrls, errorMessage, timeout),
+            source: "fallback"
+        };
+    }
+
+    try {
+        const data = await fetchJson(primaryUrl, errorMessage, timeout);
+
+        if (getApiStatus() === "fallback") {
+            setApiStatus("online");
+        }
+
+        return {
+            data,
+            source: "primary"
+        };
+    } catch (primaryError) {
+        console.warn(`Primary API failed, trying fallback: ${primaryUrl}`, primaryError);
+
+        const data = await fetchJsonFromUrls(fallbackUrls, errorMessage, timeout);
+        setApiStatus("fallback");
+
+        return {
+            data,
+            source: "fallback"
+        };
+    }
+}
+
+async function fetchJsonWithFallback(primaryUrl, fallbackUrls, errorMessage, timeout) {
+    const result = await fetchJsonPrimaryThenFallback(
+        primaryUrl,
+        fallbackUrls,
+        errorMessage,
+        timeout
+    );
+
+    return result.data;
+}
 
 function getCleanStopId(stopId) {
     const parts = String(stopId).split(":");
@@ -32,39 +106,127 @@ function getRadarResultLimit(zoom) {
 }
 
 function removeDuplicateDepartures(departures) {
-    return departures.filter((departure, index, array) => {
-        const key = `${departure.line?.name}-${departure.direction}-${departure.when}`;
+    const departuresByKey = new Map();
 
-        return index === array.findIndex(item => {
-            const itemKey = `${item.line?.name}-${item.direction}-${item.when}`;
-            return itemKey === key;
-        });
+    departures.forEach(departure => {
+        const key = departure.tripId
+            ? `trip:${departure.tripId}`
+            : [
+                "departure",
+                departure.line?.name,
+                departure.direction,
+                departure.when
+            ].join(":");
+        const existingDeparture = departuresByKey.get(key);
+
+        if (
+            !existingDeparture ||
+            new Date(departure.when).getTime() > new Date(existingDeparture.when).getTime()
+        ) {
+            departuresByKey.set(key, departure);
+        }
     });
+
+    return [...departuresByKey.values()];
+}
+
+function isCurrentDeparture(departure) {
+    const departureTime = new Date(departure.when || departure.plannedWhen).getTime();
+
+    if (!Number.isFinite(departureTime)) {
+        return false;
+    }
+
+    return departureTime >= Date.now() - DEPARTURE_CONFIG.staleGraceMs;
+}
+
+function wait(ms) {
+    return new Promise(resolve => {
+        setTimeout(resolve, ms);
+    });
+}
+
+function createDepartureCollector(stopIds, results, duration) {
+    const collectedDepartures = [];
+    const failures = [];
+    let completedCount = 0;
+
+    const requests = stopIds.map(stopId => {
+        return fetchDeparturesForStop(stopId, results, duration)
+            .then(departures => {
+                collectedDepartures.push(...departures);
+            })
+            .catch(error => {
+                failures.push(error);
+            })
+            .finally(() => {
+                completedCount += 1;
+            });
+    });
+
+    return {
+        collectedDepartures,
+        failures,
+        isComplete: () => completedCount === requests.length,
+        waitForAll: () => Promise.allSettled(requests)
+    };
+}
+
+function prepareDepartureResults(departures) {
+    return removeDuplicateDepartures(departures)
+        .filter(departure => departure.when)
+        .filter(isCurrentDeparture)
+        .sort((a, b) => new Date(a.when) - new Date(b.when));
+}
+
+function normalizeScheduledDeparture(departure) {
+    const plannedWhen = departure.plannedWhen || departure.when;
+
+    return {
+        ...departure,
+        when: plannedWhen,
+        plannedWhen,
+        delay: 0,
+        dataSource: "fallback"
+    };
+}
+
+function normalizeLiveDeparture(departure) {
+    return {
+        ...departure,
+        dataSource: "live"
+    };
 }
 
 async function fetchDeparturesForStop(stopId, results, duration) {
     const cleanStopId = getCleanStopId(stopId);
-
-    const url =
-        `${BVG_API_BASE}/stops/${cleanStopId}/departures` +
+    const pathAndQuery =
+        `/stops/${cleanStopId}/departures` +
         `?results=${results}` +
         `&duration=${duration}`;
 
-    try {
-        const data = await fetchJson(
-            url,
-            "Failed to load departures."
-        );
+    const primaryUrl = createUrl(BVG_API_BASE, pathAndQuery);
+    const fallbackUrls = BVG_FALLBACK_API_BASES.map(baseUrl => {
+        return createUrl(baseUrl, pathAndQuery);
+    });
 
-        if (Array.isArray(data)) {
-            return data;
-        }
+    const result = await fetchJsonPrimaryThenFallback(
+        primaryUrl,
+        fallbackUrls,
+        "Failed to load departures.",
+        DEPARTURE_CONFIG.requestTimeout
+    );
 
-        return data.departures ?? [];
-    } catch (error) {
-        console.warn(`Failed to load departures for stop ${cleanStopId}:`, error);
-        return [];
+    const data = result.data;
+    const departures = Array.isArray(data)
+        ? data
+        : data.departures ?? [];
+
+    if (result.source === "fallback") {
+        return departures.map(normalizeScheduledDeparture);
     }
+
+    return departures.map(normalizeLiveDeparture);
 }
 
 async function fetchDeparturesForStation(
@@ -72,27 +234,43 @@ async function fetchDeparturesForStation(
     results = DEPARTURE_CONFIG.fallbackResults,
     duration = DEPARTURE_CONFIG.fallbackDuration
 ) {
-    const allDepartures = [];
-
     const uniqueStopIds = [
-        ...new Set(station.stops.map(stop => stop.id))
+        ...new Set(
+            station.stops
+                .map(stop => stop.id)
+                .filter(Boolean)
+                .map(getCleanStopId)
+        )
     ];
 
-    for (const stopId of uniqueStopIds) {
-        const departures = await fetchDeparturesForStop(stopId, results, duration);
-        allDepartures.push(...departures);
+    const collector = createDepartureCollector(uniqueStopIds, results, duration);
+
+    await Promise.race([
+        collector.waitForAll(),
+        wait(DEPARTURE_CONFIG.firstRenderTimeout)
+    ]);
+
+    if (collector.collectedDepartures.length > 0) {
+        return prepareDepartureResults(collector.collectedDepartures);
     }
 
-    const uniqueDepartures = removeDuplicateDepartures(allDepartures);
+    if (!collector.isComplete()) {
+        await collector.waitForAll();
+    }
 
-    return uniqueDepartures
-        .filter(departure => departure.when)
-        .sort((a, b) => new Date(a.when) - new Date(b.when));
+    if (collector.collectedDepartures.length === 0) {
+        throw collector.failures[0] ?? new Error("Failed to load departures.");
+    }
+
+    return prepareDepartureResults(collector.collectedDepartures);
 }
 
 export async function loadStationsFromApi() {
-    return await fetchJson(
-        `${BVG_API_BASE}/stops?results=${STATION_CONFIG.apiResultsLimit}`,
+    const pathAndQuery = `/stops?results=${STATION_CONFIG.apiResultsLimit}`;
+
+    return await fetchJsonWithFallback(
+        createUrl(BVG_API_BASE, pathAndQuery),
+        BVG_FALLBACK_API_BASES.map(baseUrl => createUrl(baseUrl, pathAndQuery)),
         "Failed to load stations."
     );
 }
@@ -110,8 +288,8 @@ export async function getDepartures(station) {
 export async function getVehicleMovements(bounds, zoom) {
     const results = getRadarResultLimit(zoom);
 
-    const url =
-        `${VBB_API_BASE}/radar` +
+    const pathAndQuery =
+        `/radar` +
         `?north=${bounds.getNorth()}` +
         `&south=${bounds.getSouth()}` +
         `&east=${bounds.getEast()}` +
@@ -121,23 +299,25 @@ export async function getVehicleMovements(bounds, zoom) {
         `&frames=1`;
 
     const data = await fetchJson(
-        url,
-        "Failed to load live vehicles."
+        createUrl(VBB_API_BASE, pathAndQuery),
+        "Failed to load live vehicles.",
+        VEHICLE_CONFIG.requestTimeout
     );
 
     return data.movements ?? [];
 }
 
 export async function getTripDetails(tripId, lineName) {
-    const url =
-        `${BVG_API_BASE}/trips/${encodeURIComponent(tripId)}` +
+    const pathAndQuery =
+        `/trips/${encodeURIComponent(tripId)}` +
         `?lineName=${encodeURIComponent(lineName)}` +
         `&polyline=true` +
         `&stopovers=true` +
         `&remarks=false`;
 
-    return await fetchJson(
-        url,
+    return await fetchJsonWithFallback(
+        createUrl(BVG_API_BASE, pathAndQuery),
+        BVG_FALLBACK_API_BASES.map(baseUrl => createUrl(baseUrl, pathAndQuery)),
         "Failed to load trip route."
     );
 }

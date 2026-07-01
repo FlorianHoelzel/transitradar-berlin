@@ -80,6 +80,22 @@ function getStationLinesHtml(station) {
     return lineBadges + toggleButton;
 }
 
+export function hasFallbackDepartures(departures = []) {
+    return departures.some(departure => departure.dataSource === "fallback");
+}
+
+export function getFallbackNoticeHtml(showNotice = false) {
+    if (!showNotice) {
+        return "";
+    }
+
+    return `
+        <div class="station-fallback-notice">
+            Live API currently unavailable. Using scheduled data
+        </div>
+    `;
+}
+
 function formatTime(dateString) {
     if (!dateString) {
         return "?";
