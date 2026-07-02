@@ -7,6 +7,7 @@ import {
 import { fetchJson } from "./httpClient.js";
 
 const VBB_API_BASE = API_BASE_URLS.vbb;
+const STATION_FALLBACK_QUERIES = ["Berlin", "S", "U", "Tram", "Bus", "Bhf"];
 
 function createUrl(baseUrl, pathAndQuery) {
     const resolvedBaseUrl = baseUrl.startsWith("//") && window.location.protocol === "file:"
@@ -112,6 +113,14 @@ function prepareDepartureResults(departures) {
         .sort((a, b) => new Date(a.when) - new Date(b.when));
 }
 
+function normalizeStationsResponse(data) {
+    if (Array.isArray(data)) {
+        return data;
+    }
+
+    return data?.stations ?? data?.stops ?? data?.locations ?? [];
+}
+
 function normalizeLiveDeparture(departure) {
     return {
         ...departure,
@@ -176,13 +185,65 @@ async function fetchDeparturesForStation(
     return prepareDepartureResults(collector.collectedDepartures);
 }
 
+async function searchStops(query) {
+    const pathAndQuery =
+        `/locations` +
+        `?query=${encodeURIComponent(query)}` +
+        `&results=${STATION_CONFIG.apiResultsLimit}` +
+        `&stops=true` +
+        `&addresses=false` +
+        `&poi=false`;
+
+    const data = await fetchJson(
+        createUrl(VBB_API_BASE, pathAndQuery),
+        "Failed to search stations."
+    );
+
+    return normalizeStationsResponse(data);
+}
+
+async function loadStationsFromSearchFallback() {
+    const stationResults = await Promise.allSettled(
+        STATION_FALLBACK_QUERIES.map(searchStops)
+    );
+    const stationsById = new Map();
+
+    stationResults
+        .filter(result => result.status === "fulfilled")
+        .flatMap(result => result.value)
+        .forEach(station => {
+            if (station?.id) {
+                stationsById.set(station.id, station);
+            }
+        });
+
+    return [...stationsById.values()];
+}
+
 export async function loadStationsFromApi() {
     const pathAndQuery = `/stations?limit=${STATION_CONFIG.apiResultsLimit}`;
 
-    return await fetchJson(
-        createUrl(VBB_API_BASE, pathAndQuery),
-        "Failed to load stations."
-    );
+    let data;
+
+    try {
+        data = await fetchJson(
+            createUrl(VBB_API_BASE, pathAndQuery),
+            "Failed to load stations."
+        );
+    } catch (error) {
+        console.warn("Stations endpoint failed. Falling back to location search.", error);
+        return await loadStationsFromSearchFallback();
+    }
+
+    const stations = normalizeStationsResponse(data);
+
+    if (stations.length > 0) {
+        return stations;
+    }
+
+    console.warn("Stations endpoint returned no stops. Falling back to location search.");
+
+    return await loadStationsFromSearchFallback();
 }
 
 export async function getDepartures(station) {

@@ -31,6 +31,15 @@ function normalizeStop(stop) {
     };
 }
 
+function isValidStop(stop) {
+    return Boolean(
+        stop?.id &&
+        stop?.name &&
+        Number.isFinite(stop.location?.latitude) &&
+        Number.isFinite(stop.location?.longitude)
+    );
+}
+
 function createEmptyProducts() {
     return {
         subway: false,
@@ -86,6 +95,7 @@ function groupStationsByName(rawStations) {
 
 function prepareStations(rawStops) {
     const rawStations = rawStops
+        .filter(isValidStop)
         .map(normalizeStop)
         .filter(isBerlinAreaStation);
 
