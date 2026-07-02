@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>TransitRadar API Status</title>
+
+    <link rel="stylesheet" href="./styles/fonts.css">
+    <link rel="stylesheet" href="./styles/status-page.css">
+</head>
+
+<body>
+    <main class="status-page">
+        <div class="route-field" aria-hidden="true"></div>
+
+        <section class="status-hero">
+            <nav class="status-nav" aria-label="Status navigation">
+                <a class="brand" href="./index.html">
+                    TransitRadar
+                </a>
+
+                <a class="nav-link" href="https://transitradar.com">Main app</a>
+            </nav>
+
+            <div class="hero-content">
+                <div>
+                    <p class="eyebrow">status.transitradar.com</p>
+                    <h1>API status.</h1>
+                </div>
+
+                <div class="hero-metrics" aria-live="polite">
+                    <span>
+                        <strong id="overallStatusText">Checking services</strong>
+                        <span class="metric-label">
+                            <span id="overallStatusDot" class="summary-dot checking"></span>
+                            Current status
+                        </span>
+                    </span>
+
+                    <span>
+                        <strong>1</strong>
+                        <span class="metric-label">live provider</span>
+                    </span>
+
+                    <button id="refreshStatus" class="refresh-button" type="button">
+                        Refresh
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="provider-grid" aria-label="API providers">
+            <article
+                id="vbbProvider"
+                class="provider-card checking"
+                data-provider-card="vbb"
+            >
+                <header class="provider-header">
+                    <div>
+                        <span class="provider-kicker">Berlin and Brandenburg</span>
+                        <h2>VBB</h2>
+                    </div>
+
+                    <span class="status-pill checking" data-provider-status="vbb">
+                        Checking
+                    </span>
+                </header>
+
+                <div class="provider-metric">
+                    <span>Probe response</span>
+                    <strong data-provider-latency="vbb">--</strong>
+                </div>
+
+                <p data-provider-message="vbb">
+                    Running a fresh availability check against the VBB transport API.
+                </p>
+
+                <footer class="provider-footer">
+                    <span>Stations endpoint</span>
+                    <span>Radar endpoint</span>
+                </footer>
+            </article>
+
+            <article class="provider-card planned">
+                <header class="provider-header">
+                    <div>
+                        <span class="provider-kicker">Hamburg</span>
+                        <h2>HVV</h2>
+                    </div>
+
+                    <span class="status-pill planned">Planned</span>
+                </header>
+
+                <div class="provider-metric">
+                    <span>Probe response</span>
+                    <strong>Coming soon</strong>
+                </div>
+
+                <p>
+                    Placeholder for the future Hamburg transport provider integration.
+                </p>
+
+                <footer class="provider-footer">
+                    <span>Geofox GTI</span>
+                    <span>Pending setup</span>
+                </footer>
+            </article>
+
+            <article class="provider-card planned">
+                <header class="provider-header">
+                    <div>
+                        <span class="provider-kicker">Munich</span>
+                        <h2>MVV</h2>
+                    </div>
+
+                    <span class="status-pill planned">Planned</span>
+                </header>
+
+                <div class="provider-metric">
+                    <span>Probe response</span>
+                    <strong>Coming soon</strong>
+                </div>
+
+                <p>
+                    Placeholder for the future Munich transport provider integration.
+                </p>
+
+                <footer class="provider-footer">
+                    <span>TRIAS</span>
+                    <span>Pending API availability</span>
+                </footer>
+            </article>
+        </section>
+
+    </main>
+
+    <script type="module" src="./js/statusPage.js"></script>
+</body>
+</html>
