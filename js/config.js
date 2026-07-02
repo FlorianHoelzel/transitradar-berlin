@@ -1,5 +1,5 @@
 export const API_BASE_URLS = {
-    vbb: "https://v6.vbb.transport.rest"
+    vbb: "https://api.transitradar.de"
 };
 
 export const HTTP_CONFIG = {
