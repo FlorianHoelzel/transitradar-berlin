@@ -10,7 +10,7 @@ export const API_STATUS_CONFIG = {
     timeout: 2500,
     refreshInterval: 60000,
     primaryTestUrls: [
-        `${API_BASE_URLS.vbb}/stations?limit=1`,
+        `${API_BASE_URLS.vbb}/locations?query=Berlin&results=1&stops=true&addresses=false&poi=false`,
         `${API_BASE_URLS.vbb}/radar?north=52.55&south=52.50&east=13.45&west=13.35&results=1&frames=1`
     ]
 };
@@ -29,6 +29,8 @@ export const BERLIN_BOUNDS = {
 
 export const STATION_CONFIG = {
     apiResultsLimit: 1000,
+    requestTimeout: 15000,
+    searchQueries: ["Berlin", "S", "U", "Tram", "Bus", "Bhf"],
     markerLimit: 200,
     zoomThreshold: 14
 };

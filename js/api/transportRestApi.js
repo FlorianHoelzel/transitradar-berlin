@@ -7,7 +7,6 @@ import {
 import { fetchJson } from "./httpClient.js";
 
 const VBB_API_BASE = API_BASE_URLS.vbb;
-const STATION_FALLBACK_QUERIES = ["Berlin", "S", "U", "Tram", "Bus", "Bhf"];
 
 function createUrl(baseUrl, pathAndQuery) {
     const resolvedBaseUrl = baseUrl.startsWith("//") && window.location.protocol === "file:"
@@ -196,15 +195,16 @@ async function searchStops(query) {
 
     const data = await fetchJson(
         createUrl(VBB_API_BASE, pathAndQuery),
-        "Failed to search stations."
+        "Failed to search stations.",
+        STATION_CONFIG.requestTimeout
     );
 
     return normalizeStationsResponse(data);
 }
 
-async function loadStationsFromSearchFallback() {
+async function loadStationsFromLocationSearch() {
     const stationResults = await Promise.allSettled(
-        STATION_FALLBACK_QUERIES.map(searchStops)
+        STATION_CONFIG.searchQueries.map(searchStops)
     );
     const stationsById = new Map();
 
@@ -221,6 +221,18 @@ async function loadStationsFromSearchFallback() {
 }
 
 export async function loadStationsFromApi() {
+    try {
+        const searchStations = await loadStationsFromLocationSearch();
+
+        if (searchStations.length > 0) {
+            return searchStations;
+        }
+
+        console.warn("Station location search returned no stops. Trying stations endpoint.");
+    } catch (error) {
+        console.warn("Station location search failed. Trying stations endpoint.", error);
+    }
+
     const pathAndQuery = `/stations?limit=${STATION_CONFIG.apiResultsLimit}`;
 
     let data;
@@ -228,11 +240,12 @@ export async function loadStationsFromApi() {
     try {
         data = await fetchJson(
             createUrl(VBB_API_BASE, pathAndQuery),
-            "Failed to load stations."
+            "Failed to load stations.",
+            STATION_CONFIG.requestTimeout
         );
     } catch (error) {
-        console.warn("Stations endpoint failed. Falling back to location search.", error);
-        return await loadStationsFromSearchFallback();
+        console.warn("Stations endpoint failed.", error);
+        return [];
     }
 
     const stations = normalizeStationsResponse(data);
@@ -241,9 +254,9 @@ export async function loadStationsFromApi() {
         return stations;
     }
 
-    console.warn("Stations endpoint returned no stops. Falling back to location search.");
+    console.warn("Stations endpoint returned no stops.");
 
-    return await loadStationsFromSearchFallback();
+    return [];
 }
 
 export async function getDepartures(station) {
