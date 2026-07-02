@@ -103,10 +103,29 @@ function PocketStats() {
     );
 }
 
+function ThemeToggle({ isSunset, onToggle }) {
+    return React.createElement(
+        "button",
+        {
+            className: "theme-toggle",
+            type: "button",
+            onClick: onToggle,
+            "aria-pressed": isSunset,
+            "aria-label": isSunset ? "Switch to day print" : "Switch to sunset print",
+        },
+        React.createElement("span", { className: "theme-toggle__track", "aria-hidden": "true" },
+            React.createElement("span", { className: "theme-toggle__thumb" })
+        ),
+        React.createElement("span", { className: "theme-toggle__label" }, isSunset ? "Sunset print" : "Day print")
+    );
+}
+
 function LandingPage() {
+    const [isSunset, setIsSunset] = React.useState(false);
+
     return React.createElement(
         "main",
-        { className: "paper-shell" },
+        { className: "paper-shell", "data-theme": isSunset ? "sunset" : "day" },
         React.createElement("img", {
             className: "paper-backdrop",
             src: "./assets/test-landing-3/paper-city.png",
@@ -125,7 +144,11 @@ function LandingPage() {
                 { className: "nav-tabs" },
                 React.createElement("a", { href: "./test-landing.html" }, "Test 1"),
                 React.createElement("a", { href: "./test-landing-2.html" }, "Test 2"),
-                React.createElement("a", { href: "./index.html" }, "Open map")
+                React.createElement("a", { href: "./index.html" }, "Open map"),
+                React.createElement(ThemeToggle, {
+                    isSunset,
+                    onToggle: () => setIsSunset((current) => !current),
+                })
             )
         ),
         React.createElement(

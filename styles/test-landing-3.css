@@ -1,5 +1,4 @@
 :root {
-    color-scheme: light;
     --paper: #f7eedb;
     --ink: #16140f;
     --muted: rgba(22, 20, 15, 0.68);
@@ -39,6 +38,22 @@ a {
     isolation: isolate;
     overflow: hidden;
     padding: 24px clamp(18px, 4vw, 56px) 48px;
+    background: var(--paper);
+    color: var(--ink);
+    color-scheme: light;
+    transition: background-color 220ms ease, color 220ms ease;
+}
+
+.paper-shell[data-theme="sunset"] {
+    --paper: #ffd8a8;
+    --ink: #24130e;
+    --muted: rgba(36, 19, 14, 0.72);
+    --line: rgba(36, 19, 14, 0.24);
+    --red: #ef4f45;
+    --yellow: #ffc94a;
+    --blue: #1d6fc9;
+    --mint: #2f8f68;
+    color-scheme: light;
 }
 
 .paper-backdrop {
@@ -53,6 +68,11 @@ a {
     filter: saturate(1.05) contrast(0.98);
 }
 
+.paper-shell[data-theme="sunset"] .paper-backdrop {
+    opacity: 0.86;
+    filter: sepia(0.18) saturate(1.2) contrast(1.02) brightness(0.98);
+}
+
 .paper-shell::before {
     position: fixed;
     inset: 0;
@@ -61,6 +81,12 @@ a {
     background:
         linear-gradient(90deg, rgba(247, 238, 219, 0.98) 0%, rgba(247, 238, 219, 0.91) 37%, rgba(247, 238, 219, 0.2) 100%),
         linear-gradient(180deg, rgba(247, 238, 219, 0.16), rgba(247, 238, 219, 0.95) 88%);
+}
+
+.paper-shell[data-theme="sunset"]::before {
+    background:
+        linear-gradient(90deg, rgba(255, 216, 168, 0.98) 0%, rgba(255, 198, 142, 0.88) 36%, rgba(239, 79, 69, 0.18) 100%),
+        linear-gradient(180deg, rgba(255, 236, 184, 0.12), rgba(255, 178, 116, 0.9) 88%);
 }
 
 .paper-noise {
@@ -73,6 +99,14 @@ a {
         radial-gradient(rgba(22, 20, 15, 0.16) 0.8px, transparent 0.8px),
         linear-gradient(115deg, transparent 0 46%, rgba(239, 83, 80, 0.08) 46% 47%, transparent 47% 100%);
     background-size: 9px 9px, 180px 180px;
+    mix-blend-mode: multiply;
+}
+
+.paper-shell[data-theme="sunset"] .paper-noise {
+    opacity: 0.45;
+    background-image:
+        radial-gradient(rgba(36, 19, 14, 0.14) 0.8px, transparent 0.8px),
+        linear-gradient(115deg, transparent 0 46%, rgba(239, 79, 69, 0.15) 46% 47%, transparent 47% 100%);
     mix-blend-mode: multiply;
 }
 
@@ -123,6 +157,11 @@ a {
     font-weight: 800;
 }
 
+.paper-shell[data-theme="sunset"] .wordmark {
+    background: #ffe8bd;
+    box-shadow: 5px 5px 0 rgba(36, 19, 14, 0.72);
+}
+
 .wordmark::before {
     width: 12px;
     height: 12px;
@@ -144,6 +183,11 @@ a {
     backdrop-filter: blur(12px);
 }
 
+.paper-shell[data-theme="sunset"] .nav-tabs {
+    background: rgba(255, 232, 189, 0.88);
+    box-shadow: 5px 5px 0 rgba(36, 19, 14, 0.18);
+}
+
 .nav-tabs a {
     display: inline-flex;
     align-items: center;
@@ -159,6 +203,51 @@ a {
 .nav-tabs a:last-child {
     background: var(--ink);
     color: var(--paper);
+}
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 32px;
+    padding: 0 10px;
+    border: 2px solid var(--ink);
+    background: var(--paper);
+    color: var(--ink);
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.theme-toggle__track {
+    display: inline-flex;
+    align-items: center;
+    width: 34px;
+    height: 18px;
+    padding: 2px;
+    border: 2px solid var(--ink);
+    background: var(--yellow);
+}
+
+.theme-toggle__thumb {
+    width: 10px;
+    height: 10px;
+    background: var(--ink);
+    transition: transform 180ms ease;
+}
+
+.theme-toggle[aria-pressed="true"] .theme-toggle__thumb {
+    transform: translateX(16px);
+}
+
+.paper-shell[data-theme="sunset"] .theme-toggle {
+    background: #ffe8bd;
+}
+
+.paper-shell[data-theme="sunset"] .theme-toggle__track {
+    background: var(--red);
 }
 
 .poster-hero {
@@ -185,6 +274,12 @@ a {
     text-transform: uppercase;
 }
 
+.paper-shell[data-theme="sunset"] .eyebrow,
+.paper-shell[data-theme="sunset"] .panel-kicker,
+.paper-shell[data-theme="sunset"] .section-heading p {
+    color: var(--mint);
+}
+
 .hero-copy h1 {
     max-width: 10.5ch;
     margin: 0;
@@ -193,6 +288,10 @@ a {
     letter-spacing: 0;
     text-wrap: balance;
     text-shadow: 4px 4px 0 rgba(242, 201, 76, 0.8);
+}
+
+.paper-shell[data-theme="sunset"] .hero-copy h1 {
+    text-shadow: 4px 4px 0 rgba(239, 79, 69, 0.62);
 }
 
 .intro {
@@ -234,6 +333,14 @@ a {
     color: var(--ink);
 }
 
+.paper-shell[data-theme="sunset"] .primary-action {
+    color: #fff8eb;
+}
+
+.paper-shell[data-theme="sunset"] .secondary-action {
+    background: #ffe8bd;
+}
+
 .pasteboard {
     position: relative;
     min-height: 395px;
@@ -245,6 +352,13 @@ a {
     box-shadow: 12px 12px 0 rgba(22, 20, 15, 0.2);
     transform: rotate(1.5deg);
     backdrop-filter: blur(14px);
+}
+
+.paper-shell[data-theme="sunset"] .pasteboard {
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0)),
+        rgba(255, 232, 189, 0.9);
+    box-shadow: 12px 12px 0 rgba(36, 19, 14, 0.2);
 }
 
 .pasteboard::before {
@@ -287,6 +401,10 @@ a {
     background: #fff8eb;
 }
 
+.paper-shell[data-theme="sunset"] .pocket-stats span {
+    background: #fff1d1;
+}
+
 .pocket-stats strong,
 .pocket-stats small {
     display: block;
@@ -316,6 +434,11 @@ a {
     backdrop-filter: blur(14px);
 }
 
+.paper-shell[data-theme="sunset"] .scrap-ticker {
+    background: rgba(255, 232, 189, 0.88);
+    box-shadow: 7px 7px 0 rgba(36, 19, 14, 0.18);
+}
+
 .scrap-ticker span {
     flex: 0 0 auto;
     padding: 9px 16px;
@@ -327,12 +450,20 @@ a {
     animation-delay: var(--delay);
 }
 
+.paper-shell[data-theme="sunset"] .scrap-ticker span {
+    background: #fff1d1;
+}
+
 .scrap-ticker span:nth-child(2n) {
     background: var(--yellow);
 }
 
 .scrap-ticker span:nth-child(3n) {
     background: #b9e7ff;
+}
+
+.paper-shell[data-theme="sunset"] .scrap-ticker span:nth-child(3n) {
+    background: #8fc7ff;
 }
 
 .city-launchpad {
@@ -378,6 +509,13 @@ a {
     animation-delay: var(--delay);
 }
 
+.paper-shell[data-theme="sunset"] .city-ticket {
+    background:
+        linear-gradient(145deg, color-mix(in srgb, var(--accent), #ffe8bd 58%), rgba(255, 241, 209, 0.94)),
+        #fff1d1;
+    box-shadow: 8px 8px 0 rgba(36, 19, 14, 0.2);
+}
+
 .city-ticket:nth-child(2) {
     --tilt: 1.2deg;
 }
@@ -402,6 +540,10 @@ a {
     color: var(--ink);
     font-size: 0.9rem;
     font-weight: 900;
+}
+
+.paper-shell[data-theme="sunset"] .ticket-number {
+    color: #24130e;
 }
 
 .ticket-main {
@@ -441,6 +583,10 @@ a {
     text-transform: uppercase;
 }
 
+.paper-shell[data-theme="sunset"] .status-stamp {
+    background: #fff1d1;
+}
+
 .status-stamp span {
     width: 10px;
     height: 10px;
@@ -452,6 +598,10 @@ a {
 
 .status-stamp--soon {
     color: rgba(22, 20, 15, 0.72);
+}
+
+.paper-shell[data-theme="sunset"] .status-stamp--soon {
+    color: rgba(36, 19, 14, 0.72);
 }
 
 .ticket-note {
@@ -537,6 +687,12 @@ a {
     .nav-tabs a {
         flex: 1;
         padding: 0 8px;
+    }
+
+    .theme-toggle {
+        justify-content: center;
+        flex: 1 1 100%;
+        width: 100%;
     }
 
     .poster-hero {
