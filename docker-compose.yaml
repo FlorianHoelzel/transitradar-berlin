@@ -1,12 +1,10 @@
 services:
   transitradar:
     image: nginx:1.27-alpine
-    container_name: transitradar
+    restart: unless-stopped
+
     ports:
       - "8081:80"
+
     volumes:
-      - ./index.html:/usr/share/nginx/html/index.html:ro
-      - ./styles:/usr/share/nginx/html/styles:ro
-      - ./scripts:/usr/share/nginx/html/scripts:ro
-      - ./data:/usr/share/nginx/html/data:ro
-    restart: unless-stopped
+      - ./:/usr/share/nginx/html:ro
