@@ -5,5 +5,8 @@ services:
     ports:
       - "8081:80"
     volumes:
-      - ./:/usr/share/nginx/html:ro
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+      - ./styles:/usr/share/nginx/html/styles:ro
+      - ./scripts:/usr/share/nginx/html/scripts:ro
+      - ./data:/usr/share/nginx/html/data:ro
     restart: unless-stopped
