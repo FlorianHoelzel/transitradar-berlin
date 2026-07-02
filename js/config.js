@@ -30,6 +30,8 @@ export const BERLIN_BOUNDS = {
 export const STATION_CONFIG = {
     apiResultsLimit: 1000,
     requestTimeout: 15000,
+    nearbyGridSize: 8,
+    nearbyDistance: 4500,
     searchQueries: ["Berlin", "S", "U", "Tram", "Bus", "Bhf"],
     markerLimit: 200,
     zoomThreshold: 14

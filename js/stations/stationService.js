@@ -27,7 +27,9 @@ function normalizeStop(stop) {
             stop.location.longitude
         ],
         products: stop.products || {},
-        lines: stop.lines || []
+        lines: (stop.lines || []).map(line => {
+            return typeof line === "string" ? line : line.name;
+        })
     };
 }
 
@@ -85,12 +87,14 @@ function groupStationsByName(rawStations) {
         mergeProducts(groupedStations[station.name].products, station.products);
     });
 
-    return Object.values(groupedStations).map(station => {
-        return {
-            ...station,
-            lines: sortLines(station.lines)
-        };
-    });
+    return Object.values(groupedStations)
+        .map(station => {
+            return {
+                ...station,
+                lines: sortLines(station.lines)
+            };
+        })
+        .sort((a, b) => a.name.localeCompare(b.name, "de-DE", { numeric: true }));
 }
 
 function prepareStations(rawStops) {

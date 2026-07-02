@@ -1,5 +1,6 @@
 import {
     API_BASE_URLS,
+    BERLIN_BOUNDS,
     STATION_CONFIG,
     DEPARTURE_CONFIG,
     VEHICLE_CONFIG
@@ -117,7 +118,17 @@ function normalizeStationsResponse(data) {
         return data;
     }
 
-    return data?.stations ?? data?.stops ?? data?.locations ?? [];
+    if (data && typeof data === "object") {
+        const wrappedStations = data.stations ?? data.stops ?? data.locations;
+
+        if (Array.isArray(wrappedStations)) {
+            return wrappedStations;
+        }
+
+        return Object.values(data);
+    }
+
+    return [];
 }
 
 function normalizeLiveDeparture(departure) {
@@ -191,7 +202,8 @@ async function searchStops(query) {
         `&results=${STATION_CONFIG.apiResultsLimit}` +
         `&stops=true` +
         `&addresses=false` +
-        `&poi=false`;
+        `&poi=false` +
+        `&linesOfStops=true`;
 
     const data = await fetchJson(
         createUrl(VBB_API_BASE, pathAndQuery),
@@ -202,13 +214,50 @@ async function searchStops(query) {
     return normalizeStationsResponse(data);
 }
 
-async function loadStationsFromLocationSearch() {
-    const stationResults = await Promise.allSettled(
-        STATION_CONFIG.searchQueries.map(searchStops)
+async function fetchNearbyStops(point) {
+    const pathAndQuery =
+        `/locations/nearby` +
+        `?latitude=${point.latitude}` +
+        `&longitude=${point.longitude}` +
+        `&results=${STATION_CONFIG.apiResultsLimit}` +
+        `&distance=${STATION_CONFIG.nearbyDistance}` +
+        `&stops=true` +
+        `&poi=false` +
+        `&linesOfStops=true`;
+
+    const data = await fetchJson(
+        createUrl(VBB_API_BASE, pathAndQuery),
+        "Failed to load nearby stations.",
+        STATION_CONFIG.requestTimeout
     );
+
+    return normalizeStationsResponse(data);
+}
+
+function createStationGridPoints() {
+    const points = [];
+    const gridSize = STATION_CONFIG.nearbyGridSize;
+
+    for (let row = 0; row < gridSize; row += 1) {
+        for (let column = 0; column < gridSize; column += 1) {
+            points.push({
+                latitude: BERLIN_BOUNDS.minLat +
+                    (BERLIN_BOUNDS.maxLat - BERLIN_BOUNDS.minLat) *
+                    (row / (gridSize - 1)),
+                longitude: BERLIN_BOUNDS.minLng +
+                    (BERLIN_BOUNDS.maxLng - BERLIN_BOUNDS.minLng) *
+                    (column / (gridSize - 1))
+            });
+        }
+    }
+
+    return points;
+}
+
+function dedupeStations(stationGroups) {
     const stationsById = new Map();
 
-    stationResults
+    stationGroups
         .filter(result => result.status === "fulfilled")
         .flatMap(result => result.value)
         .forEach(station => {
@@ -220,19 +269,23 @@ async function loadStationsFromLocationSearch() {
     return [...stationsById.values()];
 }
 
+async function loadStationsFromNearbyGrid() {
+    const stationResults = await Promise.allSettled(
+        createStationGridPoints().map(fetchNearbyStops)
+    );
+
+    return dedupeStations(stationResults);
+}
+
+async function loadStationsFromLocationSearch() {
+    const stationResults = await Promise.allSettled(
+        STATION_CONFIG.searchQueries.map(searchStops)
+    );
+
+    return dedupeStations(stationResults);
+}
+
 export async function loadStationsFromApi() {
-    try {
-        const searchStations = await loadStationsFromLocationSearch();
-
-        if (searchStations.length > 0) {
-            return searchStations;
-        }
-
-        console.warn("Station location search returned no stops. Trying stations endpoint.");
-    } catch (error) {
-        console.warn("Station location search failed. Trying stations endpoint.", error);
-    }
-
     const pathAndQuery = `/stations?limit=${STATION_CONFIG.apiResultsLimit}`;
 
     let data;
@@ -244,8 +297,7 @@ export async function loadStationsFromApi() {
             STATION_CONFIG.requestTimeout
         );
     } catch (error) {
-        console.warn("Stations endpoint failed.", error);
-        return [];
+        console.warn("Stations endpoint failed. Trying nearby station grid.", error);
     }
 
     const stations = normalizeStationsResponse(data);
@@ -254,9 +306,23 @@ export async function loadStationsFromApi() {
         return stations;
     }
 
-    console.warn("Stations endpoint returned no stops.");
+    console.warn("Stations endpoint returned no stops. Trying nearby station grid.");
 
-    return [];
+    try {
+        const nearbyStations = await loadStationsFromNearbyGrid();
+
+        if (nearbyStations.length > 0) {
+            return nearbyStations;
+        }
+
+        console.warn("Nearby station grid returned no stops. Trying station search.");
+    } catch (error) {
+        console.warn("Nearby station grid failed. Trying station search.", error);
+    }
+
+    const searchStations = await loadStationsFromLocationSearch();
+
+    return searchStations;
 }
 
 export async function getDepartures(station) {
