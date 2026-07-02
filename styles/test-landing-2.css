@@ -1,0 +1,476 @@
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "TransitLanding";
+    src: url("../assets/fonts/GeistMono-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "TransitLanding";
+    src: url("../assets/fonts/GeistMono-SemiBold.woff2") format("woff2");
+    font-weight: 650;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "TransitLanding";
+    src: url("../assets/fonts/GeistMono-Bold.woff2") format("woff2");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --page: #08090d;
+    --ink: #f5f7fb;
+    --muted: #a7afbf;
+    --soft: #6f7889;
+    --line: rgba(255, 255, 255, 0.13);
+    --panel: rgba(255, 255, 255, 0.075);
+    --panel-strong: rgba(255, 255, 255, 0.13);
+    --shadow: 0 28px 80px rgba(0, 0, 0, 0.36);
+}
+
+html {
+    min-height: 100%;
+    background: var(--page);
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    background:
+        linear-gradient(120deg, rgba(92, 211, 255, 0.18), transparent 30rem),
+        linear-gradient(240deg, rgba(247, 201, 72, 0.15), transparent 28rem),
+        linear-gradient(180deg, #151820 0%, #090a0f 54%, #0f1218 100%);
+    color: var(--ink);
+    font-family: "TransitLanding", Arial, sans-serif;
+    line-height: 1.45;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.landing-shell {
+    position: relative;
+    min-height: 100vh;
+    padding: clamp(0.75rem, 2vw, 1.65rem) clamp(1rem, 2.8vw, 2.5rem) clamp(1rem, 2.8vw, 2.5rem);
+    isolation: isolate;
+}
+
+.route-field {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    opacity: 0.84;
+}
+
+.route-field::before {
+    content: "";
+    position: absolute;
+    inset: 9vh -8vw auto;
+    height: 64vh;
+    background:
+        linear-gradient(105deg, transparent 0 7%, rgba(93, 211, 255, 0.42) 7.15% 7.55%, transparent 7.75% 100%),
+        linear-gradient(148deg, transparent 0 31%, rgba(247, 201, 72, 0.46) 31.15% 31.55%, transparent 31.75% 100%),
+        linear-gradient(38deg, transparent 0 54%, rgba(240, 82, 82, 0.42) 54.15% 54.5%, transparent 54.7% 100%),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 7.5rem),
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 5.8rem);
+    mask-image: linear-gradient(to bottom, transparent, #000 20%, #000 70%, transparent);
+    animation: routeSweep 11s ease-in-out infinite alternate;
+}
+
+.hero,
+.city-section {
+    width: min(100%, 76rem);
+    margin: 0 auto;
+}
+
+.hero {
+    display: grid;
+    min-height: 36vh;
+    padding: 0 0 clamp(1rem, 2.5vw, 2rem);
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 2.85rem;
+}
+
+.brand {
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.brand::before {
+    content: "";
+    display: inline-block;
+    width: 0.64rem;
+    height: 0.64rem;
+    margin-right: 0.56rem;
+    border-radius: 50%;
+    background: #5dd3ff;
+    box-shadow: 0 0 0 0.32rem rgba(93, 211, 255, 0.13);
+    vertical-align: 0.04rem;
+}
+
+.topbar-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.35rem;
+    padding: 0 0.9rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 650;
+    transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+.topbar-link:hover {
+    background: var(--panel);
+    border-color: rgba(255, 255, 255, 0.24);
+    color: var(--ink);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: clamp(1.25rem, 4vw, 3.25rem);
+    align-items: end;
+    margin-top: auto;
+}
+
+.hero-copy {
+    max-width: 46rem;
+    animation: riseIn 620ms ease both;
+}
+
+.eyebrow {
+    margin: 0 0 0.55rem;
+    color: #5dd3ff;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+h1,
+p {
+    margin-top: 0;
+}
+
+h1 {
+    max-width: 11ch;
+    margin-bottom: 0;
+    color: #ffffff;
+    font-size: clamp(2.9rem, 7vw, 6.55rem);
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 0.91;
+}
+
+.hero-metrics {
+    display: grid;
+    gap: 0.45rem;
+    min-width: min(100%, 14rem);
+}
+
+.hero-metrics span {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5rem;
+    min-height: 2.75rem;
+    padding: 0.48rem 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.92rem;
+    font-weight: 650;
+}
+
+.hero-metrics strong {
+    color: var(--ink);
+    font-size: 1.65rem;
+}
+
+.city-section {
+    padding-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.city-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1.1rem, 2.6vw, 1.9rem);
+}
+
+.city-card {
+    position: relative;
+    display: grid;
+    min-height: 28rem;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #12151c;
+    box-shadow: var(--shadow);
+    animation: cardIn 560ms var(--delay) ease both;
+    transition: transform 220ms ease, border-color 220ms ease;
+}
+
+.city-card:hover {
+    border-color: color-mix(in srgb, var(--accent) 68%, white 8%);
+    transform: translateY(-0.38rem);
+}
+
+.city-image-wrap {
+    position: absolute;
+    inset: 0;
+}
+
+.city-image-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(to bottom, rgba(5, 7, 11, 0.02), rgba(5, 7, 11, 0.68) 58%, rgba(5, 7, 11, 0.94)),
+        linear-gradient(35deg, color-mix(in srgb, var(--accent) 38%, transparent), transparent 48%);
+}
+
+.city-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.96) contrast(1.04);
+    transform: scale(1.012);
+    transition: transform 340ms ease, filter 340ms ease;
+}
+
+.city-card:hover .city-image-wrap img {
+    filter: saturate(1.12) contrast(1.08);
+    transform: scale(1.055);
+}
+
+.city-info {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    align-self: end;
+    gap: 0.48rem;
+    padding: 1.45rem;
+}
+
+.city-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+}
+
+.city-heading strong {
+    font-size: clamp(1.55rem, 3vw, 2.2rem);
+    line-height: 1;
+}
+
+.city-status {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.42rem;
+    padding: 0.36rem 0.54rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 58%, white 9%);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.24);
+    color: var(--ink);
+    font-size: 0.72rem;
+    font-weight: 780;
+    text-transform: uppercase;
+}
+
+.api-status-dot {
+    width: 0.54rem;
+    height: 0.54rem;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow:
+        0 0 0 0.18rem rgba(74, 222, 128, 0.14),
+        0 0 1rem rgba(74, 222, 128, 0.62);
+}
+
+.city-status--pending .api-status-dot {
+    background: #facc15;
+    box-shadow:
+        0 0 0 0.18rem rgba(250, 204, 21, 0.14),
+        0 0 1rem rgba(250, 204, 21, 0.36);
+}
+
+.city-network {
+    color: color-mix(in srgb, var(--accent) 60%, white 40%);
+    font-size: 0.9rem;
+    font-weight: 720;
+}
+
+.city-card--soon .city-image-wrap img {
+    filter: saturate(0.72) contrast(1.02);
+}
+
+.more-cities {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    margin-top: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+}
+
+.more-label {
+    font-weight: 760;
+}
+
+.city-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.city-chip {
+    padding: 0.46rem 0.62rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.055);
+    color: rgba(245, 247, 251, 0.78);
+    font-size: 0.86rem;
+    font-weight: 650;
+}
+
+@keyframes routeSweep {
+    from {
+        transform: translateX(-2vw) translateY(0);
+    }
+
+    to {
+        transform: translateX(2vw) translateY(1.4rem);
+    }
+}
+
+@keyframes riseIn {
+    from {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateY(1.2rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 1ms !important;
+    }
+}
+
+@media (max-width: 940px) {
+    .hero {
+        min-height: auto;
+        padding-bottom: 1.45rem;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        align-items: start;
+    }
+
+    .hero-metrics {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .hero-metrics span {
+        display: grid;
+        justify-content: start;
+        gap: 0.1rem;
+    }
+
+    .city-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .city-card {
+        min-height: 24rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .landing-shell {
+        padding: 0.75rem 0.95rem 0.95rem;
+    }
+
+    .topbar {
+        height: 2.75rem;
+    }
+
+    h1 {
+        font-size: clamp(2.7rem, 16vw, 4.65rem);
+    }
+
+    .hero-metrics {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .city-card {
+        min-height: 21rem;
+    }
+
+    .city-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .more-cities {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .city-chip-row {
+        justify-content: flex-start;
+    }
+}
