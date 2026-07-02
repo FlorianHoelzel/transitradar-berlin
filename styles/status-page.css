@@ -221,9 +221,14 @@ h1 {
 }
 
 .hero-metrics strong {
+    display: block;
     color: var(--ink);
     font-size: clamp(1.18rem, 2vw, 1.65rem);
     line-height: 1.05;
+}
+
+.hero-metrics > span:first-child strong {
+    min-width: 9.5rem;
 }
 
 .metric-label {
@@ -270,7 +275,7 @@ h1 {
     --accent: var(--blue);
     position: relative;
     display: grid;
-    grid-template-rows: auto minmax(0, 1fr) auto;
+    grid-template-rows: auto auto minmax(3rem, 1fr) auto auto;
     gap: clamp(0.75rem, 1.7vh, 1.1rem);
     min-height: 0;
     overflow: hidden;
@@ -378,6 +383,50 @@ h1 {
 .provider-metric strong {
     color: var(--ink);
     font-size: clamp(1rem, 2vw, 1.28rem);
+}
+
+.latency-graph {
+    align-self: stretch;
+    min-height: 5.35rem;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: end;
+    gap: 0.24rem;
+    padding: 0.55rem 0 0.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.latency-graph span {
+    min-height: 0.35rem;
+    border-radius: 999px 999px 2px 2px;
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.latency-graph span.empty {
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: none;
+}
+
+.latency-graph span.fast {
+    background: linear-gradient(to top, rgba(74, 222, 128, 0.38), rgba(74, 222, 128, 0.95));
+    box-shadow: 0 0 0.8rem rgba(74, 222, 128, 0.18);
+}
+
+.latency-graph span.slow {
+    background: linear-gradient(to top, rgba(247, 201, 72, 0.38), rgba(247, 201, 72, 0.95));
+    box-shadow: 0 0 0.8rem rgba(247, 201, 72, 0.18);
+}
+
+.latency-graph span.critical,
+.latency-graph span.offline {
+    background: linear-gradient(to top, rgba(240, 82, 82, 0.38), rgba(240, 82, 82, 0.95));
+    box-shadow: 0 0 0.8rem rgba(240, 82, 82, 0.18);
+}
+
+.latency-graph--empty span {
+    height: 18%;
+    background: rgba(255, 255, 255, 0.105);
+    box-shadow: none;
 }
 
 .provider-card p {
@@ -518,6 +567,12 @@ h1 {
         padding: 0.75rem;
     }
 
+    .latency-graph {
+        min-height: 3rem;
+        gap: 0.18rem;
+        padding-top: 0.2rem;
+    }
+
     .provider-header h2 {
         font-size: 1.7rem;
     }
@@ -545,6 +600,11 @@ h1 {
     .provider-card {
         gap: 0.65rem;
         padding: 1rem;
+    }
+
+    .latency-graph {
+        min-height: 3.6rem;
+        padding-top: 0.3rem;
     }
 
     .provider-card p {
